@@ -1,0 +1,145 @@
+:root {
+  --Neue: "Neue Montreal", -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+  --CentrionRegular: "Centrion-Regular", Georgia;
+  --transition-left: left .2s ease-in-out;
+  --transition-width: width .2s ease-in-out;
+  --transition-prop-formui: border-color, background, color, transform, box-shadow;
+
+  --radius1: 6px;
+
+  --xl: 1024px;
+  --lg: 640px;
+  --md: 490px;
+  --sm: 380px;
+
+  --z-header: 100;
+  --z-modal: 800;
+  --z-toast: 900;
+
+  --header-height: 4rem;
+  --footer-height: 6rem;
+  --min-body-height: calc(100vh - 5rem);
+
+  --black0: rgba(17, 19, 20, 0.5);
+  --black1: #000000;
+  --black2: #181a1b;
+  --black3: #111;
+
+  --white1: #efefef;
+  --white2: #a8a8a8;
+
+  --grey1: #a6a6a6;
+  --grey2: #474747;
+
+  --primary1: #1684ad;
+  --primary2: #0c4960;
+  --primary3: #1fbef9;
+
+  --selection: #f81ce5;
+
+  --border-1: 1px solid var(--grey2);
+  --border-2: 1px solid var(--white2);
+
+  --offsetblack1: rgba(0, 0, 0, .5);
+
+  --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, var(--primary1) 0%, var(--primary2) 90%);
+  --linear-1: linear-gradient(to top, var(--black3) 0, transparent 100%),
+    linear-gradient(180deg, var(--black1) 0, var(--black2) 40%);
+  --linear-2: linear-gradient(to bottom, var(--black1) 0, transparent 100%),
+    linear-gradient(180deg, var(--black1) 0, var(--black0) 20%);
+}
+
+[data-theme='light'] {
+  --black0: #f9f9f9;
+  --black1: #efefef;
+  --black2: #a8a8a8;
+  --black3: #999;
+
+  --white1: #000000;
+  --white2: #181a1b;
+
+  --grey1: #474747;
+  --grey2: #646464;
+
+  --selection: #7fffe1;
+
+  --border-1: 1px solid var(--grey2);
+  --border-2: 1px solid var(--white2);
+
+  --offsetblack1: rgba(255, 255, 255, .5);
+
+  --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, #fa0828 0%, #f8425e 90%);
+  --linear-1: linear-gradient(to top, var(--black1) 0, transparent 100%),
+    linear-gradient(180deg, var(--black1) 0, var(--black3) 40%);
+
+  --linear-2: linear-gradient(to bottom, var(--black0) 0, transparent 40%),
+    linear-gradient(to top, var(--black1) 0, var(--black3) 40%);
+}
+
+body {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--white1);
+  background: var(--black1);
+  font-family: var(--Neue);
+  font-size: 1rem;
+  font-weight: 400;
+  height: 100%;
+  padding-top: var(--header-height);
+  line-height: inherit;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  text-rendering: geometricprecision;
+  width: 100%;
+}
+
+/* adaptive font sizes`
+=====================================*/
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 17px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+/* color: rgba(255, 255, 255, .8); */
+/* letter-spacing: -.06em; */
+/* transform: scaleY(.75); */
+/* color: transparent; */
+/* background-image: linear-gradient(210deg,
+      var(--primary1),
+      var(--primary2)); */
+/* -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% 200%; */
