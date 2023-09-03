@@ -206,7 +206,7 @@
   }
 
   .bottom {
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: flex-start;
     align-items: flex-start;
   }
@@ -219,22 +219,6 @@
     text-align: start;
     margin: 0;
   }
-
-  /* .column {
-    justify-content: flex-start;
-    text-align: start;
-  }
-
-  .content {
-    text-align: start;
-    margin: 0;
-  } */
-
-  /* .column .content:last-child,
-  .column .content:first-child {
-    margin: 0;
-    text-align: start !important;
-  } */
 
   .goback {
     background: var(--black2);

@@ -36,11 +36,26 @@ const PostCard = ({
             ) : (
               <div className={styles.subCol}>
                 <h2>{post.title}</h2>
-                <span>{
+                <span className={styles.subExcerpt}>{
                   post.excerpt.length > 140
                     ? post.excerpt.slice(0, 140) + '...'
                     : post.excerpt
-                }</span>
+                }
+                </span>
+                <div className={styles.subColTags}>
+                  {
+                    post.tags.map((tag, index) => {
+                      return (
+                        index <= 2 && (
+                          <span
+                            key={index}
+                            className={styles.tag}
+                          >#{tag}&nbsp;</span>
+                        )
+                      );
+                    })
+                  }
+                </div>
               </div>
             )
           }
@@ -69,14 +84,16 @@ const PostCard = ({
                     </div>
 
                     <div className={styles.featuredInfoCol}>
-                    <span>tags</span>
-                    {
-                      post?.tags ? (
-                        <span>{post.tags[0]}</span>
-                      ) : (
-                        <span>none</span>
-                      )
-                    }
+                      <span>tags</span>
+                      {
+                        post.tags.map((tag, index) => {
+                          return (
+                            index <= 2 && (
+                              <span key={tag}>{tag}</span>
+                            )
+                          );
+                        })
+                      }
                     </div>
 
                   </div>
@@ -111,16 +128,6 @@ const PostCard = ({
                 </div>
 
                 <div className={styles.lowerInfoRight}>
-                  <div className={styles.lowerInfoCol}>
-                    <span>tags</span>
-                    {
-                      post?.tags && post.tags.length > 0 ? (
-                        <span>{post.tags[0]}</span>
-                      ) : (
-                        <span>none</span>
-                      )
-                    }
-                  </div>
                   <div className={styles.lowerInfoCol}>
                     <span>read</span>
                   </div>
