@@ -6,16 +6,17 @@ export function SubHeader({
   title,
   date,
   author,
-  views,
+  tags
 }: {
   title: string;
   date: string;
   author: string;
-  views: string;
+  tags: string[];
 }
 ) {
   return (
     <section className={styles.subheader}>
+
       <svg className={styles.grad}>
         <filter id='grainy' x='0' y='0' width='100%' height='100%'>
           <feTurbulence type='fractalNoise' baseFrequency='.537' />
@@ -32,26 +33,36 @@ export function SubHeader({
           <Link className={styles.goback} href="/">← Back to Home</Link>
         </div>
 
-        <h1 className={styles.title}>{title}</h1>
+        <h1 className={styles.title}>{
+          // if title has a dash, split it into two lines
+          title.includes('-') ? title.split('-').map((line, index) => (
+            <span
+              key={index}
+              className={styles.titleLine}
+            >{line}</span>
+          )) : title
+        }</h1>
       </div>
 
       <div className={styles.bottom}>
         <div className={styles.column}>
-          <span className={styles.content}>
-            views: {views}
-          </span>
+          <div className={styles.content}>
+            <div className={styles.tags}>
+              {tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className={styles.tag}
+                >#{tag}&nbsp;</span>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className={styles.column}>
           <span className={styles.content}>
             {format(parseISO(date), 'LLLL d, yyyy')}
           </span>
-        </div>
-
-        <div className={styles.column}>
-          <span className={styles.content}>
-            by: {author}
-          </span>
+          <span className={styles.content}>{author}</span>
         </div>
       </div>
     </section>

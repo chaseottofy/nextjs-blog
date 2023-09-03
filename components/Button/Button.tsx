@@ -18,6 +18,7 @@ const Button: React.FC<ButtonProps> = ({
       className={className}
       onClick={onClick}
       disabled={disabled}
+      aria-label='button'
     >
       {children || title}
     </button>

@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+import { remarkCodeHike } from '@code-hike/mdx';
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -20,15 +21,18 @@ const Post = defineDocumentType(() => ({
       description: 'The author of the post',
       required: true,
     },
-    views: {
-      type: 'string',
-      description: 'The number of views of the post',
-      required: true,
-    },
     excerpt: {
       type: 'string',
       description: 'The description of the post',
       required: true,
+    },
+    tags: {
+      type: 'list',
+      of: {
+        type: 'string',
+      },
+      description: 'The tags of the post',
+      required: true
     }
   },
   computedFields: {
@@ -40,10 +44,13 @@ const Post = defineDocumentType(() => ({
       type: 'string',
       resolve: (doc) => `/images/${doc._raw.flattenedPath}/cover.webp`,
     }
-  },
+  }
 }));
 
-export default makeSource({
+export default makeSource(() => ({
   contentDirPath: 'posts',
   documentTypes: [Post],
-});
+  mdx: {
+    remarkPlugins: [remarkCodeHike],
+  },
+}));

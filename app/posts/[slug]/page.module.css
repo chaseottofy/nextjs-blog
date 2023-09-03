@@ -15,6 +15,7 @@
   width: 100%;
   min-height: var(--min-body-height);
   height: 100%;
+  background: var(--black3);
 }
 
 .content {
@@ -23,6 +24,79 @@
   width: 100%;
   height: 100%;
   margin-top: 1rem;
+}
+
+.content div {
+  box-shadow: none;
+}
+
+.content hr {
+  width: 98%;
+  margin: 2rem auto .5rem auto;
+  height: 1px;
+  background: var(--white2);
+  opacity: .3;
+}
+
+.content h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.content h2 {
+  font-size: 1.6em;
+  margin: 0.55em 0;
+  font-weight: 700;
+}
+
+.content h3 {
+  font-size: 1.4em;
+  margin: 0.45em 0;
+  font-weight: 700;
+}
+
+.content h4 {
+  font-size: 1.3em;
+  margin: 0.45em 0;
+  font-weight: 500;
+}
+
+.content ul {
+  margin: .5rem 0 1rem 0;
+}
+
+.content li {
+  list-style-type: disc;
+  margin-left: 1rem;
+  margin-bottom: .25rem;
+}
+
+.content ul li ul li {
+  list-style-type: circle;
+}
+
+.content a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+.content a:hover {
+  opacity: .8;
+  transition: opacity .2s ease-in-out;
+}
+
+.content strong {
+  font-weight: 700;
+}
+
+.content p,
+.content li {
+  font-size: .9rem;
+  color: var(--white3);
+}
+
+.content li a {
+  color: var(--link);
 }
 
 @media screen and (max-width: 1024px) {

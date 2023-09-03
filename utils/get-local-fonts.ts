@@ -17,12 +17,11 @@ export const NeueMontreal = localFont({
       weight: '400',
       style: 'normal',
     },
-  ]
-});
-
-export const MelodyMedium = localFont({
-  src: '../public/BLMelody-Medium.woff2',
-  variable: '--melody'
+  ],
+  display: 'swap',
+  preload: false,
+  variable: '--neue',
+  fallback: ['system-ui', 'sans-serif'],
 });
 export const BasementExpanded = localFont({
   src: [
@@ -32,19 +31,21 @@ export const BasementExpanded = localFont({
       style: 'normal',
     },
   ],
-  display: 'swap',
-  preload: true,
-  variable: '--basement-expanded'
+  display: 'block', // No other font matches its weird height, so block it
+  variable: '--basement-expanded',
+  fallback: ['Georgia', 'system-ui', 'sans-serif'],
+  preload: false,
 });
-export const BasementBlack = localFont({
-  src: [
-    {
-      path: '../public/Basement-black.woff2',
-      weight: '800',
-      style: 'normal',
-    },
-  ],
-  display: 'swap',
-  preload: true,
-  variable: '--basement-black'
-});
+// export const BasementBlack = localFont({
+//   src: [
+//     {
+//       path: '../public/Basement-black.woff2',
+//       weight: '800',
+//       style: 'normal',
+//     },
+//   ],
+//   display: 'swap',
+//   variable: '--basement-black',
+//   fallback: ['Georgia', 'system-ui', 'sans-serif'],
+//   preload: false,
+// });

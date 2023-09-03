@@ -12,6 +12,7 @@ const PostCard = ({
   post: Post;
   featured?: boolean;
 }) => {
+
   return (
     <Link
       href={`/posts/${post._raw.flattenedPath}`}
@@ -23,10 +24,13 @@ const PostCard = ({
             featured ? (
               <div className={styles.featuredImage}>
                 <Image
-                  src={`/images/${post._raw.flattenedPath}.webp`}
+                  src={`/images/posts/${post._raw.flattenedPath}.webp`}
                   alt={post.title}
                   width={1920}
                   height={833}
+                  loading='eager'
+                  priority={true}
+                  quality={80}
                 />
               </div>
             ) : (
@@ -65,8 +69,14 @@ const PostCard = ({
                     </div>
 
                     <div className={styles.featuredInfoCol}>
-                      <span>Views</span>
-                      <span>{post.views}</span>
+                    <span>tags</span>
+                    {
+                      post?.tags ? (
+                        <span>{post.tags[0]}</span>
+                      ) : (
+                        <span>none</span>
+                      )
+                    }
                     </div>
 
                   </div>
@@ -102,8 +112,14 @@ const PostCard = ({
 
                 <div className={styles.lowerInfoRight}>
                   <div className={styles.lowerInfoCol}>
-                    <span>VIEWS</span>
-                    <span>{post.views}</span>
+                    <span>tags</span>
+                    {
+                      post?.tags && post.tags.length > 0 ? (
+                        <span>{post.tags[0]}</span>
+                      ) : (
+                        <span>none</span>
+                      )
+                    }
                   </div>
                   <div className={styles.lowerInfoCol}>
                     <span>read</span>

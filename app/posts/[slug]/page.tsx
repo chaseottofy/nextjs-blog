@@ -1,7 +1,13 @@
 // import { format, parseISO } from 'date-fns';
+'use client';
+
 import { allPosts } from 'contentlayer/generated';
 import { SubHeader } from 'components/SubHeader/SubHeader';
-import { getMDXComponent } from 'next-contentlayer/hooks';
+import {
+  getMDXComponent,
+  // useMDXComponent
+} from 'next-contentlayer/hooks';
+import "@code-hike/mdx/dist/index.css"
 import styles from './page.module.css';
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
@@ -26,11 +32,10 @@ const PostLayout = ({ params }: { params: { slug: string; }; }) => {
         title={post.title}
         date={post.date}
         author={post.author}
-        views={post.views.toString()}
+        tags={post.tags}
       />
       <article className={styles.article}>
         <div className={styles.content}>
-          <h2>{post.title}</h2>
           <Content />
         </div>
       </article>

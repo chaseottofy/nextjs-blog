@@ -16,7 +16,6 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
 }) => {
   const hasMounted = useHasMounted();
   const { theme, setTheme } = useNextTheme();
-
   const isDark = useMemo(() => theme === 'dark', [theme]);
 
   if (!hasMounted) {
@@ -28,7 +27,8 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
       className={className}
       title={isDark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
       onClick={() => {
-        setTheme(isDark ? 'light' : 'dark');
+        const updatedTheme = isDark ? 'light' : 'dark';
+        setTheme(updatedTheme);
       }}
      >{children}</Button>
   );

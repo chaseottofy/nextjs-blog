@@ -5,10 +5,25 @@ import { Footer } from '../components/Footer/Footer';
 import {
   NeueMontreal,
   BasementExpanded,
-  MelodyMedium,
-  BasementBlack
 } from '../utils/get-local-fonts';
 import ThemeProvider from '../providers/next-theme-provider';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description: 'Nextjs blog example',
+  keywords: 'nextjs, blog, react, react blog, nextjs blog',
+  authors: [{ name: "Chase Ottofy", url: "https://chaseottofy.github.io/Portfolio/" }],
+  icons: [
+    {
+      rel: 'icon',
+      url: '/logo.svg',
+      sizes: 'any',
+      type: 'image/svg+xml'
+      // url: '/favicon-32x32.png',
+    }
+  ]
+};
 
 export default function RootLayout({
   children
@@ -20,13 +35,8 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <head>
-        <meta name="color-scheme" content="dark" />
-        <link type="image/png" href="/favicon-32x32.png" rel="icon" sizes="32x32" />
-        <title>Blog</title>
-      </head>
       <body
-        className={`${NeueMontreal.className} ${BasementExpanded.variable} ${MelodyMedium.variable} ${BasementBlack.variable}`}
+        className={`${NeueMontreal.className} ${BasementExpanded.variable}`}
       >
         <ThemeProvider>
           <Header />

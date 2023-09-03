@@ -1,6 +1,6 @@
 :root {
-  --Neue: "Neue Montreal", -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
-  --CentrionRegular: "Centrion-Regular", Georgia;
+  /* --Neue: "Neue Montreal", -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
+  --CentrionRegular: "Centrion-Regular", Georgia; */
   --transition-left: left .2s ease-in-out;
   --transition-width: width .2s ease-in-out;
   --transition-prop-formui: border-color, background, color, transform, box-shadow;
@@ -16,8 +16,9 @@
   --z-modal: 800;
   --z-toast: 900;
 
-  --header-height: 4rem;
+  --header-height: 64px;
   --footer-height: 6rem;
+
   --min-body-height: calc(100vh - 5rem);
 
   --black0: rgba(17, 19, 20, 0.5);
@@ -27,6 +28,7 @@
 
   --white1: #efefef;
   --white2: #a8a8a8;
+  --white3: #d4d2d2;
 
   --grey1: #a6a6a6;
   --grey2: #474747;
@@ -34,6 +36,10 @@
   --primary1: #1684ad;
   --primary2: #0c4960;
   --primary3: #1fbef9;
+
+  --link:#1ba5d6;
+
+  --primarydark1: #062530;
 
   --selection: #f81ce5;
 
@@ -43,25 +49,31 @@
   --offsetblack1: rgba(0, 0, 0, .5);
 
   --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, var(--primary1) 0%, var(--primary2) 90%);
+  --radial-2: radial-gradient(circle farthest-corner at 50.4% 50.5%, var(--grey1) 0%, var(--black1) 90%);
   --linear-1: linear-gradient(to top, var(--black3) 0, transparent 100%),
     linear-gradient(180deg, var(--black1) 0, var(--black2) 40%);
   --linear-2: linear-gradient(to bottom, var(--black1) 0, transparent 100%),
     linear-gradient(180deg, var(--black1) 0, var(--black0) 20%);
+
+  --linear-3: linear-gradient(140deg, var(--black2) 0, var(--black3) 50%, var(--black2) 100%);
 }
 
 [data-theme='light'] {
   --black0: #f9f9f9;
   --black1: #efefef;
   --black2: #a8a8a8;
-  --black3: #999;
+  --black3: #efefef;
 
   --white1: #000000;
   --white2: #181a1b;
+  --white3: #000000;
 
   --grey1: #474747;
   --grey2: #646464;
 
   --selection: #7fffe1;
+
+  --link:#1684ad;
 
   --border-1: 1px solid var(--grey2);
   --border-2: 1px solid var(--white2);
@@ -77,11 +89,9 @@
 }
 
 body {
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: var(--white1);
   background: var(--black1);
-  font-family: var(--Neue);
+  font-family: var(--neue);
   font-size: 1rem;
   font-weight: 400;
   height: 100%;

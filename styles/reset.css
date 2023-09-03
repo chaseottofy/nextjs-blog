@@ -22,6 +22,7 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: var(--neue);
 }
 
 h1,
@@ -37,7 +38,7 @@ ul,
 div,
 input,
 textarea {
-  font-family: var(--Neue);
+  font-family: var(--neue);
 }
 
 blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
