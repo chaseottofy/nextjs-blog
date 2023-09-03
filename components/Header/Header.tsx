@@ -1,10 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import getLatestPost from '../../utils/get-latest-post';
 import ThemeToggle from '../Button/theme-toggle';
 import Image from 'next/image';
 import styles from './Header.module.css';
+import { Post } from 'contentlayer/generated';
 
 const CircleIcon = () => {
   return (
@@ -12,9 +12,11 @@ const CircleIcon = () => {
   );
 };
 
-export function Header() {
-  const latestPost = getLatestPost();
+interface HeaderInterface {
+  activePosts: Post[];
+}
 
+export const Header: React.FC<HeaderInterface> = ({ activePosts }) => {
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -42,7 +44,9 @@ export function Header() {
         <div className={styles.colRight}>
           <nav className={styles.nav}>
             <Link
-              href={latestPost}
+              href={
+                `/posts/${activePosts[0]._raw.flattenedPath}`
+              }
             >latest</Link>
           </nav>
           <div className={styles.toggleWrapper}>

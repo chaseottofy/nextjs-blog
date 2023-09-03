@@ -37,7 +37,7 @@
   --primary2: #0c4960;
   --primary3: #1fbef9;
 
-  --link:#1ba5d6;
+  --link: #1ba5d6;
 
   --primarydark1: #062530;
 
@@ -49,13 +49,12 @@
   --offsetblack1: rgba(0, 0, 0, .5);
 
   --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, var(--primary1) 0%, var(--primary2) 90%);
-  --radial-2: radial-gradient(circle farthest-corner at 50.4% 50.5%, var(--grey1) 0%, var(--black1) 90%);
+
   --linear-1: linear-gradient(to top, var(--black3) 0, transparent 100%),
     linear-gradient(180deg, var(--black1) 0, var(--black2) 40%);
   --linear-2: linear-gradient(to bottom, var(--black1) 0, transparent 100%),
     linear-gradient(180deg, var(--black1) 0, var(--black0) 20%);
-
-  --linear-3: linear-gradient(140deg, var(--black2) 0, var(--black3) 50%, var(--black2) 100%);
+  --linear-3: linear-gradient(to right bottom, #333, #111);
 }
 
 [data-theme='light'] {
@@ -73,7 +72,7 @@
 
   --selection: #7fffe1;
 
-  --link:#1684ad;
+  --link: #1684ad;
 
   --border-1: 1px solid var(--grey2);
   --border-2: 1px solid var(--white2);
@@ -81,11 +80,12 @@
   --offsetblack1: rgba(255, 255, 255, .5);
 
   --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, #fa0828 0%, #f8425e 90%);
+
   --linear-1: linear-gradient(to top, var(--black1) 0, transparent 100%),
     linear-gradient(180deg, var(--black1) 0, var(--black3) 40%);
-
   --linear-2: linear-gradient(to bottom, var(--black0) 0, transparent 40%),
     linear-gradient(to top, var(--black1) 0, var(--black3) 40%);
+  --linear-3: linear-gradient(0deg,rgba(0,0,0,.1),rgba(0,0,0,.1)),radial-gradient(50% 50%at 50% 100%,rgba(0,0,0,.3) 0,transparent 100%);
 }
 
 body {

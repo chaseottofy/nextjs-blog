@@ -8,6 +8,8 @@ import {
 } from '../utils/get-local-fonts';
 import ThemeProvider from '../providers/next-theme-provider';
 import type { Metadata } from 'next';
+import getPostsSorted from 'utils/get-posts-sorted';
+import { Post } from 'contentlayer/generated';
 
 export const metadata: Metadata = {
   title: 'Blog',
@@ -20,16 +22,22 @@ export const metadata: Metadata = {
       url: '/logo.svg',
       sizes: 'any',
       type: 'image/svg+xml'
-      // url: '/favicon-32x32.png',
     }
   ]
 };
 
 export default function RootLayout({
-  children
+  children,
+  params
 }: {
   children: React.ReactNode;
+  params: {
+    startPosts: Post[];
+  };
 }) {
+  const startPosts = getPostsSorted('asc', true);
+  params.startPosts = startPosts;
+
   return (
     <html
       lang="en"
@@ -39,7 +47,9 @@ export default function RootLayout({
         className={`${NeueMontreal.className} ${BasementExpanded.variable}`}
       >
         <ThemeProvider>
-          <Header />
+          <Header
+            activePosts={startPosts}
+          />
           <main className={styles.main}>
             {children}
           </main>

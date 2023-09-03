@@ -41,9 +41,13 @@
   border-top: var(--border-1);
 }
 
-.linkWrapper:not(:first-child) .postCard .col1 {
+/* .linkWrapper .postCard .col1 {
   padding: 0 1rem;
-}
+} */
+
+/* .linkWrapper:not(:first-child) .postCard .col1 {
+  padding: 0 1rem;
+} */
 
 .featuredImage {
   min-height: 192px;
@@ -63,6 +67,7 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  padding: 1rem;
 }
 
 .subCol h2 {
@@ -102,13 +107,13 @@
   height: 100%;
 }
 
-.subCol,
+/* .subCol,
 .lowerInfo {
-  padding: 1rem 0 0 0;
-}
+} */
 
 .lowerInfo {
   display: flex;
+  padding: 1rem 0 0 0;
 }
 
 .lowerInfoLeft,
@@ -145,6 +150,7 @@
   font-weight: 500;
   letter-spacing: -.03em;
   text-transform: uppercase;
+
 }
 
 .lowerInfoRight .lowerInfoCol:last-child span:last-child {
@@ -209,7 +215,6 @@
 
 .featuredInfoCol:last-child {
   width: fit-content;
-  text-align: right;
 }
 
 .featuredInfoCol:first-child {
@@ -234,6 +239,12 @@
   text-transform: capitalize;
   width: fit-content;
   white-space: nowrap;
+}
+
+.featuredTags {
+  color: var(--white2);
+  padding-top: 1rem;
+  font-size: .75rem;
 }
 
 .postCard:hover {
@@ -321,6 +332,6 @@
   }
 
   .lowerInfoCol span:last-child {
-    font-size: 1rem;
+    font-size: .825rem;
   }
 }

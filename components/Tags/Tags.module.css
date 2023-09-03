@@ -1,0 +1,47 @@
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  position: relative;
+  padding: .7rem;
+}
+
+.tag,
+.toggleButton {
+  background: var(--black1);
+  border: var(--border-1);
+  color: var(--white2);
+  font-size: .75rem;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  padding: .325rem .7rem;
+  cursor: pointer;
+}
+
+.activeTag {
+  background: var(--primarydark1);
+  color: #fff;
+  border: 1px solid var(--primary2);
+}
+
+.toggleButton {
+  background: var(--linear-3);
+  border: 1px solid var(--black2);
+  color: var(--white0);
+  font-weight: 400;
+  font-size: .6rem;
+  text-transform: uppercase;
+}
+
+.tagModalContent:first-child span {
+  padding-right: 1rem;
+}
+
+.tag:hover,
+.toggleButton:hover {
+  opacity: .8;
+  transition: .2s ease-in-out;
+  /* filter: brightness(1.2); */
+}

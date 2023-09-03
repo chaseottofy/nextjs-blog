@@ -1,5 +1,5 @@
 const joinClasses = (
-  styles: { readonly [key: string]: string },
+  styles: { readonly [key: string]: string; },
   classes: string[],
 ) => {
   return classes.map((className) => styles[className]).join(' ');

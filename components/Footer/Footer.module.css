@@ -12,7 +12,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  font-size: 1rem;
+  font-size: .875rem;
   color: var(--white1);
   text-transform: uppercase;
 }
@@ -22,7 +22,7 @@
 .col span {
   color: var(--white1);
   text-decoration: none;
-  font-size: max(16px, 1.25vw);
+  font-size: max(14px, 1vw);
   letter-spacing: -.02em;
   line-height: 1.2;
   position: relative;
@@ -45,6 +45,7 @@
   height: 100%;
   display: flex;
   align-items: flex-end;
+  font-size: max(12px, .9vw);
 }
 
 .links {
@@ -91,6 +92,21 @@
 
 @media screen and (max-width: 640px) {
   .col:nth-child(2n) {
+    display: none;
+  }
+
+  .links {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .col a,
+  .col a:visited,
+  .col span {
+    font-size: max(12px, .7vw);
+  }
+
+  .title {
     display: none;
   }
 }

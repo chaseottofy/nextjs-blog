@@ -1,5 +1,5 @@
 import styles from './Footer.module.css';
-import { socialLinks, portfolioLink, emailLink } from '../../data/constants';
+import { socialLinks, emailLink } from '../../data/constants';
 
 import CustomLink from '../UI/CustomLink';
 
@@ -42,14 +42,6 @@ export function Footer() {
       <div className={styles.col}>
         <span className={styles.title}>code by <>&nbsp;</>@ottofy</span>
         <div className={styles.links}>
-          <span>&nbsp; — &nbsp;</span>
-          <CustomLink
-            href={portfolioLink}
-            title="portfolio link"
-            className={styles.link}
-          >
-            portfolio
-          </CustomLink>
         </div>
       </div>
     </footer>

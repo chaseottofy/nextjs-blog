@@ -2,7 +2,7 @@ import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { Post } from "contentlayer/generated";
 import styles from './PostList.module.css';
-import getPostsSorted from 'utils/get-posts-sorted';
+// import getPostsSorted from 'utils/get-posts-sorted';
 import Image from 'next/image';
 
 const PostCard = ({
@@ -12,7 +12,6 @@ const PostCard = ({
   post: Post;
   featured?: boolean;
 }) => {
-
   return (
     <Link
       href={`/posts/${post._raw.flattenedPath}`}
@@ -24,7 +23,7 @@ const PostCard = ({
             featured ? (
               <div className={styles.featuredImage}>
                 <Image
-                  src={`/images/posts/${post._raw.flattenedPath}.webp`}
+                  src={post?.banner as string || '/images/placeholder.webp'}
                   alt={post.title}
                   width={1920}
                   height={833}
@@ -46,12 +45,10 @@ const PostCard = ({
                   {
                     post.tags.map((tag, index) => {
                       return (
-                        index <= 2 && (
-                          <span
-                            key={index}
-                            className={styles.tag}
-                          >#{tag}&nbsp;</span>
-                        )
+                        <span
+                          key={index}
+                          className={styles.tag}
+                        >#{tag}&nbsp;</span>
                       );
                     })
                   }
@@ -82,20 +79,6 @@ const PostCard = ({
                         </time>
                       </span>
                     </div>
-
-                    <div className={styles.featuredInfoCol}>
-                      <span>tags</span>
-                      {
-                        post.tags.map((tag, index) => {
-                          return (
-                            index <= 2 && (
-                              <span key={tag}>{tag}</span>
-                            )
-                          );
-                        })
-                      }
-                    </div>
-
                   </div>
                 </div>
 
@@ -105,6 +88,20 @@ const PostCard = ({
                     <p>{
                       post.excerpt.length > 100 ? post.excerpt.slice(0, 100) + '...' : post.excerpt
                     }</p>
+                  </div>
+                  <div className={styles.featuredTags}>
+                    {
+                      post.tags.map((tag, index) => {
+                        return (
+                          index <= 2 && (
+                            <span
+                              key={tag}
+                              className={styles.tag}
+                            >#{tag}&nbsp;</span>
+                          )
+                        );
+                      })
+                    }
                   </div>
                 </div>
               </div>
@@ -132,7 +129,6 @@ const PostCard = ({
                     <span>read</span>
                   </div>
                 </div>
-
               </div>
             )
           }
@@ -142,17 +138,19 @@ const PostCard = ({
   );
 };
 
-export const PostList = () => {
-  const posts = getPostsSorted('asc');
+interface PostListProps {
+  activePosts: Post[];
+}
 
+export const PostList: React.FC<PostListProps> = ({ activePosts }) => {
   return (
     <div className={styles.wrapper}>
       {
-        posts.map((post: Post, index) => (
+        activePosts.map((post: Post) => (
           <PostCard
             key={post._raw.flattenedPath}
             post={post}
-            featured={index === 0}
+            featured={post.isFeatured}
           />
         ))
       }
