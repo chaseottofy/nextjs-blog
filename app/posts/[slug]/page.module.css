@@ -9,13 +9,12 @@
   display: flex;
   margin: 0 auto;
   flex-direction: column;
-  max-width: max(660px, 40.3645833333vw);
+  max-width: max(840px, 40.3645833333vw);
   padding: 1rem;
   font-size: max(18px, .9375vw);
   width: 100%;
   min-height: var(--min-body-height);
   height: 100%;
-  background: var(--black3);
 }
 
 .content {

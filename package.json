@@ -1,6 +1,17 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "description": "Blog built with Next.js and Contentlayer",
+  "author": "Chase Ottofy",
+  "keywords": [
+    "nextjs",
+    "contentlayer",
+    "typescript",
+    "react",
+    "blog"
+  ],
+
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
