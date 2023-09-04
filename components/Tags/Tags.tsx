@@ -37,6 +37,14 @@ const Tag: React.FC<TagComponentProps> = ({ tag, count, onTagClick, className })
   );
 };
 
+const arrowIcon = () => {
+  return (
+    <>
+      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+    </>
+  );
+};
+
 const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startingActive, tags }) => {
   const [tagKeys, tagValues] = [Object.keys(tags), Object.values(tags)];
   const tagLength = tagKeys.length;
@@ -139,10 +147,15 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
       ))}
       <button
         onClick={toggleModal}
-        className={styles.toggleButton}
+        className={
+          isModalOpen ? joinClasses(styles, ["toggleButton", "activeToggle"]) : styles.toggleButton
+        }
       >
-        {isModalOpen ? 'Hide ' : 'Show '}
-        {maxTagsOver ? 0 : tagLength - maxTags} tags
+        <span>
+          {isModalOpen ? 'Hide ' : 'Show '}
+          {maxTagsOver ? 0 : tagLength - maxTags} tags
+        </span>
+        <span>{arrowIcon()}</span>
       </button>
       {
         activeTags.length >= 1 && (

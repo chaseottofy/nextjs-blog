@@ -1,25 +1,20 @@
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem;
   position: relative;
   padding: .5rem;
 }
 
 .tag,
-.toggleButton,
 .clearButton {
   background: var(--black1);
   border: var(--border-1);
   color: var(--white2);
-  font-size: .75rem;
-  border-radius: 5px;
   display: flex;
   align-items: center;
-  min-height: 1.625rem;
   padding: .325rem .5rem;
-  cursor: pointer;
 }
+
 .tag {
   border: 1px solid var(--black4);
   color: var(--white2);
@@ -31,10 +26,59 @@
   border: 1px solid var(--primary2);
 }
 
+.tag,
+.clearButton,
+.toggleButton {
+  margin: 0 .5rem .5rem 0;
+  font-size: .65rem;
+  cursor: pointer;
+  border-radius: 9999px;
+}
+
 .toggleButton {
   background: var(--linear-6);
   border: 1px solid var(--grey2);
-  color: var(--white0);
+  font-size: .65rem;
+  cursor: pointer;
+  border-radius: 9999px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  margin: 0 .5rem .5rem 0;
+  color: var(--white1);
+}
+
+.toggleButton span {
+  display: flex;
+  align-items: center;
+  font-size: .65rem;
+  height: 100%;
+}
+
+.toggleButton span:first-child {
+  padding-left: .625rem;
+  padding-right: .125rem;
+}
+
+.toggleButton span:last-child {
+  padding-left: .25rem;
+  padding-right: .5rem;
+}
+
+.toggleButton svg {
+  height: .6rem;
+  width: .6rem;
+}
+
+.activeToggle span:last-child svg{
+  transform: rotate(180deg);
+  transition: .2s ease-in-out;
+}
+
+.activeToggle {
+  filter:brightness(1.1);
 }
 
 .clearButton {
@@ -45,11 +89,13 @@
 
 .toggleButton,
 .clearButton {
-  justify-content: center;
   font-weight: 400;
-  font-size: .6rem;
   align-items: center;
-  text-transform: uppercase;
+  text-transform: lowercase;
+}
+
+.clearButton {
+  justify-content: center;
 }
 
 .tag span:first-child {
@@ -61,4 +107,13 @@
 .clearButton:hover {
   opacity: .8;
   transition: .2s ease-in-out;
+}
+
+@media screen and (max-width: 640px) {
+  .tag,
+  .toggleButton,
+  .clearButton {
+    font-size: .75rem;
+    margin: 0 .5rem .5rem 0;
+  }
 }
