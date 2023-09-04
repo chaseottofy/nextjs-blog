@@ -262,6 +262,18 @@
   transition: .2s ease-in-out;
 }
 
+.noPosts {
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.noPosts h3 {
+  color: var(--white1);
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
 @media screen and (max-width: 1024px) {
   .subCol h2 {
     max-width: 39.5833333333vw;
@@ -283,8 +295,8 @@
   }
 
   .featuredImage::after {
-    background: var(--linear-2);
-    opacity: .7;
+    background: var(--linear-5);
+    opacity: .6;
     position: absolute;
     top: 0;
     left: 0;

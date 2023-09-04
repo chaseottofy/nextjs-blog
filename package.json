@@ -10,7 +10,6 @@
     "react",
     "blog"
   ],
-
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -38,6 +37,7 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.4.19",
     "autoprefixer": "^10.4.15",
     "cssnano": "^6.0.1",
     "postcss": "^8.4.29",

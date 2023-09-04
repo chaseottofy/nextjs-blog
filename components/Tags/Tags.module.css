@@ -3,45 +3,62 @@
   flex-wrap: wrap;
   gap: .5rem;
   position: relative;
-  padding: .7rem;
+  padding: .5rem;
 }
 
 .tag,
-.toggleButton {
+.toggleButton,
+.clearButton {
   background: var(--black1);
   border: var(--border-1);
   color: var(--white2);
   font-size: .75rem;
-  border-radius: 2px;
+  border-radius: 5px;
   display: flex;
   align-items: center;
-  min-height: 32px;
-  padding: .325rem .7rem;
+  min-height: 1.625rem;
+  padding: .325rem .5rem;
   cursor: pointer;
+}
+.tag {
+  border: 1px solid var(--black4);
+  color: var(--white2);
 }
 
 .activeTag {
   background: var(--primarydark1);
-  color: #fff;
+  color: #efefef;
   border: 1px solid var(--primary2);
 }
 
 .toggleButton {
-  background: var(--linear-3);
-  border: 1px solid var(--black2);
+  background: var(--linear-6);
+  border: 1px solid var(--grey2);
   color: var(--white0);
+}
+
+.clearButton {
+  background: var(--linear-4);
+  border: 1px solid var(--primaryinvert1);
+  color: #efefef;
+}
+
+.toggleButton,
+.clearButton {
+  justify-content: center;
   font-weight: 400;
   font-size: .6rem;
+  align-items: center;
   text-transform: uppercase;
 }
 
-.tagModalContent:first-child span {
-  padding-right: 1rem;
+.tag span:first-child {
+  padding-right: .25rem;
 }
 
 .tag:hover,
-.toggleButton:hover {
+.toggleButton:hover,
+.clearButton:hover {
   opacity: .8;
   transition: .2s ease-in-out;
-  /* filter: brightness(1.2); */
 }

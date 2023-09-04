@@ -1,49 +1,50 @@
-'use client';
-
 import { allPosts } from 'contentlayer/generated';
 import { SubHeader } from 'components/SubHeader/SubHeader';
-import {
-  getMDXComponent,
-} from 'next-contentlayer/hooks';
-import "@code-hike/mdx/dist/index.css";
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { MDXComponents } from 'components/MDX/mdx-components';
 import styles from './page.module.css';
 
-export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
-
-export const generateStaticPaths = async () => {
-  const paths = await generateStaticParams();
-  return {
-    paths,
-    fallback: false,
-  };
+type MetadataProps = {
+  params: { slug: string; };
 };
 
-export const generateMetadata = ({ params }: { params: { slug: string; }; }) => {
+async function getPostFromSlug(params) {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+  if (!post) {
+    return;
+  }
+  return post;
+}
+
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const post = await getPostFromSlug(params);
+
+  if (!post) {
+    return {
+      title: '404',
+    };
+  }
+
   return {
-    title: post.title.length > 10 ? post.title.substring(0, 10) + "..." : post.title,
+    title: post.title,
     description: post.excerpt,
-    keywords: post.tags.join(', '),
-    authors: [{ name: post.author, url: post.authorLink }],
+    authors: [
+      {
+        name: post.author,
+        url: post.authorLink,
+      },
+    ],
   };
-};
+}
 
-// export const generateMetadata = ({ params }: { params: { slug: string; }; }) => {
-//   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
-//   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-//   return { 
-//     title: post.title 
-//   };
-// };
-
-const PostLayout = ({ params }: { params: { slug: string; }; }) => {
-  const post = allPosts.find((post) => {
-    return post._raw.flattenedPath === params.slug;
-  });
-  if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-
-  const Content = getMDXComponent(post.body.code);
+const PostLayout = async ({ params }: MetadataProps) => {
+  const post = await getPostFromSlug(params);
+  if (!post) {
+    notFound();
+  }
 
   return (
     <div className={styles.page}>
@@ -55,7 +56,7 @@ const PostLayout = ({ params }: { params: { slug: string; }; }) => {
       />
       <article className={styles.article}>
         <div className={styles.content}>
-          <Content />
+          <MDXComponents code={post.body.code} />
         </div>
       </article>
     </div>

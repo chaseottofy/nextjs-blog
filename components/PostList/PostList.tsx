@@ -2,7 +2,6 @@ import Link from "next/link";
 import { format, parseISO } from "date-fns";
 import { Post } from "contentlayer/generated";
 import styles from './PostList.module.css';
-// import getPostsSorted from 'utils/get-posts-sorted';
 import Image from 'next/image';
 
 const PostCard = ({
@@ -146,13 +145,17 @@ export const PostList: React.FC<PostListProps> = ({ activePosts }) => {
   return (
     <div className={styles.wrapper}>
       {
-        activePosts.map((post: Post) => (
+        activePosts?.length >= 1 && (activePosts.map((post: Post) => (
           <PostCard
             key={post._raw.flattenedPath}
             post={post}
             featured={post.isFeatured}
           />
-        ))
+        ))) || (
+          <div className={styles.noPosts}>
+            <h3>no posts found</h3>
+          </div>
+        )
       }
     </div>
   );

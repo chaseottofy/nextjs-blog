@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { Hero } from '../components/Hero/Hero';
 import { PostList } from '../components/PostList/PostList';
 import { Post } from 'contentlayer/generated';
-import getPostsSorted from 'utils/get-posts-sorted';
 
 interface TagCount {
   [key: string]: number;
@@ -12,20 +11,23 @@ interface TagCount {
 
 const getTags = (posts: Post[]) => {
   const tags: TagCount = {};
+  if (!posts) return tags;
+
   posts.forEach((post) => {
     for (const tag of post.tags) {
-      const formatTag = tag.trim().toLowerCase();
+      const formatTag = tag.replace(/\r$/, '');
       tags[formatTag] = tags[formatTag] ? tags[formatTag] + 1 : 1;
     }
   });
 
-  // sort tags by name
-  const sortedTags: TagCount = {};
-  Object.keys(tags).sort().forEach((key) => {
-    sortedTags[key] = tags[key];
-  });
-
-  return sortedTags;
+  // sort tags by count and then alphabetically if count is the same
+  const sortedByCount = Object.fromEntries(Object.entries(tags).sort((a, b) => {
+    return a[1] === b[1] ? a[0].localeCompare(b[0]) : b[1] - a[1];
+  }));
+  return sortedByCount;
+  // const sortedTags: TagCount = {}; // sort tags by name
+  // Object.keys(tags).sort().forEach((key) => {sortedTags[key] = tags[key];});
+  // return sortedTags;
 };
 
 export default function Home({

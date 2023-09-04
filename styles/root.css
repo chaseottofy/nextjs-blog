@@ -24,8 +24,10 @@
   --black0: rgba(17, 19, 20, 0.5);
   --black1: #000000;
   --black2: #181a1b;
-  --black3: #0b0b0b;
+  --black3: #131313;
+  --black4: #333;
 
+  --white0: #f5f3f3;
   --white1: #efefef;
   --white2: #a8a8a8;
   --white3: #d4d2d2;
@@ -33,9 +35,17 @@
   --grey1: #a6a6a6;
   --grey2: #474747;
 
-  --primary1: #1684ad;
+  --primary1: #0761d1;
+  --primary2: #0070f3;
+  --primary3: #3291ff;
+  --red1: #cf007a;
+  --red2: #c0103e;
+  --red3: #a60731;
+  /* --primary1: #1684ad;
   --primary2: #0c4960;
-  --primary3: #1fbef9;
+  --primary3: #1fbef9; */
+
+  --primaryinvert1: #600c1f;
 
   --link: #1ba5d6;
 
@@ -45,8 +55,15 @@
 
   --border-1: 1px solid var(--grey2);
   --border-2: 1px solid var(--white2);
+  --border-3: 1px solid #444;
 
-  --offsetblack1: rgba(0, 0, 0, .5);
+  --offsetblack0: rgba(0,0,0,.8);
+  --offsetblack1: rgba(0,0,0,.6);
+  --offsetblack2: hsla(0,0%,9%,.6);
+  --offsetblack3: hsla(0,0%,9%,.1);
+  --offsetwhite0: hsla(0,0%,100%,0);
+  --offsetwhite1: hsla(0,0%,100%,.05);
+  --offsetwhite2: hsla(0,0%,100%,.1);
 
   --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, var(--primary1) 0%, var(--primary2) 90%);
 
@@ -55,6 +72,9 @@
   --linear-2: linear-gradient(to bottom, var(--black1) 0, transparent 100%),
     linear-gradient(180deg, var(--black1) 0, var(--black0) 20%);
   --linear-3: linear-gradient(to right bottom, #333, #111);
+  --linear-4: linear-gradient(to right bottom, var(--primaryinvert1), #111);
+  --linear-5: linear-gradient(240deg, var(--primary1) 0, var(--primary2) 50%, var(--primary3));
+  --linear-6: linear-gradient(0deg, var(--offsetwhite1), var(--offsetwhite1)), radial-gradient(50% 50%at 50% 100%, var(--offsetwhite2) 0, var(--offsetwhite0) 100%);
 }
 
 [data-theme='light'] {
@@ -63,6 +83,7 @@
   --black2: #a8a8a8;
   --black3: #efefef;
 
+  --white0: #000000;
   --white1: #000000;
   --white2: #181a1b;
   --white3: #000000;
@@ -73,11 +94,23 @@
   --selection: #7fffe1;
 
   --link: #1684ad;
+  --primary1: #0761d1;
+  --primary2: #0070f3;
+  --primary3: #3291ff;
+  --primarydark1: #0761d1;
+  --primaryinvert1: #ad1638;
 
   --border-1: 1px solid var(--grey2);
   --border-2: 1px solid var(--white2);
 
-  --offsetblack1: rgba(255, 255, 255, .5);
+  /* --offsetblack1: rgba(255, 255, 255, .5); */
+  --offsetblack0: hsla(0,0%,100%,.9);
+  --offsetblack1: hsla(0,0%,100%,.7);
+  --offsetblack2: hsla(0,0%,100%,.5);
+  --offsetblack3: hsla(0,0%,100%,.2);
+  --offsetwhite0: transparent;
+  --offsetwhite1: rgba(0,0,0,.2);
+  --offsetwhite2: rgba(0,0,0,.1);
 
   --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, #fa0828 0%, #f8425e 90%);
 
@@ -85,7 +118,10 @@
     linear-gradient(180deg, var(--black1) 0, var(--black3) 40%);
   --linear-2: linear-gradient(to bottom, var(--black0) 0, transparent 40%),
     linear-gradient(to top, var(--black1) 0, var(--black3) 40%);
-  --linear-3: linear-gradient(0deg,rgba(0,0,0,.1),rgba(0,0,0,.1)),radial-gradient(50% 50%at 50% 100%,rgba(0,0,0,.3) 0,transparent 100%);
+  --linear-3: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), radial-gradient(50% 50%at 50% 100%, rgba(0, 0, 0, .3) 0, transparent 100%);
+  --linear-4: linear-gradient(to right bottom, var(--primaryinvert1), #111);
+  --linear-5: linear-gradient(240deg, var(--primary1) 0, var(--primary2) 50%, var(--primary3));
+  --linear-6: linear-gradient(0deg, var(--offsetwhite0), var(--offsetwhite1)), radial-gradient(50% 50%at 50% 100%, var(--offsetblack3) 20%, var(--offsetwhite0) 100%);
 }
 
 body {

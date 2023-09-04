@@ -37,31 +37,30 @@ const Tag: React.FC<TagComponentProps> = ({ tag, count, onTagClick, className })
   );
 };
 
-
 const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startingActive, tags }) => {
   const [tagKeys, tagValues] = [Object.keys(tags), Object.values(tags)];
   const tagLength = tagKeys.length;
+  // const { width: windowSize } = {width: 1000};
+  const { width: windowSize } = useWindowDimensions();
+  const maxTags = Math.floor(windowSize / 100) || 12;
+  const maxTagsOver = maxTags > tagKeys.length;
 
   const hasMounted = useHasMounted();
   const [isModalOpen, setModalOpen] = useState(false);
   const [activeTags, setActiveTags] = useState<string[]>([]);
-  const [visibleTags, setVisibleTags] = useState<string[]>([]);
-
-  // gets updated on window resize;
-  const { width: windowSize } = useWindowDimensions();
-
-  // set a max number of tags to show based on window size to not wrap past first line
-  const maxTags = Math.floor(windowSize / 100);
-  // if there are more tags than the max, show the max, otherwise show all tags
-  const maxTagsOver = maxTags > tagKeys.length;
+  const [visibleTags, setVisibleTags] = useState<string[]>(tagKeys.slice(0, maxTagsOver ? tagKeys.length : maxTags));
 
   useEffect(() => {
-    setModalOpen(false); // force close modal to recalculate visible tag #
-    setVisibleTags(tagKeys.slice(0, maxTagsOver ? tagKeys.length : maxTags));
+    handleSetVisibleTags();
   }, [windowSize]);
 
   useEffect(() => {
+    handleUpdateActivePostTags();
+  }, [activeTags]);
+
+  function handleUpdateActivePostTags() {
     if (!hasMounted) return;
+
     const emptyPosts = activePosts.length === 0;
     const emptyTags = activeTags.length === 0;
 
@@ -84,7 +83,13 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
       handleFilterPosts();
       return;
     }
-  }, [activeTags]);
+  }
+
+  function handleSetVisibleTags() {
+    if (!hasMounted) return;
+    setModalOpen(false); // force close modal to recalculate visible tag #
+    setVisibleTags(tagKeys.slice(0, maxTagsOver ? tagKeys.length : maxTags));
+  }
 
   function handleFilterPosts() {
     setActivePosts(startingActive.filter((post) => {
@@ -113,6 +118,10 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
     }
   };
 
+  function handleResetTags() {
+    setActiveTags([]);
+  }
+
   return (
     <div className={styles.tags}>
       {visibleTags.map((tag, index) => (
@@ -135,6 +144,16 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
         {isModalOpen ? 'Hide ' : 'Show '}
         {maxTagsOver ? 0 : tagLength - maxTags} tags
       </button>
+      {
+        activeTags.length >= 1 && (
+          <button
+            className={styles.clearButton}
+            onClick={handleResetTags}
+          >
+            reset
+          </button>
+        )
+      }
     </div>
   );
 };

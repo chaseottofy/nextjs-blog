@@ -31,12 +31,12 @@
   background-position: bottom;
   background-repeat: no-repeat;
   z-index: -1;
-  filter: contrast(1.4);
+  filter: contrast(1.1);
 }
 
 .overlayNoise {
   background: var(--offsetblack1);
-  opacity: .4;
+  opacity: .3;
   content: "";
   position: absolute;
   filter: url(#grainy);
@@ -146,7 +146,7 @@
 
 .content {
   text-transform: uppercase;
-  font-size: .7rem;
+  font-size: .75rem;
   color: var(--white1);
   text-align: center;
   font-weight: 500;
