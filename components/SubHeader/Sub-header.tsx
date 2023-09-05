@@ -31,7 +31,7 @@ const SubHeader: React.FC<SubHeaderProps> = ({
         </filter>
       </svg>
 
-      <div 
+      <div
         className={styles.overlay}
         style={{
           backgroundImage: `url(${placeholderImage})`,

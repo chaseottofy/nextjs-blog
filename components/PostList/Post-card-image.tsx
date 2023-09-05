@@ -11,10 +11,11 @@ const PostCardImage: React.FC<{ post: Post; }> = memo(({ post }) => {
       src={post?.banner ? post.banner : placeholderImageSrc}
       placeholder={placeholderImageSrc}
       alt={post.title}
-      fill={true}
+      fill
       loading='eager'
       priority
-      // quality={80}
+      quality={50}
+      sizes='(max-width:840px) 100vw, 60vw'
     />
   );
 }, () => true);

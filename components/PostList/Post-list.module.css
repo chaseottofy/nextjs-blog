@@ -52,11 +52,12 @@
 .featuredImage {
   height: 100%;
   position: relative;
+  overflow:hidden;
 }
 
 .featuredImage img {
-  object-fit: cover;
-  object-position: center;
+  /* object-fit: cover; */
+  /* object-position: center; */
   filter: contrast(1.2);
 }
 
