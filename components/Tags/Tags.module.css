@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  padding: .5rem;
+  padding:.75rem .5rem;
 }
 
 .tag,
@@ -12,7 +12,7 @@
   color: var(--white2);
   display: flex;
   align-items: center;
-  padding: .325rem .5rem;
+  padding: 0 .5rem;
 }
 
 .tag {
@@ -29,6 +29,7 @@
 .tag,
 .clearButton,
 .toggleButton {
+  height: 1.5rem;
   margin: 0 .5rem .5rem 0;
   font-size: .65rem;
   cursor: pointer;

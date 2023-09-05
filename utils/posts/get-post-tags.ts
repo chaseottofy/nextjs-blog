@@ -1,5 +1,6 @@
 import { defaultFieldOptions } from 'contentlayer/core';
 import { Post } from 'contentlayer/generated';
+import formatTag from './format-tag';
 
 interface TagCount {
   [key: string]: number;
@@ -16,7 +17,7 @@ const getPostTags = (posts: Post[], sortBy: sortBy) => {
     for (let i = 0; i < post.tags.length; i++) {
       let currentTag = post.tags[i];
       if (i === post.tags.length - 1) {
-        currentTag = post.tags[i].replace(/\r$/, '');
+        currentTag = formatTag(post.tags[i]);
       }
       tags[currentTag] = tags[currentTag] ? tags[currentTag] + 1 : 1;
     }

@@ -3,6 +3,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import getPostsSorted from 'utils/posts/get-posts-sorted';
 import { Post } from 'contentlayer/generated';
+import { portfolioLink } from 'data/constants';
 import styles from './layout.module.css';
 import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   title: 'Blog',
   description: 'Nextjs blog example',
   keywords: 'nextjs, blog, react, react blog, nextjs blog',
-  authors: [{ name: 'Chase Ottofy', url: 'https://chaseottofy.github.io/Portfolio/' }],
+  authors: [{ name: 'Chase Ottofy', url: portfolioLink }],
   icons: [
     {
       rel: 'icon',

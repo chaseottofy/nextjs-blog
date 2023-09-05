@@ -1,9 +1,4 @@
-export interface NavbarButtonProps {
-  btnName: string;
-  btnClass: string;
-  setActive: (name: string) => void;
-  setOffsets: (left: number, width: number) => void;
-}
+/**types and interfaces used more than once*/
 
 export type postParams = {
   slug: string;

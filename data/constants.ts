@@ -9,3 +9,5 @@ export const socialLinks = {
 export const portfolioLink = "https://chaseottofy.github.io/Portfolio";
 
 export const emailLink = "ottofy@zohomail.com";
+
+export const placeholderImageSrc = '/images/placeholder.webp';

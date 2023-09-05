@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Post } from 'contentlayer/generated';
 import joinClasses from 'utils/join-classes';
+import formatTags from 'utils/posts/format-tags';
 import useWindowDimensions from 'hooks/use-width';
 import { useHasMounted } from 'hooks/use-has-mounted';
 import { nanoid } from 'nanoid';
@@ -57,10 +58,7 @@ const TagComponent: React.FC<TagProps> = ({
     setActivePosts(startingActive.filter((post) => {
       const hasTags = post?.tags;
       if (!hasTags) return false;
-
-      const postTags = post.tags;
-      // contentlayer's tag schema results in a trailing \r on the last tag
-      postTags[postTags.length - 1] = postTags[postTags.length - 1].replace(/\r$/, '');
+      const postTags = formatTags(post.tags);
       return activeTags.every((activeTag) => postTags.includes(activeTag));
     }));
   }

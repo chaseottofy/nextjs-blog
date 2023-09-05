@@ -5,10 +5,22 @@
   flex-direction: column;
 }
 
+.header {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 8rem;
+  padding: 1rem 2rem;
+}
+
+.title {
+  font-family: var(--basement-expanded);
+  font-size: 1.25rem;
+}
+
 .content {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
-  margin-top: 1rem;
 }

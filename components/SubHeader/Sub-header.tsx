@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { format, parseISO } from 'date-fns';
 import { nanoid } from 'nanoid';
 import styles from './Sub-header.module.css';
+import getDateParsed from '../../utils/get-date-parsed';
 
 interface SubHeaderProps {
   title: string;
@@ -30,7 +30,6 @@ const SubHeader: React.FC<SubHeaderProps> = ({
       <div className={styles.gobackwrapper}>
         <Link className={styles.goback} href='/'>← Back to Home</Link>
       </div>
-
       <h1 className={styles.title}>
         {
           // if title has a dash, split it into two lines
@@ -70,7 +69,7 @@ const SubHeader: React.FC<SubHeaderProps> = ({
 
       <div className={styles.column}>
         <span className={styles.content}>
-          {format(parseISO(date), 'LLLL d, yyyy')}
+          {getDateParsed(date, 'LLLL d, yyyy')}
         </span>
         <span className={styles.content}>{author}</span>
       </div>

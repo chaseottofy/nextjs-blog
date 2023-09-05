@@ -7,7 +7,6 @@ import ThemeToggle from '../Button/theme-toggle';
 import styles from './Header.module.css';
 import { CircleIcon } from '../../svg/icons';
 
-
 interface HeaderInterface {
   activePosts: Post[];
 }

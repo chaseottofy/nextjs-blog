@@ -40,6 +40,7 @@
     "react/require-default-props": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/no-keyword-prefix": "off",
+    "unicorn/prefer-logical-operator-over-ternary": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "spaced-comment": "off",
     "jsx-quotes": [
