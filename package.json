@@ -18,7 +18,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "create:placeholders": "node scripts/createImagePlaceholders.mjs"
+    "create:placeholders": "node scripts/createImagePlaceholders.mjs",
+    "create:base64": "node scripts/createBase64Placeholders.mjs"
   },
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",

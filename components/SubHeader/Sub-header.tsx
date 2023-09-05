@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { nanoid } from 'nanoid';
 import styles from './Sub-header.module.css';
 import getDateParsed from '../../utils/get-date-parsed';
+import imagePlaceholders from 'data/image-placeholders';
 
 interface SubHeaderProps {
   title: string;
@@ -13,7 +14,12 @@ interface SubHeaderProps {
 const SubHeader: React.FC<SubHeaderProps> = ({
   title, date, author, tags,
 }) => (
-  <section className={styles.subheader}>
+  <section 
+    className={styles.subheader}
+    style={{
+      backgroundImage: Object.values(imagePlaceholders)[0],
+    }}
+  >
 
     <svg className={styles.grad}>
       <filter id='grainy' x='0' y='0' width='100%' height='100%'>

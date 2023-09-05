@@ -45,7 +45,9 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage
           <div className={styles.featuredImageOverlay}></div>
           <div
             className={styles.featuredImage}
-            style={{ filter: `hue-rotate(${hueRotate})` }}
+            style={{
+              filter: `hue-rotate(${hueRotate})`,
+            }}
           >
             {featuredImage}
           </div>

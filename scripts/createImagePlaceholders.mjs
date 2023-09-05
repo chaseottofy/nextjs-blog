@@ -1,23 +1,9 @@
-// import sharp from 'sharp';
-// const createImagePlaceholder = async (imagePath: string) => {
-//   const image = sharp(imagePath);
-//   if (!image) {
-//     return;
-//   }
-//   const { width, height } = await image.metadata();
-//   console.log(width, height);
-//   // const buffer = await image
-//   //   .resize(Math.round(width * 0.1), Math.round(height * 0.1))
-//   //   .toBuffer();
-//   // return `data:image/png;base64,${buffer.toString('base64')}`;
-// }
-
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-export function get__filename() {
+function get__filename() {
   const error = new Error();
   const stack = error.stack;
   const match = stack.match(/^Error\s+at[^\r\n]+\s+at *(?:[^\r\n(]+\((.+?)(?::\d+:\d+)?\)|(.+?)(?::\d+:\d+)?) *([\r\n]|$)/);
@@ -68,6 +54,7 @@ async function createImagePlaceholder() {
 createImagePlaceholder().catch(error => {
   console.error("Error processing images:", error);
 });
+
 /*
 SHARP examples from npm
 

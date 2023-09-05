@@ -163,27 +163,62 @@ return (
 );
 ```
 
-## Types & Interfaces
-
-- All types and interfaces used more than once are in the @/models/interfaces.ts file.
-- All types and interfaces used only once are in the file they are used in.
-
 ## Images
 
 - All images are in the `public/images` folder.
 
+Within the `scripts` folder is a very useful node script to convert all specified post images to `placeholder` base64 data urls. This is useful for the `<Image>` component in nextjs to prevent screen flashing when loading images. Nextjs has a built in feature to easily incorporate this technique by simply supplying the base64 data url under the `placeholder` prop of the `<Image>` component. The generated base64 data is cached directly in memory and is often around 300 bytes.
 
-Example of the difference between using the placeholder technique as seen below (right) and not using it (left).
+Run the below script to create the base64 data urls after ensuring that the configuration is correct in the `scripts/createBase64Placeholder.mjs` file.
+
+```bash
+npm run create:base64
+```
+This will create a typescript object in the `data/image-placeholder.ts` file that looks like this:\
+
+```TS
+const imagePlaceholders = {
+  "post-01": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBgCdASp4ADQAP83i6W8/tjGuJBQMS/A5iWMAy6QANzVkMe/6zQl6bimj+ABd/WW1rl03B5JW6htFAADkbp+DjCar5D8jsIbsKGD+2dih3ULc2kxX+7nALoJEgZ6YUqv4M84JNd3d8sjBNrkFg+FCfVf14QM54Y0k3SjL1loua3I/yhu2fdkCSTWwSNSeAAS4AAAA",
+  "post-02": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAAAQCQCdASrAAFMAP83m63I/t7+/oIpD8DmJZW7dXOCAAuWnctTTwgBi/CEliZNRdPeeVs9YJUQjuDZwfcbseXJJOJl/JTBPhd5c6uKRd6ITVAAA5Fd583sj+BfjCar5D+R2EN2GbgPxIb+rwVEAD00qlBlcqxNyE7LAdQ37q3R4UQvaeEtNVIQo3MUgygOJw9a1fq3s1NkotEv37bwHGx23s6U+FYGeLkwJ4fgU/pmBFgMs0GyYnoGyCd4LdLHD51nSEjpNJpR7HAghj5veaC6EkVM2cKxkCZzXhAwqeCCAAAAA"
+};
+export default imagePlaceholders;
+```
+
+To retrieve the placeholder, simply import the object and use the post slug as the key.
+
+```JSX
+import imagePlaceholders from '@/data/image-placeholder.ts';
+const postImagePlaceholder = imagePlaceholders[post.paramsAsSlug];
+```
+
+Then supply the placeholder to the `<Image>` component.
+
+```JSX
+<Image 
+  src={post.banner}
+  placeholder={postImagePlaceholder}
+/>
+```
+
+Or alternatively, use it both as the placeholder and as a content fallback.
+
+```JSX
+<Image 
+  src={post?.banner ? post.banner : placeholderImageSrc}
+  placeholder={postImagePlaceholder}
+/>
+```
+
+Below is an example of the difference it can make. This becomes more noticeable when caching is disabled.
 
 <img src="screenshots/pi_tech.gif">
 
-Node script available to create a low quality placeholder image for each image in the `scripts` folder.
-- Will automatically create a folder called `placeholders` in the `public/images` folder and place all the placeholder images in there under the same name as the original image with `_placeholder` appended to the end.
-- This is useful to prevent screen flashing when loading images, nextjs has a built in feature to easily incorporate this technique by simply supplying the filename of the placeholder under the `placeholder` prop of the `<Image>` component.
+---
 
-```bash
-npm run create:placeholders
-```
+## Types & Interfaces
+
+- All types and interfaces used more than once are in the @/models/interfaces.ts file.
+- All types and interfaces used only once are in the file they are used in.
 
 ## Plugins
 
