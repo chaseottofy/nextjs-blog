@@ -38,6 +38,7 @@
     "react/function-component-definition": "off", // allow const Comp:React.FC<Props> = (props) => {}
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
+    "arrow-body-style": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/no-keyword-prefix": "off",
     "unicorn/prefer-logical-operator-over-ternary": "off",

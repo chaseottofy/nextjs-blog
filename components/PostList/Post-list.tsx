@@ -22,7 +22,6 @@ interface PostListProps {
 }
 
 const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage }) => {
-  const hueRotate = post?.bannerHueRotate ? post.bannerHueRotate : 0;
   const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
   const postExcerptFormatted = post.excerpt.length > 100
     ? `${post.excerpt.slice(0, 100)}...`
@@ -42,15 +41,8 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage
               <feBlend in='SourceGraphic' mode='multiply' />
             </filter>
           </svg>
-          <div className={styles.featuredImageOverlay}></div>
-          <div
-            className={styles.featuredImage}
-            style={{
-              filter: `hue-rotate(${hueRotate})`,
-            }}
-          >
-            {featuredImage}
-          </div>
+          <div className={styles.featuredImageOverlay} />
+          <div className={styles.featuredImage}>{featuredImage}</div>
         </div>
 
         <div className={styles.col2}>

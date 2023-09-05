@@ -9,12 +9,14 @@ const OUTPUT_IMAGE_SIZE = 0.1;  // (0-1)
 const OUTPUT_BASE_DIRECTORY = '../public/images/';
 const OUTPUT_FILE_NAME = 'imagePlaceholders';
 const TS_OUTPUT_FINAL_PATH = `../data/image-placeholders.ts`;
-const POSTS_DIRECTORY = 'posts';
+const POSTS_DIRECTORY = 'posts/theme';
 const PLACEHOLDERS_DIRECTORY = 'placeholders';
 const IMAGE_FILE_EXTENSION = 'webp';
 const DATA_URL_PREFIX = `data:image/${IMAGE_FILE_EXTENSION};base64,`;
 const ACCEPTED_FILE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
 const ACCEPTED_BASE64_OUTPUT_TYPES = ['mdx', 'json', 'ts'];
+const GENERATE_DEFAULT = true;
+const DEFAULT_DURL = 'data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQBQCdASp4ADQAP83m63K/tzKwIQjL8DmJZwDUUAAugkMb49zfs5rwC5dYGpByZ3gAAOyQQzvPlXrRH//LM4a9YNDdlw7tkmeJHUa5S9rs5O5HJ+AAiMRXtXZK06TRO+QAAA==';
 
 // hack to allow __dirname
 function get__filename() {
@@ -101,6 +103,9 @@ async function createBase64FromPlaceholder(type = 'ts') {
   async function getResult() {
     const base64Object = {};
     const base64ObjectJSON = base64Results.reduce((acc, curr) => ({ ...acc, ...curr }), {});
+    if (GENERATE_DEFAULT) {
+      base64Object.default = DEFAULT_DURL;
+    }
     const tasks = base64Results.map(async (result) => {
       const imageName = Object.keys(result)[0];
       const base64String = result[imageName];
@@ -110,6 +115,7 @@ async function createBase64FromPlaceholder(type = 'ts') {
       const JSON_FIN = JSON.stringify(base64ObjectJSON, null, 2);
       const TYPESCRIPT_FIN = `const imagePlaceholders = ${stringified};\nexport default imagePlaceholders;\n`;
       const MDX_FIN = `export const imagePlaceholders = ${stringified};`;
+
 
       fs.writeFileSync(
         OUTPUT_FINAL_PATH,

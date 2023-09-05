@@ -2,8 +2,7 @@
 
 ## Work in progress
 
-<!-- <img src="screenshots/screen14.png" width="600"> -->
-<img src="screenshots/screen2.png" width="600">
+<img src="screenshots/screen3.jpg" width="700">
 
 ---
 
@@ -112,7 +111,6 @@ author: otto
 authorLink: https://chaseottofy.github.io/Portfolio/
 excerpt: lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
 banner: '/images/posts/post-01.webp'
-bannerHueRotate: '180deg'
 isFeatured: true
 isArchived: false
 tags: 
@@ -132,10 +130,9 @@ Featured posts will have their banner image displayed on the home page.
 const startPosts = getPostsSorted('asc', true);
 ```
 
-- Featured posts have two additional properties to be aware of: `banner` | `bannerHueRotate`
+- Featured posts have one additional image property to be aware of: `banner`
 
 `banner`: Direct path to the image file i.e. `banner: '/images/featured-post.jpg'`
-`bannerHueRotate`: CSS filter value i.e. `bannerHueRotate: 'hue-rotate(10deg)'`
 
 ### Supplying App with Posts
 

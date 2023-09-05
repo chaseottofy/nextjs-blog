@@ -10,7 +10,6 @@ import { nanoid } from 'nanoid';
 import Tag from './Tag';
 import styles from './Tags.module.css';
 import { ArrowIcon } from '../../svg/icons';
-import { set } from 'date-fns';
 
 interface TagProps {
   setActivePosts: (posts: Post[]) => void;
@@ -75,7 +74,7 @@ const TagComponent: React.FC<TagProps> = ({
     if (!hasMounted) return;
 
     // if (postArraysAreSame(activePosts, prevActivePosts)) {
-    //   // if 
+    //   // if
     //   // return;
     // }
 
@@ -152,9 +151,7 @@ const TagComponent: React.FC<TagProps> = ({
         className={
           isModalOpen
             ? joinClasses(styles, ['toggleButton', 'activeToggle'])
-            : visibleTags.length === tagLength
-              ? joinClasses(styles, ['toggleButton', 'hideToggle'])
-              : styles.toggleButton
+            : styles.toggleButton
         }
       >
         <span>

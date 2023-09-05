@@ -19,7 +19,7 @@ import { remarkCodeHike } from '@code-hike/mdx';
  * see @/components/Post-list.tsx
  * 
  * @param banner - path to banner image of post /images/posts/{banner}.webp
- * @param bannerHueRotate - rotate the hue of the banner image
+
  * @param isFeatured - if true, the post will have its banner image displayed on the home page
  * @param isArchived - if true, the post will not be included in the build
  * 
@@ -38,7 +38,6 @@ const Post = defineDocumentType(() => ({
     authorLink: { type: 'string', required: true, description: 'https://github.com/username' },
     excerpt: { type: 'string', required: true },
     banner: { type: 'string', required: false, description: '/images/posts/image-src.webp' },
-    bannerHueRotate: { type: 'string', required: false, description: 'hue-rotate(180deg)' },
     isFeatured: { type: 'boolean', required: false },
     isArchived: { type: 'boolean', required: false },
     tags: { type: 'list', of: { type: 'string' }, required: true },
