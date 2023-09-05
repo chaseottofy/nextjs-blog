@@ -36,8 +36,8 @@ const FeaturedPostCard: React.FC<PostCardProps> = ({ post }) => {
             <Image
               src={post?.banner ? post.banner : placeholderImageSrc}
               alt={post.title}
-              width={1920}
-              height={833}
+              width={1200}
+              height={521}
               loading='eager'
               priority
               quality={80}

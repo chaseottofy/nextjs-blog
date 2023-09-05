@@ -60,9 +60,12 @@ Passes the following audits:
 
 #### 100% lighthouse score
 
+<img src="screenshots/lighthouse_nextjsblog.png" width="400">
+
+
 I do not consider this an optimized app, nextjs is really throwing me a loop with the performance. The score may say 100%, but there is undoubtedly a bottle-neck somewhere, and it's probably something I did.
 
-Even with the loss, by just doing little things like using local fonts and WEBP images, 100% lighthouse is very easy to achieve.
+<!-- Even with the loss, by just doing little things like using local fonts and WEBP images, 100% lighthouse is very easy to achieve.
 Browsers love webp images especially, don't ask me why, but they do. 
 
 Getting aria-labels right is the easiest part of the whole process. Lighthouse for some reason only requires an aria-label on a specific set of elements and then calls it a day. They don't care if the label is actually useful or not because a single aira-label doesn't even make a difference in the first place. Google just wants to see that you are a good little developer who follows the rules.
@@ -75,11 +78,11 @@ Lastly, use inline SVGs whenever possible and avoid icon libraries. The problem 
 - Use a font file
 - Import the entire library for one icon
 - Have the base height, width, and viewport set to a ridiculous size like 1024x1024
-- Have cluttered IDs/Classes/Styles that are not needed but are still there to make the library work for everyone
+- Have cluttered IDs/Classes/Styles that are not needed but are still there to make the library work for everyone -->
 
-I've found that [Vercal](https://vercel.com/design/icons) have the best SVGs, not to mention the website allows you to copy the SVGs directly, where as google material icons want you to download a zip file like it's 2005.
+<!-- I've found that [Vercal](https://vercel.com/design/icons) have the best SVGs, not to mention the website allows you to copy the SVGs directly, where as google material icons want you to download a zip file like it's 2005.
 
-If vercel doesn't have what I need, I just copy the outer-html from SVGs on [react-icons](https://react-icons.github.io/react-icons/search).
+If vercel doesn't have what I need, I just copy the outer-html from SVGs on [react-icons](https://react-icons.github.io/react-icons/search). -->
 
 ## MDX
 
