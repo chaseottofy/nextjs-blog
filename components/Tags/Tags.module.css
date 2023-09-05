@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  padding:.75rem .5rem;
+  padding: .75rem .5rem;
 }
 
 .tag,
@@ -73,13 +73,23 @@
   width: .6rem;
 }
 
-.activeToggle span:last-child svg{
+.activeToggle span:last-child svg {
   transform: rotate(180deg);
   transition: .2s ease-in-out;
 }
 
 .activeToggle {
-  filter:brightness(1.1);
+  filter: brightness(1.1);
+}
+
+.hideToggle {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
 }
 
 .clearButton {
@@ -111,6 +121,7 @@
 }
 
 @media screen and (max-width: 640px) {
+
   .tag,
   .toggleButton,
   .clearButton {

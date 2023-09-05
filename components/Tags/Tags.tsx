@@ -10,6 +10,7 @@ import { nanoid } from 'nanoid';
 import Tag from './Tag';
 import styles from './Tags.module.css';
 import { ArrowIcon } from '../../svg/icons';
+import { set } from 'date-fns';
 
 interface TagProps {
   setActivePosts: (posts: Post[]) => void;
@@ -28,6 +29,10 @@ interface TagProps {
     [key: string]: number;
   };
 }
+
+// const comparePostArrays = (a: Post[], b: Post[]) => {
+
+// }
 
 const TagComponent: React.FC<TagProps> = ({
   setActivePosts, activePosts, startingActive, tags,
@@ -41,6 +46,8 @@ const TagComponent: React.FC<TagProps> = ({
   const hasMounted = useHasMounted();
   const [isModalOpen, setModalOpen] = useState(false);
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  // const [prevActivePosts, setPrevActivePosts] = useState<string[]>([]);
+  // const [prevActivePosts, setPrevActivePosts] = useState<Post[]>(activePosts);
   const [visibleTags, setVisibleTags] = useState<string[]>(tagKeys.slice(
     0,
     maxTagsOver ? tagKeys.length : maxTags,
@@ -52,6 +59,7 @@ const TagComponent: React.FC<TagProps> = ({
 
   useEffect(() => {
     handleUpdateActivePostTags();
+    // console.log(visibleTags.length, tagLength)
   }, [activeTags]);
 
   function handleFilterPosts() {
@@ -65,6 +73,11 @@ const TagComponent: React.FC<TagProps> = ({
 
   function handleUpdateActivePostTags() {
     if (!hasMounted) return;
+
+    // if (postArraysAreSame(activePosts, prevActivePosts)) {
+    //   // if 
+    //   // return;
+    // }
 
     const emptyPosts = activePosts.length === 0;
     const emptyTags = activeTags.length === 0;
@@ -87,6 +100,8 @@ const TagComponent: React.FC<TagProps> = ({
     if (!emptyPosts && !emptyTags) {
       handleFilterPosts();
     }
+
+    // setPrevActivePosts(activePosts);
   }
 
   function handleSetVisibleTags() {
@@ -135,7 +150,11 @@ const TagComponent: React.FC<TagProps> = ({
         onClick={toggleModal}
         type='button'
         className={
-          isModalOpen ? joinClasses(styles, ['toggleButton', 'activeToggle']) : styles.toggleButton
+          isModalOpen
+            ? joinClasses(styles, ['toggleButton', 'activeToggle'])
+            : visibleTags.length === tagLength
+              ? joinClasses(styles, ['toggleButton', 'hideToggle'])
+              : styles.toggleButton
         }
       >
         <span>

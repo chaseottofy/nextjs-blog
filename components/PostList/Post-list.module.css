@@ -63,6 +63,19 @@
   height: 100%;
   content: "";
   z-index: 4;
+  filter: url(#grainy);
+  opacity: .15;
+}
+
+.grad {
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
 }
 
 .subCol {
@@ -247,7 +260,7 @@
 }
 
 .postCard:hover {
-  opacity: .85;
+  opacity: .9;
   transition: opacity cubic-bezier(0.075, 0.82, 0.165, 1) .2s;
 }
 
@@ -294,8 +307,8 @@
   }
 
   .featuredImage::after {
-    background: var(--linear-5);
-    opacity: .6;
+    background: var(--offsetblack1);
+    opacity: .4;
     position: absolute;
     top: 0;
     left: 0;
