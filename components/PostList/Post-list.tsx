@@ -1,24 +1,25 @@
-import Link from "next/link";
-import { format, parseISO } from "date-fns";
-import { Post } from "contentlayer/generated";
-import styles from './PostList.module.css';
-import Image from 'next/image';
+import React from 'react';
 
-const PostCard = ({
-  post,
-  featured = false,
-}: {
+import Link from 'next/link';
+import { format, parseISO } from 'date-fns';
+import { Post } from 'contentlayer/generated';
+import { nanoid } from 'nanoid';
+import Image from 'next/image';
+import styles from './Post-list.module.css';
+
+interface PostCardProps {
   post: Post;
   featured?: boolean;
-}) => {
-  return (
-    <Link
-      href={`/posts/${post._raw.flattenedPath}`}
-      className={styles.linkWrapper}
-    >
-      <div className={styles.postCard}>
-        <div className={styles.col1}>
-          {
+}
+
+const PostCard: React.FC<PostCardProps> = ({ post, featured = false }) => (
+  <Link
+    href={`/posts/${post.slugAsParams}`}
+    className={styles.linkWrapper}
+  >
+    <div className={styles.postCard}>
+      <div className={styles.col1}>
+        {
             featured ? (
               <div className={styles.featuredImage}>
                 <Image
@@ -27,38 +28,41 @@ const PostCard = ({
                   width={1920}
                   height={833}
                   loading='eager'
-                  priority={true}
+                  priority
                   quality={80}
                 />
               </div>
             ) : (
               <div className={styles.subCol}>
                 <h2>{post.title}</h2>
-                <span className={styles.subExcerpt}>{
-                  post.excerpt.length > 140
-                    ? post.excerpt.slice(0, 140) + '...'
-                    : post.excerpt
-                }
+                <span className={styles.subExcerpt}>
+                  {
+                    post.excerpt.length > 140
+                      ? `${post.excerpt.slice(0, 140)}...`
+                      : post.excerpt
+                  }
                 </span>
                 <div className={styles.subColTags}>
                   {
-                    post.tags.map((tag, index) => {
-                      return (
-                        <span
-                          key={index}
-                          className={styles.tag}
-                        >#{tag}&nbsp;</span>
-                      );
-                    })
+                    post.tags.map((tag) => (
+                      <span
+                        key={nanoid(10)}
+                        className={styles.tag}
+                      >
+                        #
+                        {tag}
+&nbsp;
+                      </span>
+                    ))
                   }
                 </div>
               </div>
             )
           }
-        </div>
+      </div>
 
-        <div className={styles.col2}>
-          {
+      <div className={styles.col2}>
+        {
             featured ? (
               <div className={styles.featuredRightWrapper}>
 
@@ -84,22 +88,23 @@ const PostCard = ({
                 <div className={styles.featuredRightBottom}>
                   <div>
                     <h2>{post.title}</h2>
-                    <p>{
-                      post.excerpt.length > 100 ? post.excerpt.slice(0, 100) + '...' : post.excerpt
-                    }</p>
+                    <p>
+                      {
+                        post.excerpt.length > 100 ? `${post.excerpt.slice(0, 100)}...` : post.excerpt
+                      }
+                    </p>
                   </div>
                   <div className={styles.featuredTags}>
                     {
-                      post.tags.map((tag, index) => {
-                        return (
-                          index <= 2 && (
-                            <span
-                              key={tag}
-                              className={styles.tag}
-                            >#{tag}&nbsp;</span>
-                          )
-                        );
-                      })
+                      post.tags.map((tag, index) => (
+                        index <= 2 && (
+                        <span key={nanoid(10)} className={styles.tag}>
+                          #
+                          {tag}
+&nbsp;
+                        </span>
+                        )
+                      ))
                     }
                   </div>
                 </div>
@@ -131,32 +136,31 @@ const PostCard = ({
               </div>
             )
           }
-        </div>
       </div>
-    </Link>
-  );
-};
+    </div>
+  </Link>
+);
 
 interface PostListProps {
   activePosts: Post[];
 }
 
-export const PostList: React.FC<PostListProps> = ({ activePosts }) => {
-  return (
-    <div className={styles.wrapper}>
-      {
-        activePosts?.length >= 1 && (activePosts.map((post: Post) => (
-          <PostCard
-            key={post._raw.flattenedPath}
-            post={post}
-            featured={post.isFeatured}
-          />
-        ))) || (
-          <div className={styles.noPosts}>
-            <h3>no posts found</h3>
-          </div>
-        )
-      }
-    </div>
-  );
-};
+const PostList: React.FC<PostListProps> = ({ activePosts }) => (
+  <div className={styles.wrapper}>
+    {
+      activePosts?.length >= 1 && (activePosts.map((post: Post) => (
+        <PostCard
+          key={nanoid(10)}
+          post={post}
+          featured={post.isFeatured}
+        />
+      ))) || (
+        <div className={styles.noPosts}>
+          <h3>no posts found</h3>
+        </div>
+      )
+    }
+  </div>
+);
+
+export default PostList;

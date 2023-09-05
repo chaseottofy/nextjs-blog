@@ -1,11 +1,13 @@
-"use client";
+'use client';
 
 import { useState, useEffect } from 'react';
 import { Post } from 'contentlayer/generated';
-import styles from './Tags.module.css';
 import joinClasses from 'utils/join-classes';
 import useWindowDimensions from 'hooks/use-width';
 import { useHasMounted } from 'hooks/use-has-mounted';
+import { nanoid } from 'nanoid';
+import Tag from './Tag';
+import styles from './Tags.module.css';
 
 interface TagProps {
   setActivePosts: (posts: Post[]) => void;
@@ -16,39 +18,24 @@ interface TagProps {
   };
 }
 
-interface TagComponentProps {
-  tag: string;
-  count: number;
-  onTagClick: (tag: string) => void;
-  className?: string;
+interface TagProps {
+  setActivePosts: (posts: Post[]) => void;
+  activePosts: Post[];
+  startingActive: Post[];
+  tags: {
+    [key: string]: number;
+  };
 }
 
-const Tag: React.FC<TagComponentProps> = ({ tag, count, onTagClick, className }) => {
-  return (
-    <>
-      <span
-        onClick={() => onTagClick(tag)}
-        className={className}
-      >
-        <span>{tag}&nbsp;</span>
-        <span>{count}</span>
-      </span>
-    </>
-  );
-};
+const arrowIcon = () => (
+  <svg fill='none' height='24' shapeRendering='geometricPrecision' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' viewBox='0 0 24 24' width='24'><path d='M6 9l6 6 6-6' /></svg>
+);
 
-const arrowIcon = () => {
-  return (
-    <>
-      <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
-    </>
-  );
-};
-
-const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startingActive, tags }) => {
+const TagComponent: React.FC<TagProps> = ({
+  setActivePosts, activePosts, startingActive, tags,
+}) => {
   const [tagKeys, tagValues] = [Object.keys(tags), Object.values(tags)];
   const tagLength = tagKeys.length;
-  // const { width: windowSize } = {width: 1000};
   const { width: windowSize } = useWindowDimensions();
   const maxTags = Math.floor(windowSize / 100) || 12;
   const maxTagsOver = maxTags > tagKeys.length;
@@ -56,7 +43,10 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
   const hasMounted = useHasMounted();
   const [isModalOpen, setModalOpen] = useState(false);
   const [activeTags, setActiveTags] = useState<string[]>([]);
-  const [visibleTags, setVisibleTags] = useState<string[]>(tagKeys.slice(0, maxTagsOver ? tagKeys.length : maxTags));
+  const [visibleTags, setVisibleTags] = useState<string[]>(tagKeys.slice(
+    0,
+    maxTagsOver ? tagKeys.length : maxTags,
+  ));
 
   useEffect(() => {
     handleSetVisibleTags();
@@ -65,6 +55,18 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
   useEffect(() => {
     handleUpdateActivePostTags();
   }, [activeTags]);
+
+  function handleFilterPosts() {
+    setActivePosts(startingActive.filter((post) => {
+      const hasTags = post?.tags;
+      if (!hasTags) return false;
+
+      const postTags = post.tags;
+      // contentlayer's tag schema results in a trailing \r on the last tag
+      postTags[postTags.length - 1] = postTags[postTags.length - 1].replace(/\r$/, '');
+      return activeTags.every((activeTag) => postTags.includes(activeTag));
+    }));
+  }
 
   function handleUpdateActivePostTags() {
     if (!hasMounted) return;
@@ -89,7 +91,6 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
 
     if (!emptyPosts && !emptyTags) {
       handleFilterPosts();
-      return;
     }
   }
 
@@ -99,16 +100,6 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
     setVisibleTags(tagKeys.slice(0, maxTagsOver ? tagKeys.length : maxTags));
   }
 
-  function handleFilterPosts() {
-    setActivePosts(startingActive.filter((post) => {
-      let postTags = post.tags;
-      postTags[postTags.length - 1] = postTags[postTags.length - 1].replace(/\r$/, '');
-      return activeTags.every((activeTag) => {
-        return postTags.includes(activeTag);
-      });
-    }));
-  }
-
   function toggleModal() {
     setModalOpen((prev) => !prev);
     if (isModalOpen) {
@@ -116,7 +107,7 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
     } else {
       setVisibleTags(tagKeys.slice(0, tagKeys.length));
     }
-  };
+  }
 
   function handleOnTagClick(tag: string) {
     if (activeTags.includes(tag)) {
@@ -124,7 +115,7 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
     } else {
       setActiveTags((prev) => [...prev, tag]);
     }
-  };
+  }
 
   function handleResetTags() {
     setActiveTags([]);
@@ -134,32 +125,36 @@ const TagComponent: React.FC<TagProps> = ({ setActivePosts, activePosts, startin
     <div className={styles.tags}>
       {visibleTags.map((tag, index) => (
         <Tag
-          key={tag}
+          key={nanoid(10)}
           tag={tag}
           count={tagValues[index]}
           onTagClick={() => {
             handleOnTagClick(tag);
           }}
-          className={
-            activeTags.includes(tag) ? joinClasses(styles, ["activeTag", "tag"]) : styles.tag
+          tagClassName={
+            activeTags.includes(tag) ? joinClasses(styles, ['activeTag', 'tag']) : styles.tag
           }
         />
       ))}
       <button
         onClick={toggleModal}
+        type='button'
         className={
-          isModalOpen ? joinClasses(styles, ["toggleButton", "activeToggle"]) : styles.toggleButton
+          isModalOpen ? joinClasses(styles, ['toggleButton', 'activeToggle']) : styles.toggleButton
         }
       >
         <span>
           {isModalOpen ? 'Hide ' : 'Show '}
-          {maxTagsOver ? 0 : tagLength - maxTags} tags
+          {maxTagsOver ? 0 : tagLength - maxTags}
+          {' '}
+          tags
         </span>
         <span>{arrowIcon()}</span>
       </button>
       {
-        activeTags.length >= 1 && (
+        activeTags.length > 0 && (
           <button
+            type='button'
             className={styles.clearButton}
             onClick={handleResetTags}
           >

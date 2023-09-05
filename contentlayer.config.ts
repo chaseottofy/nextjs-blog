@@ -6,7 +6,11 @@ const Post = defineDocumentType(() => ({
   filePathPattern: `**/*.mdx`,
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
+    title: { 
+      type: 'string', 
+      required: true,
+      description: 'The title of the post',
+    },
     date: { type: 'date', required: true },
     author: { type: 'string', required: true },
     authorLink: {type: 'string',required: true},
@@ -34,7 +38,7 @@ const Post = defineDocumentType(() => ({
     coverImage: {
       type: 'string',
       resolve: (doc) => `/images/${doc._raw.flattenedPath}/cover.webp`,
-    }
+    },
   }
 }));
 

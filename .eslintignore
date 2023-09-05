@@ -1,0 +1,6 @@
+dist/*
+/node_modules/
+dev/
+coverage/
+test/
+posts/

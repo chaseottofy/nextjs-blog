@@ -1,16 +1,17 @@
 import { allPosts } from 'contentlayer/generated';
-import { SubHeader } from 'components/SubHeader/SubHeader';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { MDXComponents } from 'components/MDX/mdx-components';
+import { postParams, MetadataProps } from 'models/interfaces';
+import SubHeader from 'components/SubHeader/Sub-header';
+import MDXComponents from 'components/MDX/MDX-components';
 import styles from './page.module.css';
 
-type MetadataProps = {
-  params: { slug: string; };
-};
 
-async function getPostFromSlug(params) {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+async function getPostFromSlug(params: postParams) {
+  const post = allPosts.find((post) => {
+    console.log(post.tags);
+    return post.slugAsParams === params.slug;
+  });
   if (!post) {
     return;
   }

@@ -1,8 +1,8 @@
 'use client';
+
 import { useMemo } from 'react';
 import { useHasMounted } from 'hooks/use-has-mounted';
 import { useTheme as useNextTheme } from 'next-themes';
-
 import Button from 'components/Button/Button';
 
 interface ThemeToggleProps {
@@ -30,7 +30,9 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({
         const updatedTheme = isDark ? 'light' : 'dark';
         setTheme(updatedTheme);
       }}
-     >{children}</Button>
+    >
+      {children}
+    </Button>
   );
 };
 

@@ -1,3 +1,4 @@
+import React from 'react';
 
 interface ButtonProps {
   title?: string;
@@ -12,17 +13,16 @@ const Button: React.FC<ButtonProps> = ({
   onClick,
   disabled,
   children,
-}) => {
-  return (
-    <button
-      className={className}
-      onClick={onClick}
-      disabled={disabled}
-      aria-label='button'
-    >
-      {children || title}
-    </button>
-  );
-};
+}) => (
+  <button
+    className={className}
+    onClick={onClick}
+    disabled={disabled}
+    aria-label='button'
+    type='button'
+  >
+    {children || title}
+  </button>
+);
 
 export default Button;

@@ -1,13 +1,58 @@
 {
   "extends": [
-    // "next/core-web-vitals",
-    // "eslint:recommended",
-    // "plugin:react/recommended"
     "next",
-    "plugin:@next/next/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:import/typescript",
+    "plugin:react-hooks/recommended",
+    "plugin:unicorn/all",
+    "airbnb",
+    "airbnb-typescript/base"
   ],
+  "plugins": [
+    "react-hooks"
+  ],
+  "parserOptions": {
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
   "rules": {
-    "react-hooks/exhaustive-deps": "off"
+    "import/extensions": [
+      "error",
+      "always",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react-hooks/exhaustive-deps": "off",
+    "class-methods-use-this": "off", // allow private methods as helpers
+    "no-restricted-syntax": "off", // allow for...of
+    "unicorn/no-array-for-each": "off", // allow forEach
+    "unicorn/no-null": "off", // prefer null > undefined
+    "unicorn/filename-case": "off", // I use kebab-case but capitalize Components
+    "linebreak-style": "off", // allow CRLF
+    "unicorn/prefer-at": "off", // allow index acces with array[index]
+    "react/prop-types": "off", // only for jsx
+    "react/function-component-definition": "off", // allow const Comp:React.FC<Props> = (props) => {}
+    "react/react-in-jsx-scope": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/no-keyword-prefix": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "spaced-comment":"off",
+    "jsx-quotes": [
+      "error",
+      "prefer-single"
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".tsx",
+          ".ts"
+        ]
+      }
+    ]
   }
 }
