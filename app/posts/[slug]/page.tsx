@@ -6,10 +6,8 @@ import SubHeader from 'components/SubHeader/Sub-header';
 import MDXComponents from 'components/MDX/MDX-components';
 import styles from './page.module.css';
 
-
 async function getPostFromSlug(params: postParams) {
   const post = allPosts.find((post) => {
-    console.log(post.tags);
     return post.slugAsParams === params.slug;
   });
   if (!post) {

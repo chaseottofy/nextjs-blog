@@ -33,16 +33,16 @@ const SubHeader: React.FC<SubHeaderProps> = ({
 
       <h1 className={styles.title}>
         {
-            // if title has a dash, split it into two lines
-            title.includes('-') ? title.split('-').map((line) => (
-              <span
-                key={nanoid(10)}
-                className={styles.titleLine}
-              >
-                {line}
-              </span>
-            )) : title
-          }
+          // if title has a dash, split it into two lines
+          title.includes('-') ? title.split('-').map((line) => (
+            <span
+              key={nanoid(10)}
+              className={styles.titleLine}
+            >
+              {line}
+            </span>
+          )) : title
+        }
       </h1>
     </div>
 
@@ -51,14 +51,18 @@ const SubHeader: React.FC<SubHeaderProps> = ({
         <div className={styles.content}>
           <div className={styles.tags}>
             {tags.map((tag) => (
-              <span
+              <Link
                 key={nanoid(10)}
-                className={styles.tag}
+                href={`/tags/${tag}`}
               >
-                #
-                {tag}
+                <span
+                  className={styles.tag}
+                >
+                  #
+                  {tag}
                   &nbsp;
-              </span>
+                </span>
+              </Link>
             ))}
           </div>
         </div>

@@ -171,6 +171,10 @@
   height: 100%;
 }
 
+.tags a {
+  color: var(--white1);
+}
+
 .tag {
   cursor: pointer;
   text-transform: capitalize;

@@ -5,12 +5,8 @@ import Image from 'next/image';
 import { Post } from 'contentlayer/generated';
 import ThemeToggle from '../Button/theme-toggle';
 import styles from './Header.module.css';
+import { CircleIcon } from '../../svg/icons';
 
-function CircleIcon() {
-  return (
-    <svg stroke='currentColor' fill='currentColor' strokeWidth='0' viewBox='0 0 512 512' height='1em' width='1em' xmlns='http://www.w3.org/2000/svg'><path d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z' /></svg>
-  );
-}
 
 interface HeaderInterface {
   activePosts: Post[];
@@ -44,8 +40,8 @@ const Header: React.FC<HeaderInterface> = ({ activePosts }) => (
         <nav className={styles.nav}>
           <Link
             href={
-                `/posts/${activePosts[0].slugAsParams}`
-              }
+              `/posts/${activePosts[0].slugAsParams}`
+            }
           >
             latest
           </Link>

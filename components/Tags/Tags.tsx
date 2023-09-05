@@ -8,6 +8,7 @@ import { useHasMounted } from 'hooks/use-has-mounted';
 import { nanoid } from 'nanoid';
 import Tag from './Tag';
 import styles from './Tags.module.css';
+import { ArrowIcon } from '../../svg/icons';
 
 interface TagProps {
   setActivePosts: (posts: Post[]) => void;
@@ -26,10 +27,6 @@ interface TagProps {
     [key: string]: number;
   };
 }
-
-const arrowIcon = () => (
-  <svg fill='none' height='24' shapeRendering='geometricPrecision' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' viewBox='0 0 24 24' width='24'><path d='M6 9l6 6 6-6' /></svg>
-);
 
 const TagComponent: React.FC<TagProps> = ({
   setActivePosts, activePosts, startingActive, tags,
@@ -149,7 +146,7 @@ const TagComponent: React.FC<TagProps> = ({
           {' '}
           tags
         </span>
-        <span>{arrowIcon()}</span>
+        <span><ArrowIcon /></span>
       </button>
       {
         activeTags.length > 0 && (
