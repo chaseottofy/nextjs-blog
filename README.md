@@ -9,7 +9,15 @@
 
 ## Table of Contents
 
-[Features](#features) | [MDX](#mdx) | [Types & Interfaces](#types--interfaces) | [Plugins](#plugins) | [Fonts](#fonts) | [CSS](#css) | [Linting](#linting) | [License](#license)
+- [Features](#features)
+- [Installation](#installation)
+- [MDX](#mdx)
+- [Types & Interfaces](#types--interfaces)
+- [Plugins](#plugins)
+- [Fonts](#fonts)
+- [CSS](#css)
+- [Linting](#linting)
+- [License](#license)
 
 ---
 
