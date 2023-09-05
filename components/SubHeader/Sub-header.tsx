@@ -34,7 +34,7 @@ const SubHeader: React.FC<SubHeaderProps> = ({
       <h1 className={styles.title}>
         {
             // if title has a dash, split it into two lines
-            title.includes('-') ? title.split('-').map((line, index) => (
+            title.includes('-') ? title.split('-').map((line) => (
               <span
                 key={nanoid(10)}
                 className={styles.titleLine}

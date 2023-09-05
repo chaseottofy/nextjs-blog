@@ -37,10 +37,11 @@
     "react/prop-types": "off", // only for jsx
     "react/function-component-definition": "off", // allow const Comp:React.FC<Props> = (props) => {}
     "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/no-keyword-prefix": "off",
     "@typescript-eslint/no-use-before-define": "off",
-    "spaced-comment":"off",
+    "spaced-comment": "off",
     "jsx-quotes": [
       "error",
       "prefer-single"

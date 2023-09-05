@@ -8,10 +8,10 @@ interface ButtonProps {
   children?: React.ReactNode;
 }
 const Button: React.FC<ButtonProps> = ({
-  title,
+  title = 'Button',
   className,
   onClick,
-  disabled,
+  disabled = false,
   children,
 }) => (
   <button
