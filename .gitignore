@@ -19,8 +19,7 @@
 .DS_Store
 *.pem
 notes.md
-posts/post-03.mdx
-posts/post-05.mdx
+# posts/
 
 # debug
 npm-debug.log*
