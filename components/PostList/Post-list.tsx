@@ -1,16 +1,11 @@
-'use client';
 import React from 'react';
-import { memo } from 'react';
-// import { useRef, memo, useState, useEffect } from 'react';
-// import { useHasMounted } from 'hooks/use-has-mounted';
 import Link from 'next/link';
 import { Post } from 'contentlayer/generated';
 import { nanoid } from 'nanoid';
-import { placeholderImageSrc } from 'data/constants';
 import joinClasses from 'utils/join-classes';
-import Image from 'next/image';
 import styles from './Post-list.module.css';
 import TagList from './Post-tag-list';
+import PostCardImage from './Post-card-image';
 import getDateParsed from '../../utils/get-date-parsed';
 
 interface PostCardProps {
@@ -22,21 +17,9 @@ interface FeaturedPostCardProps {
   featuredImage: React.ReactNode;
 }
 
-const PostCardImage: React.FC<{ post: Post; }> = memo(({ post }) => (
-  <Image
-    src={post?.banner ? post.banner : placeholderImageSrc}
-    alt={post.title}
-    width={1200}
-    height={521}
-    loading='eager'
-    placeholder='blur'
-    blurDataURL={'data:image/svg+xml;base64,'}
-    onLoadingComplete={() => console.log('loaded')}
-    // blurDataURL={'data:image/svg+xml;base64,' + toBase64(shimmer(1200, 521))}
-    priority
-    quality={80}
-  />
-), () => true);
+interface PostListProps {
+  activePosts: Post[];
+}
 
 const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage }) => {
   const hueRotate = post?.bannerHueRotate ? post.bannerHueRotate : 0;
@@ -50,9 +33,7 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage
       href={`/posts/${post.slugAsParams}`}
       className={styles.linkWrapper}
     >
-      <div
-        className={joinClasses(styles, ['postCard', 'featuredPostCard'])}
-      >
+      <div className={joinClasses(styles, ['postCard', 'featuredPostCard'])}>
         <div className={styles.col1}>
           <svg className={styles.grad}>
             <filter id='grainy' x='0' y='0' width='100%' height='100%'>
@@ -67,7 +48,6 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage
             style={{ filter: `hue-rotate(${hueRotate})` }}
           >
             {featuredImage}
-            {/* <featuredImage post={post} /> */}
           </div>
         </div>
 
@@ -157,10 +137,6 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   );
 };
 
-interface PostListProps {
-  activePosts: Post[];
-}
-
 const PostList: React.FC<PostListProps> = ({ activePosts }) => {
   return (
     <div className={styles.wrapper}>
@@ -172,9 +148,8 @@ const PostList: React.FC<PostListProps> = ({ activePosts }) => {
                 <FeaturedPostCard
                   key={nanoid(10)}
                   post={post}
-                  featuredImage={
-                    <PostCardImage post={post} />
-                  }
+                  // memoized (will not re-render if props don't change)
+                  featuredImage={<PostCardImage post={post} />}
                 />
               )
               : (<PostCard key={nanoid(10)} post={post} />)
@@ -190,4 +165,3 @@ const PostList: React.FC<PostListProps> = ({ activePosts }) => {
 };
 
 export default PostList;
-

@@ -168,6 +168,23 @@ return (
 - All types and interfaces used more than once are in the @/models/interfaces.ts file.
 - All types and interfaces used only once are in the file they are used in.
 
+## Images
+
+- All images are in the `public/images` folder.
+
+
+Example of the difference between using the placeholder technique as seen below (right) and not using it (left).
+
+<img src="screenshots/pi_tech.gif">
+
+Node script available to create a low quality placeholder image for each image in the `scripts` folder.
+- Will automatically create a folder called `placeholders` in the `public/images` folder and place all the placeholder images in there under the same name as the original image with `_placeholder` appended to the end.
+- This is useful to prevent screen flashing when loading images, nextjs has a built in feature to easily incorporate this technique by simply supplying the filename of the placeholder under the `placeholder` prop of the `<Image>` component.
+
+```bash
+npm run create:placeholders
+```
+
 ## Plugins
 
 - `contentlayer` : Bridge between MDX and TypeScript

@@ -17,7 +17,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "create:placeholders": "node scripts/createImagePlaceholders.mjs"
   },
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",

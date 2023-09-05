@@ -14,13 +14,11 @@ interface HeaderInterface {
 const Header: React.FC<HeaderInterface> = ({ activePosts }) => (
   <header className={styles.header}>
     <div className={styles.wrapper}>
-
       <div className={styles.colLeft}>
         <Link className={styles.appname} href='/'>
           BLOG
         </Link>
       </div>
-
       <div className={styles.colCenter}>
         <span>
           <Image
