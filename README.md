@@ -31,6 +31,10 @@ npm install
 
 ## Features
 
+#### Custom Image Handling System
+
+- Automatically generate base64 data urls for all post images.
+- Images are cached and will not be regenerated unless the image file is modified.
 
 #### Accessibility
 
