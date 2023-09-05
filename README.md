@@ -7,6 +7,12 @@
 
 ---
 
+## Table of Contents
+
+[Features](#features) | [MDX](#mdx) | [Types & Interfaces](#types--interfaces) | [Plugins](#plugins) | [Fonts](#fonts) | [CSS](#css) | [Linting](#linting) | [License](#license)
+
+---
+
 ### Installation
 
 ```bash
@@ -17,28 +23,6 @@ npm install
 
 ## Features
 
-#### 100% lighthouse score
-
-I do not consider this an optimized app, nextjs is really throwing me a loop with the performance. The score may say 100%, but there is undoubtedly a bottle-neck somewhere, and it's probably something I did.
-
-Even with the loss, by just doing little things like using local fonts and WEBP images, 100% lighthouse is very easy to achieve.
-Browsers love webp images especially, don't ask me why, but they do. 
-
-Getting aria-labels right is the easiest part of the whole process. Lighthouse for some reason only requires an aria-label on a specific set of elements and then calls it a day. They don't care if the label is actually useful or not because a single aira-label doesn't even make a difference in the first place. Google just wants to see that you are a good little developer who follows the rules.
-
-As for meta tags, you may want to actually take those serious for SEO purposes, lighthouse only cares for the description and title tags but there are a lot more that you should be using.
-
-CSS rarely makes a difference, I've found that for every 10,000 lines of CSS, you might lose .1s on the speed index. It's so insignificant that I don't even really bother with it anymore for optimization purposes.
-
-Lastly, use inline SVGs whenever possible and avoid icon libraries. The problem with Icon libraries is they normally do one of the following:
-- Use a font file
-- Import the entire library for one icon
-- Have the base height, width, and viewport set to a ridiculous size like 1024x1024
-- Have cluttered IDs/Classes/Styles that are not needed but are still there to make the library work for everyone
-
-I've found that [Vercal](https://vercel.com/design/icons) have the best SVGs, not to mention the website allows you to copy the SVGs directly, where as google material icons want you to download a zip file like it's 2005.
-
-If vercel doesn't have what I need, I just copy the outer-html from SVGs on [react-icons](https://react-icons.github.io/react-icons/search).
 
 #### Accessibility
 
@@ -65,6 +49,29 @@ Passes the following audits:
 #### TypeScript
 
 - 100% TypeScript with predominate use of interfaces.
+
+#### 100% lighthouse score
+
+I do not consider this an optimized app, nextjs is really throwing me a loop with the performance. The score may say 100%, but there is undoubtedly a bottle-neck somewhere, and it's probably something I did.
+
+Even with the loss, by just doing little things like using local fonts and WEBP images, 100% lighthouse is very easy to achieve.
+Browsers love webp images especially, don't ask me why, but they do. 
+
+Getting aria-labels right is the easiest part of the whole process. Lighthouse for some reason only requires an aria-label on a specific set of elements and then calls it a day. They don't care if the label is actually useful or not because a single aira-label doesn't even make a difference in the first place. Google just wants to see that you are a good little developer who follows the rules.
+
+As for meta tags, you may want to actually take those serious for SEO purposes, lighthouse only cares for the description and title tags but there are a lot more that you should be using.
+
+CSS rarely makes a difference, I've found that for every 10,000 lines of CSS, you might lose .1s on the speed index. It's so insignificant that I don't even really bother with it anymore for optimization purposes.
+
+Lastly, use inline SVGs whenever possible and avoid icon libraries. The problem with Icon libraries is they normally do one of the following:
+- Use a font file
+- Import the entire library for one icon
+- Have the base height, width, and viewport set to a ridiculous size like 1024x1024
+- Have cluttered IDs/Classes/Styles that are not needed but are still there to make the library work for everyone
+
+I've found that [Vercal](https://vercel.com/design/icons) have the best SVGs, not to mention the website allows you to copy the SVGs directly, where as google material icons want you to download a zip file like it's 2005.
+
+If vercel doesn't have what I need, I just copy the outer-html from SVGs on [react-icons](https://react-icons.github.io/react-icons/search).
 
 ## MDX
 
