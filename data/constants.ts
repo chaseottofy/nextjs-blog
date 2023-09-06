@@ -1,4 +1,3 @@
-// How would I go about iterating through this object to create a list of links using both the key and value? In TSX.
 export const socialLinks = {
   github: "https://github.com/chaseottofy",
   codepen: "https://codepen.io/chaseottofy",

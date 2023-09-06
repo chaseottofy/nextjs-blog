@@ -56,8 +56,6 @@
 }
 
 .featuredImage img {
-  /* object-fit: cover; */
-  /* object-position: center; */
   filter: contrast(1.2);
 }
 
@@ -72,7 +70,7 @@
   content: "";
   z-index: 4;
   filter: url(#grainy);
-  opacity: .2;
+  opacity: .15;
   background: var(--offsetblack1);
 }
 
