@@ -142,7 +142,7 @@ const PostList: React.FC<PostListProps> = ({ activePosts }) => {
                 <FeaturedPostCard
                   key={nanoid(10)}
                   post={post}
-                  // memoized (will not re-render if props don't change)
+                  // memoized
                   featuredImage={<PostCardImage post={post} />}
                 />
               )

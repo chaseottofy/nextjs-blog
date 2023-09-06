@@ -38,7 +38,6 @@
     "**/*.tsx",
     ".contentlayer/generated",
     "scripts/createImagePlaceholders.mjs",
-    "utils/image-placeholders.ts"
   ],
   "exclude": [
     "node_modules",

@@ -4,7 +4,7 @@ interface LinkProps {
   href: string;
   title: string;
   className?: string;
-  children: React.ReactNode; // To allow for a child element
+  children: React.ReactNode;
 }
 
 const CustomLink: React.FC<LinkProps> = ({
