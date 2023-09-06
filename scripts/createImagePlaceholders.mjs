@@ -46,7 +46,6 @@ async function createImagePlaceholder() {
     }
   });
 
-  // Execute all the tasks
   await Promise.all(tasks);
   console.log(`Processed ${tasks.length} images.`);
 }
@@ -54,33 +53,3 @@ async function createImagePlaceholder() {
 createImagePlaceholder().catch(error => {
   console.error("Error processing images:", error);
 });
-
-/*
-SHARP examples from npm
-
-Callback
-sharp(inputBuffer)
-  .resize(320, 240)
-  .toFile('output.webp', (err, info) => { ... });
-
-Promise
-sharp('input.jpg')
-  .rotate()
-  .resize(200)
-  .jpeg({ mozjpeg: true })
-  .toBuffer()
-  .then( data => { ... })
-  .catch( err => { ... });
-
-Async/await
-const semiTransparentRedPng = await sharp({
-  create: {
-    width: 48,
-    height: 48,
-    channels: 4,
-    background: { r: 255, g: 0, b: 0, alpha: 0.5 }
-  }
-})
-  .png()
-  .toBuffer();
-*/

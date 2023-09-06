@@ -1,4 +1,3 @@
-// ... [rest of the imports]
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
@@ -69,11 +68,9 @@ async function createImagePlaceholder() {
     }
   });
 
-  // Execute all the tasks
   await Promise.all(tasks);
   console.log(`Processed ${tasks.length} images.`);
 }
-
 
 async function createBase64FromPlaceholder(type = 'ts') {
   if (!ACCEPTED_BASE64_OUTPUT_TYPES.includes(type)) {
@@ -116,7 +113,6 @@ async function createBase64FromPlaceholder(type = 'ts') {
       const TYPESCRIPT_FIN = `const imagePlaceholders = ${stringified};\nexport default imagePlaceholders;\n`;
       const MDX_FIN = `export const imagePlaceholders = ${stringified};`;
 
-
       fs.writeFileSync(
         OUTPUT_FINAL_PATH,
         type === 'json' ? JSON_FIN : type === 'mdx' ? MDX_FIN : TYPESCRIPT_FIN,
@@ -139,18 +135,4 @@ createImagePlaceholder().catch(error => {
   createBase64FromPlaceholder('ts').catch(error => {
     console.error("Error processing images:", error);
   });
-
-
-  // EXPORT ALL TYPES
-  // createBase64FromPlaceholder('ts').catch(error => {
-  //   console.error("Error processing images:", error);
-  // }).then(() => {
-  //   createBase64FromPlaceholder('json').catch(error => {
-  //     console.error("Error processing images:", error);
-  //   }).then(() => {
-  //     createBase64FromPlaceholder('mdx').catch(error => {
-  //       console.error("Error processing images:", error);
-  //     });
-  //   });
-  // });
 });

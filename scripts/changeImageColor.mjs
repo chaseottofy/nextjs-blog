@@ -37,7 +37,6 @@ async function changeImageColor() {
   const tasks = imageFiles.map(async (imageFile) => {
     const inputImagePath = path.join(postsDirectory, imageFile);
     const imageNameWithoutExt = path.basename(imageFile, path.extname(imageFile));
-    // const outputPath = `../public/images/posts/theme`;
     const outputImagePath = path.join(outputPathDir, `${imageNameWithoutExt}_blue.webp`);
 
     if (fs.existsSync(outputImagePath)) {
@@ -47,13 +46,8 @@ async function changeImageColor() {
     // Read image dimensions without loading the whole image
     const imageMetadata = await sharp(inputImagePath).metadata();
 
-    // .tint({ r: 0, g: 180, b: 255, alpha: .9 })
-    // .modulate({ hue: 180 })
-    // .webp({ quality: 90 })
-    // .toFile(outputImagePath);
     if (imageMetadata.width && imageMetadata.height) {
       return sharp(inputImagePath)
-        // .flatten({ background: '#0761D1' })
         .greyscale()
         .toBuffer()
         .then(data => {
@@ -64,7 +58,6 @@ async function changeImageColor() {
     }
   });
 
-  // Execute all the tasks
   await Promise.all(tasks);
   console.log(`Processed ${tasks.length} images.`);
 }
