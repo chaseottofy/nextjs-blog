@@ -125,6 +125,12 @@
   transition: opacity .2s ease-in-out;
 }
 
+@media screen and (max-width: 840px) {
+  .wrapper {
+    padding: 0 .5rem;
+  }
+}
+
 @media screen and (max-width: 490px) {
   .colCenter {
     display: none;
