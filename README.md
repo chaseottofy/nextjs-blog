@@ -65,9 +65,6 @@ Passes the following audits:
 
 <img src="screenshots/lighthouse_nextjsblog.png" width="400">
 
-
-I do not consider this an optimized app, nextjs is really throwing me a loop with the performance. The score may say 100%, but there is undoubtedly a bottle-neck somewhere, and it's probably something I did.
-
 <!-- Even with the loss, by just doing little things like using local fonts and WEBP images, 100% lighthouse is very easy to achieve.
 Browsers love webp images especially, don't ask me why, but they do. 
 
@@ -240,11 +237,6 @@ Below is an example of the difference it can make. This becomes more noticeable 
 - 90% of the CSS is modularized and scoped to the component it's used in.
 - The rest ( resets / variables / global ) are in the `styles` folder.
 - There is also one instance of third party CSS imported in `@app/posts/[slug]/page.tsx` for the code blocks.
-
-## Linting
-
-- I do not recommend you keep my eslint config, it's currently total overkill as I'm still fine-tuning my preferences for TSX after vanilla for so long. Depending on which stage I'm at in the project it also could look completely different.
-- I'd point you in the direction of a decent config if I had one. Most senior devs I've asked look at me weird when I passionately bring up my eslint config problems. Is linting a noob thing? I don't know, but it definitely helps me learn best practices and catches stupid mistakes. Rant over.
 
 ## License
 MIT License
