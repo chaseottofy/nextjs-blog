@@ -3,12 +3,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const OUTPUT_IMAGE_QUALITY = 1; // (1-100)
-const OUTPUT_IMAGE_SIZE = 0.1;  // (0-1)
+const OUTPUT_IMAGE_QUALITY = 2; // (1-100)
+const OUTPUT_IMAGE_SIZE = 0.2;  // (0-1)
 const OUTPUT_BASE_DIRECTORY = '../public/images/';
 const OUTPUT_FILE_NAME = 'imagePlaceholders';
 const TS_OUTPUT_FINAL_PATH = `../data/image-placeholders.ts`;
-const POSTS_DIRECTORY = 'posts/theme';
+const POSTS_DIRECTORY = 'posts/1920x1080';
 const PLACEHOLDERS_DIRECTORY = 'placeholders';
 const IMAGE_FILE_EXTENSION = 'webp';
 const DATA_URL_PREFIX = `data:image/${IMAGE_FILE_EXTENSION};base64,`;
@@ -63,6 +63,7 @@ async function createImagePlaceholder() {
       // Convert image with 1% quality and save to placeholder directory
       return sharp(inputImagePath)
         .webp({ quality: OUTPUT_IMAGE_QUALITY })
+        .blur()
         .resize(Math.round(imageMetadata.width * OUTPUT_IMAGE_SIZE), Math.round(imageMetadata.height * OUTPUT_IMAGE_SIZE))
         .toFile(outputImagePath);
     }

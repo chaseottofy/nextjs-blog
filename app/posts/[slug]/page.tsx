@@ -52,7 +52,6 @@ const PostLayout = async ({ params }: MetadataProps) => {
         date={post.date}
         author={post.author}
         tags={post.tags}
-        slug={post.slugAsParams}
       />
       <article className={styles.article}>
         <div className={styles.content}>

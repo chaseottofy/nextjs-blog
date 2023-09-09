@@ -1,14 +1,13 @@
 import React from 'react';
-import { Post } from 'contentlayer/generated';
-import getPostsSorted from 'utils/posts/get-posts-sorted';
-
-import Footer from 'components/Footer/Footer'
+import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
+import { Post } from 'contentlayer/generated';
 import ThemeProvider from 'providers/next-theme-provider';
 import {
   BasementExpanded,
   NeueMontreal,
 } from 'utils/get-local-fonts';
+import getPostsSorted from 'utils/posts/get-posts-sorted';
 
 import '../styles/global.scss';
 import styles from './layout.module.css';

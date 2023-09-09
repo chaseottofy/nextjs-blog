@@ -44,12 +44,13 @@
     "arrow-body-style": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/no-keyword-prefix": "off",
+    "unicorn/prefer-spread": "off",
     "unicorn/prefer-logical-operator-over-ternary": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "spaced-comment": "off",
-    "simple-import-sort/exports": "error",
+    "simple-import-sort/exports": "warn",
     "simple-import-sort/imports": [
-      "error",
+      "warn",
       {
         "groups": [
           // Side effect imports.

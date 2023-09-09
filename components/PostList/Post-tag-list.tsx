@@ -10,9 +10,9 @@ const TagList: React.FC<TagListProps> = ({
   tagCName,
 }) => (
   <div className={wrapperCName}>
-    {tags.map((tag, index) => (
+    {tags.map((tag) => (
       <span
-        key={`${tag}${index}`}
+        key={`${tag}TL`}
         className={tagCName}
       >
         #

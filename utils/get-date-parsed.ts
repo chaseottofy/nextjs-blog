@@ -1,11 +1,8 @@
+import { monthNames } from 'data/date-constants'
+
 type DateFormat = 'MM.dd.yy' | 'LLLL d, yyyy';
 
 const getDateParsed = (dateString: string, formatType: DateFormat) => {
-  const monthNames = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
-  ];
-
   const date = new Date(dateString);
   const day = date.getDate();
   const month = date.getMonth() + 1;

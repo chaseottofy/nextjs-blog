@@ -1,10 +1,9 @@
 import React from 'react';
 import { Post } from 'contentlayer/generated';
-import Link from 'next/link';
-import joinClasses from 'utils/join-classes';
-
 import imagePlaceholders from 'data/image-placeholders';
+import Link from 'next/link';
 import getDateParsed from 'utils/get-date-parsed';
+import joinClasses from 'utils/join-classes';
 
 import PostCardImage from './Post-card-image';
 import TagList from './Post-tag-list';
@@ -22,6 +21,7 @@ interface FeaturedPostCardProps {
 
 interface PostListProps {
   activePosts: Post[];
+  activeOff?: boolean;
 }
 
 const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({
@@ -30,7 +30,7 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({
 }) => {
   const placeholderImageSrc = imagePlaceholders[post.slugAsParams];
   const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
-  const postExcerptFormatted = post.excerpt.length > 100
+  const postExcerptFormatted = post?.excerpt.length > 100
     ? `${post.excerpt.slice(0, 100)}...`
     : post.excerpt;
 
@@ -82,7 +82,7 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({
             </div>
 
             <div className={styles.featuredRightBottom}>
-              <div>
+              <div className={styles.featuredRightBottomTitles}>
                 <h2>{post.title}</h2>
                 <p>{postExcerptFormatted}</p>
               </div>
@@ -103,7 +103,7 @@ const PostCard: React.FC<PostCardProps> = ({
   post,
 }) => {
   const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
-  const postExcerptFormatted = post.excerpt.length > 140
+  const postExcerptFormatted = post?.excerpt.length > 140
     ? `${post.excerpt.slice(0, 140)}...`
     : post.excerpt;
 
@@ -152,13 +152,16 @@ const PostCard: React.FC<PostCardProps> = ({
   );
 };
 
-const PostList: React.FC<PostListProps> = ({ activePosts }) => {
+const PostList: React.FC<PostListProps> = ({
+  activePosts,
+  activeOff = false,
+}) => {
   return (
     <div className={styles.wrapper}>
       {
         activePosts?.length >= 1 ? (activePosts.map((post: Post) => {
           return (
-            post.isFeatured
+            post.isFeatured && activeOff === false
               ? (
                 <FeaturedPostCard
                   key={post.slugAsParams}

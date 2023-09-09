@@ -11,6 +11,7 @@
   --sm: 380px;
 
   --pad-lr: max(16px, 4.2666666667vw);
+  --pad-lr2: max(4px, 2vw);
 
   --z-header: 100;
   --z-modal: 800;
@@ -35,7 +36,7 @@
   --grey1: #a6a6a6;
   --grey2: #474747;
 
-  --primary-header: #12b6fb;
+  --primary-header: #12b4fa;
   --primary1: #12b6fb;
   --primary2: #12b6fb;
   --primary3: #12b6fb;

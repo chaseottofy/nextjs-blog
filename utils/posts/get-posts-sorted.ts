@@ -1,5 +1,5 @@
-import { Post } from "contentlayer/generated";
 import getActivePosts from './get-active-posts';
+import sortPosts from './sort-posts';
 
 /**
  * 
@@ -8,23 +8,8 @@ import getActivePosts from './get-active-posts';
  * @returns sorted 'asc' or 'desc' array of posts
  */
 const getPostsSorted = (direction: string, featured?: boolean) => {
-  return getActivePosts().sort((a: Post, b: Post) => {
-    const Adate = new Date(a.date);
-    const Bdate = new Date(b.date);
-
-    if (featured) {
-      if (a.isFeatured && !b.isFeatured) {
-        return -1;
-      }
-      if (!a.isFeatured && b.isFeatured) {
-        return 1;
-      }
-    }
-
-    return direction === 'asc'
-      ? Adate.getTime() - Bdate.getTime()
-      : Bdate.getTime() - Adate.getTime();
-  });
+  const posts = getActivePosts();
+  return sortPosts(posts, direction, featured || false);
 };
 
 export default getPostsSorted;

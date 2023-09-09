@@ -1,31 +1,50 @@
 import PostList from 'components/PostList/Post-list';
-import { allPosts } from 'contentlayer/generated';
+import RelatedTags from 'components/Tags/Related/Related-tags';
+import { allPosts, Post } from 'contentlayer/generated';
 import { MetadataProps, postParams } from 'models/interfaces';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import getDateParsed from 'utils/get-date-parsed';
 import formatTag from 'utils/posts/format-tag';
-import formatTags from 'utils/posts/format-tags';
+import getPostsRange from 'utils/posts/get-posts-range';
 
 import styles from './page.module.css';
 
-async function getPostsFromSlug(params: postParams) {
-  const formattedSlug = formatTag(params.slug);
-  const posts = allPosts.find((post) => {
-    // console.log(formatTags(post.tags).sort((a, b) => b.localeCompare(a)))
-    const postTags = formatTags(post.tags);
-    return postTags.includes(formattedSlug);
-  });
-
-  console.log(posts);
-  return posts;
+interface TagLayoutProps {
+  posts: Post[] | [];
+  tagList: Set<string>;
 }
 
-export async function generateMetadata({
-  params,
-}: MetadataProps): Promise<Metadata> {
+async function getPostsFromSlug(params: postParams): Promise<TagLayoutProps> {
+  const tagList = new Set<string>();
   const formattedSlug = formatTag(params.slug);
-  const posts = await getPostsFromSlug(params);
+
+  const posts = allPosts.filter((post) => {
+    const postTags = post.tags;
+    postTags[postTags.length - 1] = postTags[postTags.length - 1].replace(/\r$/, '');
+
+    const formattedHasSlug = postTags.includes(formattedSlug);
+    if (formattedHasSlug) {
+      postTags.forEach((tag) => tagList.add(tag));
+      return true;
+    }
+    return false;
+  });
+
   if (!posts) {
+    return {
+      posts: [],
+      tagList: new Set(),
+    };
+  }
+
+  return { posts, tagList };
+}
+
+export async function generateMetadata({ params }: MetadataProps): Promise<Metadata> {
+  const formattedSlug = formatTag(params.slug);
+
+  if (!formattedSlug) {
     return {
       title: '404',
     };
@@ -38,12 +57,16 @@ export async function generateMetadata({
 }
 
 const TagLayout = async ({ params }: MetadataProps) => {
-  const posts = await getPostsFromSlug(params);
-  // console.log();
-
-  if (!posts) {
+  const { posts, tagList } = await getPostsFromSlug(params) as TagLayoutProps;
+  const postsLength = posts.length;
+  if (postsLength === 0) {
     notFound();
   }
+
+  // remove current tag from related tags
+  tagList.delete(formatTag(params.slug));
+  // handle case where post only has one tag
+  const relatedTags = tagList.size > 0 ? Array.from(tagList) : [];
 
   return (
     <div className={styles.page}>
@@ -52,15 +75,40 @@ const TagLayout = async ({ params }: MetadataProps) => {
           #
           {params.slug}
         </h1>
+        <span className={styles.subtitle}>
+          {`${postsLength} ${postsLength === 1 ? 'post' : 'posts'}`}
+          {': '}
+          &nbsp;
+          {
+            postsLength > 1 ? (
+              <>
+                {getPostsRange(posts)}
+              </>
+            ) : (
+              <>
+                {getDateParsed(posts[0].date, 'MM.dd.yy')}
+              </>
+            )
+          }
+        </span>
+        <div className={styles.headerBottom}>
+          {
+            relatedTags.length > 0 && (
+              <RelatedTags
+                relatedTags={relatedTags as string[]}
+              />
+            )
+          }
+        </div>
       </div>
-
-      <div className={styles.content}>
+      <article className={styles.content}>
         <ul className={styles.contentList}>
           <PostList
-            activePosts={posts ? [posts] : []}
+            activePosts={posts}
+            activeOff
           />
         </ul>
-      </div>
+      </article>
     </div>
   );
 };

@@ -1,23 +1,19 @@
+import OverlayNoise from 'components/Overlay/Overlay-noise';
 import Link from 'next/link';
-
 import getDateParsed from 'utils/get-date-parsed';
 
 import styles from './Sub-header.module.css';
-
-import OverlayNoise from 'components/Overlay/Overlay-noise';
 
 interface SubHeaderProps {
   title: string;
   date: string;
   author: string;
   tags: string[];
-  slug: string;
 }
 
 const SubHeader: React.FC<SubHeaderProps> = ({
-  title, date, author, tags, slug,
+  title, date, author, tags,
 }) => {
-
   return (
     <section
       className={styles.subheader}
@@ -27,7 +23,9 @@ const SubHeader: React.FC<SubHeaderProps> = ({
         <span>
           {getDateParsed(date, 'LLLL d, yyyy')}
         </span>
-        <span>by: {author}</span>
+        <span>
+          {author}
+        </span>
       </div>
 
       <div className={styles.top}>
@@ -53,7 +51,6 @@ const SubHeader: React.FC<SubHeaderProps> = ({
           </Link>
         ))}
       </div>
-
 
     </section>
   );
