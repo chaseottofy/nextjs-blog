@@ -1,12 +1,15 @@
 import React from 'react';
-import Link from 'next/link';
 import { Post } from 'contentlayer/generated';
-import { nanoid } from 'nanoid';
+import Link from 'next/link';
 import joinClasses from 'utils/join-classes';
-import styles from './Post-list.module.css';
-import TagList from './Post-tag-list';
-import PostCardImage from './Post-card-image';
+
+import imagePlaceholders from '../../data/image-placeholders';
 import getDateParsed from '../../utils/get-date-parsed';
+
+import PostCardImage from './Post-card-image';
+import TagList from './Post-tag-list';
+
+import styles from './Post-list.module.css';
 
 interface PostCardProps {
   post: Post;
@@ -22,6 +25,7 @@ interface PostListProps {
 }
 
 const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage }) => {
+  const placeholderImageSrc = imagePlaceholders[post.slugAsParams];
   const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
   const postExcerptFormatted = post.excerpt.length > 100
     ? `${post.excerpt.slice(0, 100)}...`
@@ -41,8 +45,20 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage
               <feBlend in='SourceGraphic' mode='multiply' />
             </filter>
           </svg>
-          <div className={styles.featuredImageOverlay} />
-          <div className={styles.featuredImage}>{featuredImage}</div>
+          <div
+            className={styles.featuredImageOverlay}
+          />
+          <div
+            className={styles.featuredImage}
+            style={{
+              backgroundImage: `url(${placeholderImageSrc})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
+            {featuredImage}
+          </div>
         </div>
 
         <div className={styles.col2}>
@@ -140,13 +156,17 @@ const PostList: React.FC<PostListProps> = ({ activePosts }) => {
             post.isFeatured
               ? (
                 <FeaturedPostCard
-                  key={nanoid(10)}
+                  key={post.slugAsParams}
                   post={post}
-                  // memoized
-                  featuredImage={<PostCardImage post={post} />}
+                  featuredImage={<PostCardImage post={post} />} // memoized
                 />
               )
-              : (<PostCard key={nanoid(10)} post={post} />)
+              : (
+                <PostCard
+                  key={post.slugAsParams}
+                  post={post}
+                />
+              )
           );
         })) : (
           <div className={styles.noPosts}>

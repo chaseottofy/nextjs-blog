@@ -1,8 +1,8 @@
 'use client';
 
 import { useMemo } from 'react';
-import { useTheme as useNextTheme } from 'next-themes';
 import Button from 'components/Button/Button';
+import { useTheme as useNextTheme } from 'next-themes';
 
 interface ThemeToggleProps {
   className?: string;

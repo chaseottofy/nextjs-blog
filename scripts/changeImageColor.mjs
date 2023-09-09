@@ -49,6 +49,12 @@ async function changeImageColor() {
     if (imageMetadata.width && imageMetadata.height) {
       return sharp(inputImagePath)
         .greyscale()
+        .resize({
+          width: 1200,
+          height: 521,
+          fit: 'cover',
+          position: 'center',
+        })
         .toBuffer()
         .then(data => {
           return sharp(data)

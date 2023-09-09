@@ -1,6 +1,9 @@
 # Next.js Blog with Contentlayer
 
-## Work in progress
+> **Warning**
+> This project is still a work in progress and is not ready for production use.
+> [See roadmap](#roadmap)
+<!-- ## Work in progress -->
 
 <img src="screenshots/screen3.jpg" width="700">
 
@@ -9,6 +12,13 @@
 ## Table of Contents
 
 - [Features](#features)
+  - [Image Handling](#custom-image-handling-system)
+  - [Accessibility](#accessibility)
+  - [Contentlayer](#contentlayer)
+  - [Next.js](#nextjs)
+  - [CSS Modules](#css-modules)
+  - [TypeScript](#typescript)
+  - [Optimized](#optimized)
 - [Installation](#installation)
 - [MDX](#mdx)
 - [Types & Interfaces](#types--interfaces)
@@ -51,7 +61,8 @@ Passes the following audits:
 
 #### Next.js
 
-- Utilizes the latest Next.js features, including the new App Router
+- Utilizes the latest Next.js features
+  - New `/app` directory
 
 #### CSS Modules
 
@@ -61,28 +72,12 @@ Passes the following audits:
 
 - 100% TypeScript with predominate use of interfaces.
 
-#### 100% lighthouse score
+#### Optimized
 
-<img src="screenshots/lighthouse_nextjsblog.png" width="400">
+- 100% lighthouse score
+- Tested with disabled cache and simulated base throttling
 
-<!-- Even with the loss, by just doing little things like using local fonts and WEBP images, 100% lighthouse is very easy to achieve.
-Browsers love webp images especially, don't ask me why, but they do. 
-
-Getting aria-labels right is the easiest part of the whole process. Lighthouse for some reason only requires an aria-label on a specific set of elements and then calls it a day. They don't care if the label is actually useful or not because a single aira-label doesn't even make a difference in the first place. Google just wants to see that you are a good little developer who follows the rules.
-
-As for meta tags, you may want to actually take those serious for SEO purposes, lighthouse only cares for the description and title tags but there are a lot more that you should be using.
-
-CSS rarely makes a difference, I've found that for every 10,000 lines of CSS, you might lose .1s on the speed index. It's so insignificant that I don't even really bother with it anymore for optimization purposes.
-
-Lastly, use inline SVGs whenever possible and avoid icon libraries. The problem with Icon libraries is they normally do one of the following:
-- Use a font file
-- Import the entire library for one icon
-- Have the base height, width, and viewport set to a ridiculous size like 1024x1024
-- Have cluttered IDs/Classes/Styles that are not needed but are still there to make the library work for everyone -->
-
-<!-- I've found that [Vercal](https://vercel.com/design/icons) have the best SVGs, not to mention the website allows you to copy the SVGs directly, where as google material icons want you to download a zip file like it's 2005.
-
-If vercel doesn't have what I need, I just copy the outer-html from SVGs on [react-icons](https://react-icons.github.io/react-icons/search). -->
+<img src="screenshots/screen_lh1.jpg" width="400">
 
 ## MDX
 
@@ -224,7 +219,6 @@ Below is an example of the difference it can make. This becomes more noticeable 
 - `next-contentlayer` : Next.js plugin for contentlayer
 - `@code-hike/mdx` : MDX plugin that helps style code blocks
 - `date-fns` : Date formatting and ISO parsing ( no additional date-fn plugins )
-- `nanoid` : Generate unique key IDs for React
 - `sharp` : Image processing ( no need to do anything with this one next.js automatically uses it )
 - `next-themes` : Theme provider for Next.js
 
@@ -237,6 +231,13 @@ Below is an example of the difference it can make. This becomes more noticeable 
 - 90% of the CSS is modularized and scoped to the component it's used in.
 - The rest ( resets / variables / global ) are in the `styles` folder.
 - There is also one instance of third party CSS imported in `@app/posts/[slug]/page.tsx` for the code blocks.
+
+## Linting
+
+- Very strict linting rules that I'm sure you'll want to change.
+- I'm using a lot of rules to help familiarize myself with TSX after years of hardcore vanilla.
+- Many of them are **not** automatically fixable and will prevent the build from proceeding past the linting stage.
+- Save yourself the headache and configure your own rules in the `.eslintrc.json` file.
 
 ## License
 MIT License

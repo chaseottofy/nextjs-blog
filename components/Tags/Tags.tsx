@@ -1,15 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Post } from 'contentlayer/generated';
+import { useHasMounted } from 'hooks/use-has-mounted';
+import useWindowDimensions from 'hooks/use-width';
 import joinClasses from 'utils/join-classes';
 import formatTags from 'utils/posts/format-tags';
-import useWindowDimensions from 'hooks/use-width';
-import { useHasMounted } from 'hooks/use-has-mounted';
-import { nanoid } from 'nanoid';
-import Tag from './Tag';
-import styles from './Tags.module.css';
+
 import { ArrowIcon } from '../../svg/icons';
+
+import Tag from './Tag';
+
+import styles from './Tags.module.css';
 
 interface TagProps {
   setActivePosts: (posts: Post[]) => void;
@@ -120,7 +122,7 @@ const TagComponent: React.FC<TagProps> = ({
     <div className={styles.tags}>
       {visibleTags.map((tag, index) => (
         <Tag
-          key={nanoid(10)}
+          key={`${tag}T`}
           tag={tag}
           count={tagValues[index]}
           onTagClick={() => {

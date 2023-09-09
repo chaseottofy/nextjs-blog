@@ -23,7 +23,7 @@ const debounce: DebounceFunc = (func, wait) => {
 };
 
 export default function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState({ width: 500, height: 500 });
+  const [windowDimensions, setWindowDimensions] = useState({ width: 200, height: 500 });
 
   useEffect(() => {
     function handleResize() {

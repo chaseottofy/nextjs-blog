@@ -1,11 +1,13 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
 import { Post } from 'contentlayer/generated';
-import ThemeToggle from '../Button/theme-toggle';
-import styles from './Header.module.css';
+import Image from 'next/image';
+import Link from 'next/link';
+
 import { CircleIcon } from '../../svg/icons';
+import ThemeToggle from '../Button/theme-toggle';
+
+import styles from './Header.module.css';
 
 interface HeaderInterface {
   activePosts: Post[];

@@ -1,8 +1,9 @@
-import Link from 'next/link';
-import { nanoid } from 'nanoid';
 import imagePlaceholders from 'data/image-placeholders';
-import styles from './Sub-header.module.css';
+import Link from 'next/link';
+
 import getDateParsed from '../../utils/get-date-parsed';
+
+import styles from './Sub-header.module.css';
 
 interface SubHeaderProps {
   title: string;
@@ -47,17 +48,7 @@ const SubHeader: React.FC<SubHeaderProps> = ({
           <Link className={styles.goback} href='/'>← Back to Home</Link>
         </div>
         <h1 className={styles.title}>
-          {
-            // if title has a dash, split it into two lines
-            title.includes('-') ? title.split('-').map((line) => (
-              <span
-                key={nanoid(10)}
-                className={styles.titleLine}
-              >
-                {line}
-              </span>
-            )) : title
-          }
+          {title}
         </h1>
       </div>
 
@@ -67,12 +58,10 @@ const SubHeader: React.FC<SubHeaderProps> = ({
             <div className={styles.tags}>
               {tags.map((tag) => (
                 <Link
-                  key={nanoid(10)}
+                  key={`${tag}SH`}
                   href={`/tags/${tag}`}
                 >
-                  <span
-                    className={styles.tag}
-                  >
+                  <span className={styles.tag}>
                     #
                     {tag}
                     &nbsp;

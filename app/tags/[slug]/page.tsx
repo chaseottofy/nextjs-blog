@@ -1,10 +1,11 @@
+import PostList from 'components/PostList/Post-list';
 import { allPosts } from 'contentlayer/generated';
+import { MetadataProps, postParams } from 'models/interfaces';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { postParams, MetadataProps } from 'models/interfaces';
-import formatTags from 'utils/posts/format-tags';
 import formatTag from 'utils/posts/format-tag';
-import PostList from 'components/PostList/Post-list';
+import formatTags from 'utils/posts/format-tags';
+
 import styles from './page.module.css';
 
 async function getPostsFromSlug(params: postParams) {

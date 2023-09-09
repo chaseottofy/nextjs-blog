@@ -21,7 +21,19 @@ export const NeueMontreal = localFont({
   display: 'swap',
   preload: false,
   variable: '--neue',
-  fallback: ['system-ui', 'sans-serif'],
+  fallback: [
+    'apple-system',
+    'blinkmacsystemfont',
+    'segoe ui',
+    'roboto',
+    'oxygen',
+    'ubuntu',
+    'cantarell',
+    'fira sans',
+    'droid sans',
+    'helvetica neue',
+    'sans-serif'
+  ],
 });
 export const BasementExpanded = localFont({
   src: [
@@ -33,19 +45,18 @@ export const BasementExpanded = localFont({
   ],
   display: 'block', // No other font matches its weird height, so block it
   variable: '--basement-expanded',
-  fallback: ['Georgia', 'system-ui', 'sans-serif'],
+  fallback: [
+    'apple-system',
+    'blinkmacsystemfont',
+    'segoe ui',
+    'roboto',
+    'oxygen',
+    'ubuntu',
+    'cantarell',
+    'fira sans',
+    'droid sans',
+    'helvetica neue',
+    'sans-serif'
+  ],
   preload: false,
 });
-// export const BasementBlack = localFont({
-//   src: [
-//     {
-//       path: '../public/Basement-black.woff2',
-//       weight: '800',
-//       style: 'normal',
-//     },
-//   ],
-//   display: 'swap',
-//   variable: '--basement-black',
-//   fallback: ['Georgia', 'system-ui', 'sans-serif'],
-//   preload: false,
-// });

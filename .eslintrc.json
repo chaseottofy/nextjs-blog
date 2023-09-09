@@ -1,31 +1,34 @@
 {
   "extends": [
     "next",
+    "airbnb",
+    "airbnb-typescript/base",
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "plugin:unicorn/all",
-    "airbnb",
-    "airbnb-typescript/base"
+    "plugin:jsx-a11y/strict",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
   ],
   "plugins": [
-    "react-hooks"
+    "unicorn",
+    "react",
+    "import",
+    "react-hooks",
+    "jsx-a11y",
+    "simple-import-sort"
   ],
   "parserOptions": {
+    "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "project": [
       "./tsconfig.json"
     ]
   },
   "rules": {
-    "import/extensions": [
-      "error",
-      "always",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
     "react-hooks/exhaustive-deps": "off",
     "class-methods-use-this": "off", // allow private methods as helpers
     "no-restricted-syntax": "off", // allow for...of
@@ -44,10 +47,45 @@
     "unicorn/prefer-logical-operator-over-ternary": "off",
     "@typescript-eslint/no-use-before-define": "off",
     "spaced-comment": "off",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          // Side effect imports.
+          [
+            "^\\u0000"
+          ],
+          // Packages. 'react' related packages come first.
+          [
+            "^react",
+            "^@?\\w"
+          ],
+          // Parent imports. Put '..' last.
+          [
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$"
+          ],
+          // Other relative imports. Put same-folder imports and './' last.
+          [
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ],
+          // Style imports. Put modules last.
+          [
+            "^.+\\.s?css$",
+            "^.+\\.module\\.s?css$"
+          ]
+        ]
+      }
+    ],
     "jsx-quotes": [
       "error",
       "prefer-single"
     ],
+    // allow JSX inside .TSX
+    // https://stackoverflow.com/a/58835704
     "react/jsx-filename-extension": [
       1,
       {

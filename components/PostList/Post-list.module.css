@@ -52,7 +52,7 @@
 .featuredImage {
   height: 100%;
   position: relative;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .featuredImage img {
@@ -106,7 +106,7 @@
 .subExcerpt {
   padding-top: .5rem;
   font-size: .8rem;
-  color: var(--white2);
+  color: var(--white3);
   letter-spacing: .03em;
   max-width: 39.5833333333vw;
 }
@@ -213,7 +213,7 @@
 
 .featuredRightBottom p {
   font-size: max(14px, 1.4583333333vw);
-  color: var(--white2);
+  color: var(--white3);
   letter-spacing: -.01em;
 }
 
@@ -261,7 +261,7 @@
 }
 
 .featuredTags {
-  color: var(--white2);
+  color: var(--white3);
   padding-top: 1rem;
   font-size: .75rem;
 }
@@ -291,12 +291,6 @@
   color: var(--white1);
   font-weight: 500;
   font-size: 1.25rem;
-}
-
-@media screen and (max-width: 1240px) {
-  .featuredPostCard {
-    height: 21rem;
-  }
 }
 
 @media screen and (max-width: 1024px) {

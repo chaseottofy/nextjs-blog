@@ -13,11 +13,10 @@ const Tag: React.FC<TagComponentProps> = ({
     className={tagClassName}
     type='button'
   >
-    <span>
-      {tag}
-&nbsp;
-    </span>
-    <span>{count}</span>
+    {tag}
+    {' '}
+    &nbsp;
+    {count}
   </button>
 );
 

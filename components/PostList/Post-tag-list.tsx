@@ -1,5 +1,3 @@
-import { nanoid } from 'nanoid';
-
 interface TagListProps {
   tags: string[];
   wrapperCName: string;
@@ -14,7 +12,10 @@ const TagList: React.FC<TagListProps> = ({
   <div className={wrapperCName}>
     {tags.map((tag, index) => (
       index <= 2 && (
-      <span key={nanoid(10)} className={tagCName}>
+      <span
+        key={tag}
+        className={tagCName}
+      >
         #
         {tag}
             &nbsp;

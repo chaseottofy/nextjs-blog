@@ -1,32 +1,19 @@
-import '../styles/global.scss';
 import React from 'react';
-import type { Metadata } from 'next';
-import getPostsSorted from 'utils/posts/get-posts-sorted';
 import { Post } from 'contentlayer/generated';
-import { portfolioLink } from 'data/constants';
-import styles from './layout.module.css';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import {
-  NeueMontreal,
-  BasementExpanded,
-} from '../utils/get-local-fonts';
-import ThemeProvider from '../providers/next-theme-provider';
+import getPostsSorted from 'utils/posts/get-posts-sorted';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Nextjs blog example',
-  keywords: 'nextjs, blog, react, react blog, nextjs blog',
-  authors: [{ name: 'Chase Ottofy', url: portfolioLink }],
-  icons: [
-    {
-      rel: 'icon',
-      url: '/logo.svg',
-      sizes: 'any',
-      type: 'image/svg+xml',
-    },
-  ],
-};
+import Footer from '../components/Footer/Footer';
+import Header from '../components/Header/Header';
+import ThemeProvider from '../providers/next-theme-provider';
+import {
+  BasementExpanded,
+  NeueMontreal,
+} from '../utils/get-local-fonts';
+
+import '../styles/global.scss';
+import styles from './layout.module.css';
+
+export { BASE_META_DATA as metadata } from 'data/constants';
 
 interface RootLayoutInterface {
   children: React.ReactNode;

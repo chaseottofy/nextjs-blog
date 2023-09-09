@@ -1,20 +1,24 @@
+// import { memo, useState } from 'react';
 import { memo } from 'react';
 import { Post } from 'contentlayer/generated';
 import Image from 'next/image';
+
 import imagePlaceholders from '../../data/image-placeholders';
 
 const PostCardImage: React.FC<{ post: Post; }> = memo(({ post }) => {
   const placeholderImageSrc = imagePlaceholders[post.slugAsParams];
-
   return (
     <Image
       src={post?.banner ? post.banner : placeholderImageSrc}
       placeholder={placeholderImageSrc}
       alt={post.title}
+      style={{
+        objectFit: 'cover',
+      }}
       fill
-      loading='eager'
+      // loading='eager'
       priority
-      quality={50}
+      quality={40}
       sizes='(max-width:840px) 100vw, 60vw'
     />
   );
