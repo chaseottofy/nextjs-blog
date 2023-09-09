@@ -12,8 +12,8 @@ const PostCardImage: React.FC<{ post: Post; }> = memo(({ post }) => {
       alt={post.title}
       fill
       quality={50}
-      // loading='eager'
-      // priority
+      loading='eager'
+      priority
       style={{
         objectFit: 'cover',
         aspectRatio: '16/9',
