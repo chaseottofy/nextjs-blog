@@ -38,19 +38,19 @@
 .colRight a {
   color: var(--white1);
   text-transform: uppercase;
+  padding: .25rem 0;
+  margin-right: .5rem;
 }
 
 .colLeft a {
   font-size: .75rem;
   text-transform: uppercase;
   font-family: var(--basement-expanded);
-  padding: .325rem .5rem;
 }
 
 .colRight a {
   font-weight: 500;
   letter-spacing: -.5px;
-  padding: .325rem .5rem;
 }
 
 .colRight a:not(:last-child) {
@@ -66,7 +66,6 @@
   height: 40px;
   background: #333;
   border-radius: 50%;
-  transform: scaleX(1.1);
 }
 
 .colRight {
@@ -79,7 +78,6 @@
   width: .875rem;
   height: .875rem;
   margin-right: .5rem;
-  /* background: var(--white1); */
   border-radius: 50%;
 }
 
@@ -125,9 +123,9 @@
   transition: opacity .2s ease-in-out;
 }
 
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 640px) {
   .wrapper {
-    padding: 0 .5rem;
+    padding: 0 var(--pad-lr);
   }
 }
 

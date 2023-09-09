@@ -11,10 +11,12 @@ import styles from './page.module.css';
 async function getPostsFromSlug(params: postParams) {
   const formattedSlug = formatTag(params.slug);
   const posts = allPosts.find((post) => {
+    // console.log(formatTags(post.tags).sort((a, b) => b.localeCompare(a)))
     const postTags = formatTags(post.tags);
     return postTags.includes(formattedSlug);
   });
 
+  console.log(posts);
   return posts;
 }
 
@@ -37,6 +39,8 @@ export async function generateMetadata({
 
 const TagLayout = async ({ params }: MetadataProps) => {
   const posts = await getPostsFromSlug(params);
+  // console.log();
+
   if (!posts) {
     notFound();
   }

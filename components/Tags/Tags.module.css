@@ -1,8 +1,8 @@
 .tags {
+  padding: .75rem .5rem;
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  padding: .75rem .5rem;
 }
 
 .tag,
@@ -33,7 +33,6 @@
   margin: 0 .5rem .5rem 0;
   font-size: .65rem;
   cursor: pointer;
-  /* border-radius: 9999px; */
   border-radius:5px;
 }
 
@@ -121,7 +120,9 @@
 }
 
 @media screen and (max-width: 640px) {
-
+  .tags {
+    padding: .75rem var(--pad-lr);
+  }
   .tag,
   .toggleButton,
   .clearButton {

@@ -1,5 +1,11 @@
 import type { Metadata } from 'next';
 
+// If you are not using an svg for your favicon, update the following constants
+const FAVICON_SRC = '/logo.svg';
+const FAVICON_SIZE = 'any';
+const FAVICON_TYPE = 'image/svg+xml';
+const FAVICON_REL = 'icon';
+
 /**
  * @see {@link @app/layout.tsx#metaData} - used for meta tag (portfolio)
  * @see {@link @components/Footer/Footer.tsx#Footer} - all links are used in footer
@@ -37,21 +43,19 @@ export const AUTHOR_NAME = "Ottofy";
 
 export const BASE_KEYWORDS = [
   AUTHOR_NAME,
-  'Next.js blog',
-  'React blog',
+  'next.js blog',
+  'react blog',
   'Typescript',
-  'Contentlayer',
-  'Web development',
-  'Frontend development',
-  'Modern web frameworks',
-  'Chase Ottofy portfolio',
-  'Web developer',
+  'contentlayer',
+  'web development',
+  'frontend development',
+  'modern web frameworks',
 ];
 
 export const BASE_META_DATA: Metadata = {
-  title: AUTHOR_NAME + "'s Blog - Web Development & Insights",
-  description: `Chase Ottofy's personal blog on web development. Dive into topics around Next.js, React, Typescript, Contentlayer and more. Discover insights and techniques for modern web development.`,
-  keywords: BASE_KEYWORDS.join(', ').toLowerCase(),
+  title: `Blog | ${AUTHOR_NAME}`,
+  description: `${AUTHOR_NAME}'s personal blog on web development. Dive into topics around Next.js, React, Typescript, Contentlayer and more. Discover insights and techniques for modern web development.`,
+  keywords: BASE_KEYWORDS.join(', '),
   authors: [
     {
       name: AUTHOR_NAME,
@@ -72,10 +76,10 @@ export const BASE_META_DATA: Metadata = {
   },
   icons: [
     {
-      rel: 'icon',
-      url: '/logo.svg',
-      sizes: 'any',
-      type: 'image/svg+xml',
+      rel: FAVICON_REL,
+      url: FAVICON_SRC,
+      sizes: FAVICON_SIZE,
+      type: FAVICON_TYPE,
     },
   ],
 };

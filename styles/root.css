@@ -1,6 +1,4 @@
 :root {
-  /* --Neue: "Neue Montreal", -apple-system, blinkmacsystemfont, segoe ui, roboto, oxygen, ubuntu, cantarell, fira sans, droid sans, helvetica neue, sans-serif;
-  --CentrionRegular: "Centrion-Regular", Georgia; */
   --transition-left: left .2s ease-in-out;
   --transition-width: width .2s ease-in-out;
   --transition-prop-formui: border-color, background, color, transform, box-shadow;
@@ -12,6 +10,8 @@
   --md: 490px;
   --sm: 380px;
 
+  --pad-lr: max(16px, 4.2666666667vw);
+
   --z-header: 100;
   --z-modal: 800;
   --z-toast: 900;
@@ -19,7 +19,7 @@
   --header-height: 64px;
   --footer-height: 6rem;
 
-  --min-body-height: calc(100vh - 5rem);
+  --min-body-height: calc(100vh - var(--header-height));
 
   --black0: rgba(17, 19, 20, 0.5);
   --black1: #000000;
@@ -35,9 +35,10 @@
   --grey1: #a6a6a6;
   --grey2: #474747;
 
-  --primary1: #0761d1;
-  --primary2: #0070f3;
-  --primary3: #3291ff;
+  --primary-header: #12b6fb;
+  --primary1: #12b6fb;
+  --primary2: #12b6fb;
+  --primary3: #12b6fb;
   --red1: #cf007a;
   --red2: #c0103e;
   --red3: #a60731;
@@ -54,29 +55,26 @@
   --border-2: 1px solid var(--white2);
   --border-3: 1px solid #444;
 
-  --offsetblack0: rgba(0,0,0,.8);
-  --offsetblack1: rgba(0,0,0,.6);
-  --offsetblack2: hsla(0,0%,9%,.6);
-  --offsetblack3: hsla(0,0%,9%,.1);
-  --offsetwhite0: hsla(0,0%,100%,0);
-  --offsetwhite1: hsla(0,0%,100%,.05);
-  --offsetwhite2: hsla(0,0%,100%,.1);
+  --offsetblack0: rgba(0, 0, 0, .8);
+  --offsetblack1: rgba(0, 0, 0, .6);
+  --offsetblack2: hsla(0, 0%, 9%, .6);
+  --offsetblack3: hsla(0, 0%, 9%, .1);
+  --offsetwhite0: hsla(0, 0%, 100%, 0);
+  --offsetwhite1: hsla(0, 0%, 100%, .05);
+  --offsetwhite2: hsla(0, 0%, 100%, .1);
 
-  --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, var(--primary1) 0%, var(--primary2) 90%);
-
-  --linear-1: linear-gradient(to top, var(--black3) 0, transparent 100%),
-    linear-gradient(180deg, var(--black1) 0, var(--black2) 40%);
-  --linear-2: linear-gradient(to bottom, var(--black1) 0, transparent 100%),
-    linear-gradient(180deg, var(--black1) 0, var(--black0) 20%);
-  --linear-3: linear-gradient(to right bottom, #333, #111);
   --linear-4: linear-gradient(to right bottom, var(--primaryinvert1), #111);
-  --linear-5: linear-gradient(240deg, var(--primary1) 0, var(--primary2) 50%, var(--primary3));
   --linear-6: linear-gradient(0deg, var(--offsetwhite1), var(--offsetwhite1)), radial-gradient(50% 50%at 50% 100%, var(--offsetwhite2) 0, var(--offsetwhite0) 100%);
+
+  --linear-offset1: linear-gradient(180deg, rgba(0, 0, 0, .95) 0, rgba(0, 0, 0, .8) 50%, rgba(0, 0, 0, .5) 100%);
+  --linear-offset2: linear-gradient(180deg, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, .5) 50%, rgba(0, 0, 0, 1) 100%);
 }
 
 [data-theme='light'] {
-  --black0: #f9f9f9;
-  --black1: #efefef;
+  /* --black0: #f9f9f9; */
+  /* --black1: #efefef; */
+  --black0: #ffffff;
+  --black1: #ffffff;
   --black2: #a8a8a8;
   --black3: #efefef;
 
@@ -91,33 +89,32 @@
   --selection: #7fffe1;
 
   --link: #1684ad;
-  --primary1: #0761d1;
-  --primary2: #0070f3;
-  --primary3: #3291ff;
+  /* --primary1: #0761d1; */
+  /* --primary2: #0070f3; */
+  /* --primary3: #3291ff; */
+  /* --primary-header: #00131a; */
+  --primary-header: #00b2ff;
+  --primary1: #12b6fb;
+  --primary2: #12b6fb;
+  --primary3: #12b6fb;
   --primarydark1: #0761d1;
   --primaryinvert1: #ad1638;
 
   --border-1: 1px solid var(--grey2);
   --border-2: 1px solid var(--white2);
 
-  --offsetblack0: hsla(0,0%,100%,.9);
-  --offsetblack1: hsla(0,0%,100%,.7);
-  --offsetblack2: hsla(0,0%,100%,.5);
-  --offsetblack3: hsla(0,0%,100%,.2);
+  --offsetblack0: hsla(0, 0%, 100%, .9);
+  --offsetblack1: hsla(0, 0%, 100%, .7);
+  --offsetblack2: hsla(0, 0%, 100%, .5);
+  --offsetblack3: hsla(0, 0%, 100%, .2);
   --offsetwhite0: transparent;
-  --offsetwhite1: rgba(0,0,0,.2);
-  --offsetwhite2: rgba(0,0,0,.1);
+  --offsetwhite1: rgba(0, 0, 0, .2);
+  --offsetwhite2: rgba(0, 0, 0, .1);
 
-  --radial-1: radial-gradient(circle farthest-corner at 50.4% 50.5%, #fa0828 0%, #f8425e 90%);
-
-  --linear-1: linear-gradient(to top, var(--black1) 0, transparent 100%),
-    linear-gradient(180deg, var(--black1) 0, var(--black3) 40%);
-  --linear-2: linear-gradient(to bottom, var(--black0) 0, transparent 40%),
-    linear-gradient(to top, var(--black1) 0, var(--black3) 40%);
-  --linear-3: linear-gradient(0deg, rgba(0, 0, 0, .1), rgba(0, 0, 0, .1)), radial-gradient(50% 50%at 50% 100%, rgba(0, 0, 0, .3) 0, transparent 100%);
   --linear-4: linear-gradient(to right bottom, var(--primaryinvert1), #111);
-  --linear-5: linear-gradient(240deg, var(--primary1) 0, var(--primary2) 50%, var(--primary3));
   --linear-6: linear-gradient(0deg, var(--offsetwhite0), var(--offsetwhite1)), radial-gradient(50% 50%at 50% 100%, var(--offsetblack3) 20%, var(--offsetwhite0) 100%);
+  --linear-offset1: linear-gradient(180deg, rgba(255, 255, 255, .8) 0, rgba(255, 255, 255, .9) 50%, rgba(255, 255, 255, 1) 100%);
+  --linear-offset2: linear-gradient(180deg, rgba(255, 255, 255, .3) 0, rgba(255, 255, 255, .5) 50%, var(--black1) 100%);
 }
 
 body {
@@ -140,7 +137,7 @@ body {
 =====================================*/
 @media screen and (max-width: 1280px) {
   html {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 
@@ -168,8 +165,8 @@ body {
   }
 } */
 
-@media screen and (max-width: 390px) {
+/* @media screen and (max-width: 390px) {
   html {
     font-size: 15px;
   }
-}
+} */

@@ -17,7 +17,7 @@
 }
 
 .featuredPostCard {
-  height: 22rem;
+  height: 18rem;
 }
 
 .postCard {
@@ -121,7 +121,8 @@
 }
 
 .tag {
-  padding: 0 .125rem;
+  margin-right: .5rem;
+  margin-top: .25rem;
 }
 
 .featuredInfo,
@@ -212,7 +213,8 @@
 }
 
 .featuredRightBottom p {
-  font-size: max(14px, 1.4583333333vw);
+  font-size: max(16px, 1.4583333333vw);
+  padding-top: .5rem;
   color: var(--white3);
   letter-spacing: -.01em;
 }
@@ -262,8 +264,11 @@
 
 .featuredTags {
   color: var(--white3);
+  display: flex;
+  flex-wrap:wrap;
   padding-top: 1rem;
   font-size: .75rem;
+  padding-right: 1rem;
 }
 
 .postCard:hover {
@@ -300,6 +305,27 @@
 }
 
 @media screen and (max-width: 840px) {
+
+  .subExcerpt {
+    font-size: max(15px, 1.6vw);
+  }
+
+  .featuredInfoCol span:first-child {
+    font-size: max(14px, 1.6vw);
+  }
+
+  .featuredInfoCol span:not(:first-child) {
+    font-size: max(15px, 1.6vw);
+  }
+
+  .featuredRightBottom p {
+    font-size: max(15px, 1.6vw);
+  }
+
+  .featuredPostCard {
+    height: 16rem;
+  }
+
   .featuredPostCard:first-child .col1 {
     padding-right: 0;
   }
@@ -309,13 +335,16 @@
     width: 100%;
   }
 
+  .subCol {
+    padding: 1rem;
+  }
+
   .featuredImage {
     width: 100vw;
   }
 
   .featuredImage::after {
-    background: var(--offsetblack1);
-    opacity: .4;
+    background: var(--linear-offset1);
     position: absolute;
     top: 0;
     left: 0;
@@ -324,14 +353,19 @@
     content: "";
   }
 
+  .featuredImage img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
   .featuredRightWrapper {
+    padding: 1rem;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 1rem 1rem;
-    background: var(--offsetblack1);
   }
 
   .lowerInfoRight {
@@ -355,9 +389,27 @@
     text-align: end;
     justify-content: space-between;
   }
+}
 
-  .featuredImage img {
-    filter: blur(10px);
+@media screen and (max-width: 640px) {
+  .featuredPostCard {
+    height: 20rem;  
+  }
+
+  .subCol {
+    padding: 1rem var(--pad-lr);
+  }
+
+  .featuredRightWrapper {
+    padding: 1rem var(--pad-lr);
+  }
+
+  .featuredRightBottom {
+    padding-top: 2rem;
+  }
+
+  .lowerInfoLeft {
+    padding-right: var(--pad-lr);
   }
 }
 

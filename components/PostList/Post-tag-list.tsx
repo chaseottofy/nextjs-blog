@@ -11,16 +11,13 @@ const TagList: React.FC<TagListProps> = ({
 }) => (
   <div className={wrapperCName}>
     {tags.map((tag, index) => (
-      index <= 2 && (
       <span
-        key={tag}
+        key={`${tag}${index}`}
         className={tagCName}
       >
         #
         {tag}
-            &nbsp;
       </span>
-      )
     ))}
   </div>
 );

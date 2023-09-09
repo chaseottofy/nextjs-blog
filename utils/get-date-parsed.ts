@@ -1,9 +1,13 @@
 type DateFormat = 'MM.dd.yy' | 'LLLL d, yyyy';
 
 const getDateParsed = (dateString: string, formatType: DateFormat) => {
+  // const monthNames = [
+  //   'January', 'February', 'March', 'April', 'May', 'June',
+  //   'July', 'August', 'September', 'October', 'November', 'December'
+  // ];
   const monthNames = [
-    'January', 'February', 'March', 'April', 'May', 'June',
-    'July', 'August', 'September', 'October', 'November', 'December'
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'
   ];
 
   const date = new Date(dateString);

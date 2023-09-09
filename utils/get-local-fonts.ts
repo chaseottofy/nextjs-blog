@@ -60,3 +60,31 @@ export const BasementExpanded = localFont({
   ],
   preload: false,
 });
+
+/*
+export const BasementExpanded = localFont({
+  src: [
+    {
+      path: '../public/Basement-expanded.woff2',
+      weight: '900',
+      style: 'normal',
+    },
+  ],
+  display: 'block', // No other font matches its weird height, so block it
+  variable: '--basement-expanded',
+  fallback: [
+    'apple-system',
+    'blinkmacsystemfont',
+    'segoe ui',
+    'roboto',
+    'oxygen',
+    'ubuntu',
+    'cantarell',
+    'fira sans',
+    'droid sans',
+    'helvetica neue',
+    'sans-serif'
+  ],
+  preload: false,
+});
+*/

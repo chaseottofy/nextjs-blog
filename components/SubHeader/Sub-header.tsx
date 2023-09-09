@@ -1,9 +1,10 @@
-import imagePlaceholders from 'data/image-placeholders';
 import Link from 'next/link';
 
 import getDateParsed from '../../utils/get-date-parsed';
 
 import styles from './Sub-header.module.css';
+
+import OverlayNoise from 'components/Overlay/Overlay-noise';
 
 interface SubHeaderProps {
   title: string;
@@ -16,36 +17,22 @@ interface SubHeaderProps {
 const SubHeader: React.FC<SubHeaderProps> = ({
   title, date, author, tags, slug,
 }) => {
-  const placeholderImage = imagePlaceholders[slug]
-    ? imagePlaceholders[slug]
-    : imagePlaceholders.default;
 
   return (
     <section
       className={styles.subheader}
     >
-      <svg className={styles.grad}>
-        <filter id='grainy' x='0' y='0' width='100%' height='100%'>
-          <feTurbulence type='fractalNoise' baseFrequency='.537' />
-          <feColorMatrix type='saturate' values='0' />
-          <feBlend in='SourceGraphic' mode='multiply' />
-        </filter>
-      </svg>
-
-      <div
-        className={styles.overlay}
-        style={{
-          backgroundImage: `url(${placeholderImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-      <div className={styles.overlayNoise} />
+      <OverlayNoise />
+      <div className={styles.topMeta}>
+        <span>
+          {getDateParsed(date, 'LLLL d, yyyy')}
+        </span>
+        <span>by: {author}</span>
+      </div>
 
       <div className={styles.top}>
         <div className={styles.gobackwrapper}>
-          <Link className={styles.goback} href='/'>← Back to Home</Link>
+          <Link className={styles.goback} href='/'>← Back To Home</Link>
         </div>
         <h1 className={styles.title}>
           {title}
@@ -53,32 +40,21 @@ const SubHeader: React.FC<SubHeaderProps> = ({
       </div>
 
       <div className={styles.bottom}>
-        <div className={styles.column}>
-          <div className={styles.content}>
-            <div className={styles.tags}>
-              {tags.map((tag) => (
-                <Link
-                  key={`${tag}SH`}
-                  href={`/tags/${tag}`}
-                >
-                  <span className={styles.tag}>
-                    #
-                    {tag}
-                    &nbsp;
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.column}>
-          <span className={styles.content}>
-            {getDateParsed(date, 'LLLL d, yyyy')}
-          </span>
-          <span className={styles.content}>{author}</span>
-        </div>
+        {tags.map((tag) => (
+          <Link
+            key={`${tag}SH`}
+            href={`/tags/${tag}`}
+          >
+            <span className={styles.tag}>
+              #
+              {tag}
+              &nbsp;
+            </span>
+          </Link>
+        ))}
       </div>
+
+
     </section>
   );
 };
