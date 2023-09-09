@@ -148,7 +148,9 @@ const TagComponent: React.FC<TagProps> = ({
           {' '}
           tags
         </span>
-        <span><ArrowIcon /></span>
+        <span>
+          <ArrowIcon />
+        </span>
       </button>
       {
         activeTags.length > 0 && (

@@ -24,7 +24,10 @@ interface PostListProps {
   activePosts: Post[];
 }
 
-const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage }) => {
+const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({
+  post,
+  featuredImage,
+}) => {
   const placeholderImageSrc = imagePlaceholders[post.slugAsParams];
   const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
   const postExcerptFormatted = post.excerpt.length > 100
@@ -96,7 +99,9 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({ post, featuredImage
   );
 };
 
-const PostCard: React.FC<PostCardProps> = ({ post }) => {
+const PostCard: React.FC<PostCardProps> = ({
+  post,
+}) => {
   const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
   const postExcerptFormatted = post.excerpt.length > 140
     ? `${post.excerpt.slice(0, 140)}...`

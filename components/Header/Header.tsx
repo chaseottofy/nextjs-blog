@@ -26,11 +26,10 @@ const Header: React.FC<HeaderInterface> = ({ activePosts }) => (
           <Image
             src='/images/logo/echo.webp'
             alt='site logo'
-            loading='eager'
-            quality={80}
-            priority
+            quality={50}
             width={40}
             height={40}
+            loading='lazy'
           />
         </span>
       </div>

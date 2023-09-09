@@ -355,6 +355,10 @@
     text-align: end;
     justify-content: space-between;
   }
+
+  .featuredImage img {
+    filter: blur(10px);
+  }
 }
 
 @media screen and (max-width: 480px) {
