@@ -1,5 +1,6 @@
+import BackLink from 'components/BackLink/Back-link';
 import OverlayNoise from 'components/Overlay/Overlay-noise';
-import Link from 'next/link';
+import RelatedTags from 'components/Tags/Related/Related-tags';
 import getDateParsed from 'utils/get-date-parsed';
 
 import styles from './Sub-header.module.css';
@@ -29,27 +30,17 @@ const SubHeader: React.FC<SubHeaderProps> = ({
       </div>
 
       <div className={styles.top}>
-        <div className={styles.gobackwrapper}>
-          <Link className={styles.goback} href='/'>← Back To Home</Link>
-        </div>
+        <BackLink />
         <h1 className={styles.title}>
           {title}
         </h1>
       </div>
 
       <div className={styles.bottom}>
-        {tags.map((tag) => (
-          <Link
-            key={`${tag}SH`}
-            href={`/tags/${tag}`}
-          >
-            <span className={styles.tag}>
-              #
-              {tag}
-              &nbsp;
-            </span>
-          </Link>
-        ))}
+        <RelatedTags
+          relatedTags={tags}
+          tagLabel='Tags: '
+        />
       </div>
 
     </section>

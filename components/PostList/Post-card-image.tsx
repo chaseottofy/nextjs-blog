@@ -1,4 +1,3 @@
-// import { memo, useState } from 'react';
 import { memo } from 'react';
 import { Post } from 'contentlayer/generated';
 import imagePlaceholders from 'data/image-placeholders';
@@ -16,8 +15,9 @@ const PostCardImage: React.FC<{ post: Post; }> = memo(({ post }) => {
       priority
       style={{
         objectFit: 'cover',
+        objectPosition: 'center center',
         aspectRatio: '16/9',
-        filter: 'contrast(1.4)',
+        filter: 'contrast(1.3)',
       }}
       sizes='(max-width:840px) 100vw, 60vw'
       placeholder='blur'

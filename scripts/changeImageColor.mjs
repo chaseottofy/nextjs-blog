@@ -7,8 +7,9 @@ import { fileURLToPath } from 'url';
 const CHANGE_COLOR_MODES = {
   color: {
     modeName: 'color',
-    outputDir: '1920x1080',
-    rgb: { r: 18, g: 182, b: 251 },
+    outputDir: 'color',
+    // rgb: { r: 18, g: 182, b: 251 },
+    rgb: { r: 250, g: 8, b: 40 },
     resize: true,
   },
   greyscale: {
@@ -25,7 +26,7 @@ const RESIZE_OPTIONS = {
   fit: 'fill',
 };
 
-const QUALITY = 60;
+const QUALITY = 80;
 const CURRENT_MODE = CHANGE_COLOR_MODES.color; // CHANGE_COLOR_MODES[0]
 
 function get__filename() {

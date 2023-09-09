@@ -11,7 +11,7 @@
   --sm: 380px;
 
   --pad-lr: max(16px, 4.2666666667vw);
-  --pad-lr2: max(4px, 2vw);
+  --pad-lr2: max(4px, 3.6vw);
 
   --z-header: 100;
   --z-modal: 800;
@@ -30,25 +30,30 @@
 
   --white0: #f5f3f3;
   --white1: #efefef;
-  --white2: #a8a8a8;
+  --white2: #a0a0a0;
   --white3: #c8c6c6;
 
   --grey1: #a6a6a6;
   --grey2: #474747;
 
-  --primary-header: #12b4fa;
-  --primary1: #12b6fb;
+  /* --primary-header: #12b4fa; */
+  /* --primary1: #12b6fb;
   --primary2: #12b6fb;
-  --primary3: #12b6fb;
+  --primary3: #12b6fb; */
+  --offsetprimary1: rgba(202, 4, 30, .4);
+  --primary-header: #fa0828;
+  --primary1: #fa0828;
+  --primary2: #ca041e;
+  --primary3: #fa0828;
   --red1: #cf007a;
   --red2: #c0103e;
   --red3: #a60731;
 
-  --primaryinvert1: #600c1f;
+  --primaryinvert1: rgba(255, 255, 255, .2);
 
   --link: #1ba5d6;
 
-  --primarydark1: #062530;
+  --primarydark1: rgba(202, 4, 30, .4);
 
   --selection: #f81ce5;
 
@@ -60,6 +65,7 @@
   --offsetblack1: rgba(0, 0, 0, .6);
   --offsetblack2: hsla(0, 0%, 9%, .6);
   --offsetblack3: hsla(0, 0%, 9%, .1);
+  --offsetblack4: rgba(0, 0, 0, 0.1);
   --offsetwhite0: hsla(0, 0%, 100%, 0);
   --offsetwhite1: hsla(0, 0%, 100%, .05);
   --offsetwhite2: hsla(0, 0%, 100%, .1);
@@ -67,7 +73,7 @@
   --linear-4: linear-gradient(to right bottom, var(--primaryinvert1), #111);
   --linear-6: linear-gradient(0deg, var(--offsetwhite1), var(--offsetwhite1)), radial-gradient(50% 50%at 50% 100%, var(--offsetwhite2) 0, var(--offsetwhite0) 100%);
 
-  --linear-offset1: linear-gradient(180deg, rgba(0, 0, 0, .95) 0, rgba(0, 0, 0, .8) 50%, rgba(0, 0, 0, .5) 100%);
+  --linear-offset1: linear-gradient(180deg, rgba(0, 0, 0, .85) 0, rgba(0, 0, 0, .9) 60%, rgba(0, 0, 0, .95) 100%);
   --linear-offset2: linear-gradient(180deg, rgba(0, 0, 0, .3) 0, rgba(0, 0, 0, .5) 50%, rgba(0, 0, 0, 1) 100%);
 }
 
@@ -88,18 +94,21 @@
   --grey2: #646464;
 
   --selection: #7fffe1;
-
   --link: #1684ad;
   /* --primary1: #0761d1; */
   /* --primary2: #0070f3; */
   /* --primary3: #3291ff; */
   /* --primary-header: #00131a; */
-  --primary-header: #00b2ff;
-  --primary1: #12b6fb;
+  /* --primary-header: #474747; */
+  /* --primary1: #12b6fb;
   --primary2: #12b6fb;
-  --primary3: #12b6fb;
-  --primarydark1: #0761d1;
-  --primaryinvert1: #ad1638;
+  --primary3: #12b6fb; */
+  --primary-header: #000000;
+  --primary1: #fa0828;
+  --primary2: #fa0828;
+  --primary3: #fa0828;
+  --primarydark1: rgba(202, 4, 30, .9);
+  --primaryinvert1: rgba(0, 0, 0, .5);
 
   --border-1: 1px solid var(--grey2);
   --border-2: 1px solid var(--white2);
@@ -108,13 +117,17 @@
   --offsetblack1: hsla(0, 0%, 100%, .7);
   --offsetblack2: hsla(0, 0%, 100%, .5);
   --offsetblack3: hsla(0, 0%, 100%, .2);
+  /* --offsetblack4: rgba(0, 0, 0, 0.3); */
+  --offsetblack4: rgba(255, 255, 255, 0.1);
   --offsetwhite0: transparent;
-  --offsetwhite1: rgba(0, 0, 0, .2);
+
+  --offsetwhite1: rgba(0, 0, 0, .1);
   --offsetwhite2: rgba(0, 0, 0, .1);
 
   --linear-4: linear-gradient(to right bottom, var(--primaryinvert1), #111);
+  --linear-offset1: rgba(255, 255, 255, 1);
   --linear-6: linear-gradient(0deg, var(--offsetwhite0), var(--offsetwhite1)), radial-gradient(50% 50%at 50% 100%, var(--offsetblack3) 20%, var(--offsetwhite0) 100%);
-  --linear-offset1: linear-gradient(180deg, rgba(255, 255, 255, .8) 0, rgba(255, 255, 255, .9) 50%, rgba(255, 255, 255, 1) 100%);
+  /* --linear-offset1: linear-gradient(180deg, rgba(255, 255, 255, 1) 0, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, .9) 100%); */
   --linear-offset2: linear-gradient(180deg, rgba(255, 255, 255, .3) 0, rgba(255, 255, 255, .5) 50%, var(--black1) 100%);
 }
 

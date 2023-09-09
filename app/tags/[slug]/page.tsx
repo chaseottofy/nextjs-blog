@@ -1,3 +1,6 @@
+// import BackLink from 'components/Button/BackToHomeBtn/Back-to-home-btn';
+import BackLink from 'components/BackLink/Back-link';
+import OverlayNoise from 'components/Overlay/Overlay-noise';
 import PostList from 'components/PostList/Post-list';
 import RelatedTags from 'components/Tags/Related/Related-tags';
 import { allPosts, Post } from 'contentlayer/generated';
@@ -71,14 +74,13 @@ const TagLayout = async ({ params }: MetadataProps) => {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <h1 className={styles.title}>
-          #
-          {params.slug}
-        </h1>
+        <BackLink />
+        <OverlayNoise />
+        <h1 className={styles.title}>{params.slug}</h1>
         <span className={styles.subtitle}>
-          {`${postsLength} ${postsLength === 1 ? 'post' : 'posts'}`}
+          {/* {`${postsLength} ${postsLength === 1 ? 'post' : 'posts'}`}
           {': '}
-          &nbsp;
+          &nbsp; */}
           {
             postsLength > 1 ? (
               <>
@@ -86,7 +88,7 @@ const TagLayout = async ({ params }: MetadataProps) => {
               </>
             ) : (
               <>
-                {getDateParsed(posts[0].date, 'MM.dd.yy')}
+                {getDateParsed(posts[0].date, 'LLLL d, yyyy')}
               </>
             )
           }
@@ -96,6 +98,7 @@ const TagLayout = async ({ params }: MetadataProps) => {
             relatedTags.length > 0 && (
               <RelatedTags
                 relatedTags={relatedTags as string[]}
+                tagLabel='Related Tags: '
               />
             )
           }
