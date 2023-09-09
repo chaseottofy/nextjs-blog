@@ -2,7 +2,7 @@
 
 > **Warning**
 > This project is still a work in progress and is not ready for production use.
-> [See roadmap](#roadmap)
+<!-- > [See roadmap](#roadmap) -->
 <!-- ## Work in progress -->
 
 <img src="screenshots/screen3.jpg" width="700">
@@ -77,7 +77,7 @@ Passes the following audits:
 - 100% lighthouse score
 - Tested with disabled cache and simulated base throttling
 
-<img src="screenshots/screen_lh1.jpg" width="400">
+<img src="screenshots/screen_lh1.jpg">
 
 ## MDX
 
@@ -218,7 +218,6 @@ Below is an example of the difference it can make. This becomes more noticeable 
 - `contentlayer` : Bridge between MDX and TypeScript
 - `next-contentlayer` : Next.js plugin for contentlayer
 - `@code-hike/mdx` : MDX plugin that helps style code blocks
-- `date-fns` : Date formatting and ISO parsing ( no additional date-fn plugins )
 - `sharp` : Image processing ( no need to do anything with this one next.js automatically uses it )
 - `next-themes` : Theme provider for Next.js
 
