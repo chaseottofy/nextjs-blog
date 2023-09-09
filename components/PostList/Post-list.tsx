@@ -3,8 +3,8 @@ import { Post } from 'contentlayer/generated';
 import Link from 'next/link';
 import joinClasses from 'utils/join-classes';
 
-import imagePlaceholders from '../../data/image-placeholders';
-import getDateParsed from '../../utils/get-date-parsed';
+import imagePlaceholders from 'data/image-placeholders';
+import getDateParsed from 'utils/get-date-parsed';
 
 import PostCardImage from './Post-card-image';
 import TagList from './Post-tag-list';

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { BASE_URL } from '../data/constants';
+import { BASE_URL } from 'data/constants';
 
 const pages = [
   'posts',

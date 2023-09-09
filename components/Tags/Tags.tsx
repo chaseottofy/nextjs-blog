@@ -7,7 +7,7 @@ import useWindowDimensions from 'hooks/use-width';
 import joinClasses from 'utils/join-classes';
 import formatTags from 'utils/posts/format-tags';
 
-import { ArrowIcon } from '../../svg/icons';
+import { ArrowIcon } from 'svg/icons';
 
 import Tag from './Tag';
 

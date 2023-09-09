@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import getDateParsed from '../../utils/get-date-parsed';
+import getDateParsed from 'utils/get-date-parsed';
 
 import styles from './Sub-header.module.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SOCIAL_LINKS_ARRAY } from '../../data/constants';
+import { SOCIAL_LINKS_ARRAY } from 'data/constants';
 import CustomLink from '../CustomLink/Custom-link';
 
 import styles from './Footer.module.css';
