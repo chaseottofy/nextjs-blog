@@ -1,10 +1,14 @@
-import { allPosts } from 'contentlayer/generated';
+import { allPosts, Post } from 'contentlayer/generated';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import imagePlaceholders from 'data/image-placeholders';
+import OverlayNoise from 'components/Overlay/Overlay-noise';
 import { postParams, MetadataProps } from 'models/interfaces';
 import SubHeader from 'components/SubHeader/Sub-header';
-import MDXComponents from 'components/MDX/MDX-components';
-import styles from './page.module.css';
+import Image from 'next/image';
+import MDX from 'components/MDX/MDX-components'
+import styles from './page.module.css';  
+// import 'components/MDX/mdx.css';
 
 async function getPostFromSlug(params: postParams) {
   const post = allPosts.find((post) => {
@@ -41,6 +45,7 @@ export async function generateMetadata({
 
 const PostLayout = async ({ params }: MetadataProps) => {
   const post = await getPostFromSlug(params);
+
   if (!post) {
     notFound();
   }
@@ -53,9 +58,23 @@ const PostLayout = async ({ params }: MetadataProps) => {
         author={post.author}
         tags={post.tags}
       />
+
       <article className={styles.article}>
+        <p className={styles.excerpt}>
+          {post.excerpt}
+        </p>
+        <div className={styles.postBanner}>
+          <OverlayNoise />
+          <Image
+            src={post?.banner ? post.banner : imagePlaceholders.default}
+            alt={post.title}
+            fill
+            quality={100}
+          />
+        </div>
+
         <div className={styles.content}>
-          <MDXComponents code={post.body.code} />
+          <MDX code={post.body.code} />
         </div>
       </article>
     </div>

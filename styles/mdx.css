@@ -1,0 +1,60 @@
+[data-rehype-pretty-code-fragment] code {
+  display: grid;
+  padding: 0;
+  border-radius: 0;
+  border-width: 0;
+  min-width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: #000000;
+  overflow-wrap: break-word;
+  background-color: transparent;
+  counter-reset: line;
+  box-decoration-break: clone;
+}
+
+[data-rehype-pretty-code-fragment] .line {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+ }
+
+[data-rehype-pretty-code-fragment] [data-line-numbers] > .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1rem;
+  text-align: right;
+  color: var(--white3);
+}
+
+[data-rehype-pretty-code-fragment] .line--highlighted {
+  background: var(--black2);
+}
+
+[data-rehype-pretty-code-fragment] .line-highlighted span {
+  position: relative;
+}
+
+[data-rehype-pretty-code-fragment] .word--highlighted {
+  background: var(--black2);
+  border-radius: var(--radius1);
+  opacity: .8;
+  padding: .25rem;
+}
+
+[data-rehype-pretty-code-title] {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  margin-top: 0;
+}

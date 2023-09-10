@@ -55,7 +55,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".contentlayer/generated",
-    "scripts/createImagePlaceholders.mjs",
   ],
   "exclude": [
     "node_modules",
