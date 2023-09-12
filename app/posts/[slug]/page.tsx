@@ -1,11 +1,11 @@
-import { allPosts, Post } from 'contentlayer/generated';
+import { allPosts } from 'contentlayer/generated';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import imagePlaceholders from 'data/image-placeholders';
-import OverlayNoise from 'components/Overlay/Overlay-noise';
+// import imagePlaceholders from 'data/image-placeholders';
+// import OverlayNoise from 'components/Overlay/Overlay-noise';
 import { postParams, MetadataProps } from 'models/interfaces';
 import SubHeader from 'components/SubHeader/Sub-header';
-import Image from 'next/image';
+// import Image from 'next/image';
 import MDX from 'components/MDX/MDX-components';
 import styles from './page.module.css';
 
@@ -49,7 +49,7 @@ const PostLayout = async ({ params }: MetadataProps) => {
     notFound();
   }
 
-  const placeholderImageSrc = imagePlaceholders[post.slugAsParams] || imagePlaceholders.default;
+  // const placeholderImageSrc = imagePlaceholders[post.slugAsParams] || imagePlaceholders.default;
 
   return (
     <div className={styles.page}>
@@ -61,10 +61,10 @@ const PostLayout = async ({ params }: MetadataProps) => {
       />
 
       <article className={styles.article}>
-        <p className={styles.excerpt}>
+        {/* <p className={styles.excerpt}>
           {post.excerpt}
-        </p>
-        <div className={styles.postBanner}>
+        </p> */}
+        {/* <div className={styles.postBanner}>
           <OverlayNoise />
           <Image
             src={post?.banner ? post.banner : placeholderImageSrc}
@@ -76,7 +76,7 @@ const PostLayout = async ({ params }: MetadataProps) => {
             alt={post.title}
             fill
           />
-        </div>
+        </div> */}
         <div className={styles.content}>
           <MDX code={post.body.code} />
         </div>

@@ -58,3 +58,44 @@
 [data-rehype-pretty-code-title] + pre {
   margin-top: 0;
 }
+
+.banner {
+  max-width: 100vw !important;
+  width: 100vw !important;
+  height: max(320px, 32vw) !important;
+  position: relative !important;
+}
+
+.banner img {
+  object-fit: cover !important;
+  width: 100vw !important;
+  height: max(320px, 32vw) !important;
+  position: relative !important;
+}
+
+.excerpt {
+  max-width: 100vw !important;
+  width: 80vw !important;
+  padding: 3rem 0;
+}
+
+.excerpt p {
+  font-weight: 400;
+  text-transform: capitalize;
+  font-size: 2vw;
+  transform: scaleY(.95);
+  line-height: 1.25 !important;
+  margin: 0 auto !important;
+}
+
+
+@media screen and (max-width: 740px) {
+  .excerpt {
+    line-height: 114%;
+    letter-spacing: -.01em;
+    font-size: max(20px, 5.3333333333vw);
+    margin: unset;
+    margin-top: max(24px, 6.4vw);
+    max-width: unset
+  }
+}

@@ -17,7 +17,7 @@
   /* min-height: var(--min-body-height); */
 }
 
-.excerpt {
+/* .excerpt {
   font-family: var(--neue);
   font-weight: 500;
   text-transform: capitalize;
@@ -28,7 +28,7 @@
   margin: 0 auto 5vw;
   max-width: 63.8541666667vw;
   line-height: 125%;
-}
+} */
 
 .postBanner {
   width: 100%;
@@ -46,7 +46,7 @@
   width: 100%;
   height: 100%;
   filter: url(#grainy);
-  opacity: .4;
+  opacity: .2;
   z-index: 1;
   top: 0;
   left: 0;
@@ -59,8 +59,8 @@
   margin: 0 auto 0 auto;
   width: 100%;
   height: 100%;
-  max-width: max(660px, 40.3645833333vw);
   font-size: max(18px, .9375vw);
+  max-width: max(660px, 40.3645833333vw);
   line-height: 1.55;
 }
 
@@ -115,7 +115,9 @@
 
 .content div {
   width: 100%;
-  margin: max(24px,1.6666666667vw) 0!important
+  margin: max(24px,1.6666666667vw) 0;
+  position:relative;
+  max-width: 100%;
 }
 
 .content a {
@@ -133,23 +135,7 @@
   overflow: auto;
 }
 
-/* .content span {
-  font-weight: 500;
-  margin-top: max(2px,.5333333333vw);
-  font-size: max(16px,4.2666666667vw);
-  line-height: max(19px,5.0666666667vw) 
-} */
-
 @media screen and (max-width: 740px) {
-  .excerpt {
-    line-height: 114%;
-    letter-spacing: -.01em;
-    font-size: max(20px, 5.3333333333vw);
-    margin: unset;
-    margin-top: max(24px, 6.4vw);
-    max-width: unset
-  }
-
   .content {
     font-size: max(16px, 4.2666666667vw);
     padding: 0 max(16px, 4.2666666667vw);

@@ -2,11 +2,9 @@
 // @eslint-
 'use client';
 
-// import * as React from 'react';
-// import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 import React from 'react';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import styles from './MDX-components.module.css';
 
 interface MDXComponents {
   h1: React.FC;
@@ -16,7 +14,8 @@ interface MDXComponents {
   p: React.FC;
   pre: React.FC;
   code: React.FC;
-  // Image: React.FC;
+  div: React.FC;
+  Image: React.FC<ImageProps>;
 }
 
 interface MDXComponentProps {
@@ -46,7 +45,12 @@ const MDXComponents: MDXComponents = {
   code: ({ className, ...props }: MDXComponentProps) => (
     <code className={className} {...props} />
   ),
-  // Image,
+  div: ({ className, ...props }: MDXComponentProps) => (
+    <div className={className} {...props} />
+  ),
+  Image: ({ className, ...props }: ImageProps) => (
+    <Image className={className} {...props} />
+  ),
 };
 
 interface MDXProps {
@@ -55,13 +59,12 @@ interface MDXProps {
 
 const MDX: React.FC<MDXProps> = ({ code }) => {
   const Component = useMDXComponent(code);
+
   return (
-    <div className={styles.mdx}>
-      <Component components={
-        MDXComponents as any
+    <Component components={
+      MDXComponents as any
       }
       />
-    </div>
   );
 };
 
