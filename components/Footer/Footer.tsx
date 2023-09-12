@@ -1,6 +1,7 @@
-import React from 'react';
-import { SOCIAL_LINKS_ARRAY } from '@/data/constants';
 import Link from 'next/link';
+import React from 'react';
+
+import { SOCIAL_LINKS_ARRAY } from '@/data/constants';
 
 import styles from './Footer.module.css';
 

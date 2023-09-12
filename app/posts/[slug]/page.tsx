@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { postParams, MetadataProps } from '@/models/interfaces';
 import SubHeader from '@/components/SubHeader/Sub-header';
-import MDXConfig from '@/components/MDX/MDX-components';
+import MDXConfig from '@/components/Mdx-comp';
 import styles from './page.module.css';
 
 async function getPostFromSlug(params: postParams) {

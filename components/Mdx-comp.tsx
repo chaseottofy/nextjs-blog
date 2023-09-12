@@ -1,9 +1,7 @@
-// @ts-ignore
-// @eslint-
 'use client';
 
-import Image, { ImageProps } from 'next/image';
 import React from 'react';
+import Image, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 interface MDXComponentsInterface {
@@ -61,10 +59,7 @@ const MDXConfig: React.FC<MDXProps> = ({ code }) => {
   const Component = useMDXComponent(code);
 
   return (
-    <Component components={
-      MDXComponents as any
-      }
-      />
+    <Component components={MDXComponents as any} />
   );
 };
 

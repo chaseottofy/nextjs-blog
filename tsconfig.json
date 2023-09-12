@@ -26,27 +26,6 @@
       "contentlayer/generated": [
         "./.contentlayer/generated"
       ],
-      // "components/*": [
-      //   "components/*"
-      // ],
-      // "providers/*": [
-      //   "providers/*"
-      // ],
-      // "styles/*": [
-      //   "styles/*"
-      // ],
-      // "public/*": [
-      //   "public/*"
-      // ],
-      // "utils/*": [
-      //   "utils/*"
-      // ],
-      // "data/*": [
-      //   "data/*"
-      // ],
-      // "svg/*": [
-      //   "svg/*"
-      // ],
     },
     "plugins": [
       {

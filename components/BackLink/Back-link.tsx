@@ -1,5 +1,5 @@
-import { memo } from 'react';
 import Link from 'next/link';
+import { memo } from 'react';
 
 import styles from './Back-link.module.css';
 

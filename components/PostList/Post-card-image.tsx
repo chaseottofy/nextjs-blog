@@ -1,7 +1,8 @@
-import { memo } from 'react';
 import { Post } from 'contentlayer/generated';
-import imagePlaceholders from '@/data/image-placeholders';
 import Image from 'next/image';
+import { memo } from 'react';
+
+import imagePlaceholders from '@/data/image-placeholders';
 
 const PostCardImage: React.FC<{ post: Post; }> = memo(({ post }) => {
   const placeholderImageSrc = imagePlaceholders[post.slugAsParams] || imagePlaceholders.default;

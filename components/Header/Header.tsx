@@ -1,13 +1,13 @@
 'use client';
 
 import { Post } from 'contentlayer/generated';
-import { useHasMounted } from '@/hooks/use-has-mounted';
 import Link from 'next/link';
+
+import { useHasMounted } from '@/hooks/use-has-mounted';
 import { Logo } from '@/svg/icons';
 import joinClasses from '@/utils/join-classes';
 
 import ThemeToggle from '../Button/theme-toggle';
-
 import styles from './Header.module.css';
 
 interface HeaderInterface {
