@@ -1,45 +1,54 @@
 import sharp from 'sharp';
 import fs from 'fs';
+import { 
+  initGlobalDirname,
+  convertImageToBase64,
+} from './utils.mjs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
+initGlobalDirname();
+/*
+package.json scripts:
+- 'npm run parseimg:placeholders' (generate placeholder images only)
+- 'npm run parseimg:base64'       (generate base64 strings only)
+- 'npm run parseimg'              (generate placeholder images then base64 strings)
+*/
+
+// convert the following constants to be represented in a class with getters and setters
 const OUTPUT_IMAGE_QUALITY = 2; // (1-100)
 const OUTPUT_IMAGE_SIZE = 0.2;  // (0-1)
 const OUTPUT_BASE_DIRECTORY = '../public/images/';
 const OUTPUT_FILE_NAME = 'imagePlaceholders';
 const TS_OUTPUT_FINAL_PATH = `../data/image-placeholders.ts`;
-const POSTS_DIRECTORY = 'posts/1920x1080';
+
+const POSTS_FOLDER = 'greyscale';
+const POSTS_DIRECTORY = `posts/${POSTS_FOLDER}`;
 const PLACEHOLDERS_DIRECTORY = 'placeholders';
+
 const IMAGE_FILE_EXTENSION = 'webp';
 const DATA_URL_PREFIX = `data:image/${IMAGE_FILE_EXTENSION};base64,`;
 const ACCEPTED_FILE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp'];
 const ACCEPTED_BASE64_OUTPUT_TYPES = ['mdx', 'json', 'ts'];
+
 const GENERATE_DEFAULT = true;
-const DEFAULT_DURL = 'data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAQBQCdASp4ADQAP83m63K/tzKwIQjL8DmJZwDUUAAugkMb49zfs5rwC5dYGpByZ3gAAOyQQzvPlXrRH//LM4a9YNDdlw7tkmeJHUa5S9rs5O5HJ+AAiMRXtXZK06TRO+QAAA==';
+const DEFAULT_DURL = 'data:image/webp;base64,UklGRhgCAABXRUJQVlA4IAwCAADQIQCdASqAAdgAP73e6G2+NzGqI3MpY8A3iWdu4WL9/zmekavyRX/3QGpmsqQeS0KmGaypB5OF5B5L5tN4eFl7slbA3Vf2Q9W1s5mRUZ+QeS0KmHgzkQUF9SnMTjXYQnlog7NChPK4lTLyDD/ZU9bLVG+QZ+EUWD3jAZE8OQc8NcATtQf4p/7HdwPGHe2D7NkDv29tprwy4ffQTqO8ozkoQ6nkcli4xyTtaw/eF0qNGTgCDKO6jTYCI5qtL2TnE61xJ5zb8/CYOueE3YcbrlvFtjbczoPJBncjtpIDnbvJZMYs13zLB7Ij4/9DgJGXEodR0Q8coZrQcYzfGKSfXQSLDtxTt7PzS2KfSLuoxZSDyWqQoW13gmAA/vKPN/JfBrevOtSH2KAYXunT7dxfmVqagf2QA4tJbsAAAxWgggbGNyYE23XgAeiqHd5T3hekwNLAwVLu7QiT/FH+peWW1tL2dpsHsudTaRZvM27USrXz5p1PdjyzzYbBsfasTVVYzxAB+whCWML4z5kL1Sq4imRy0KsrTvUs3hNgNmH4rZ5FZEBLLXBytSDzH/L2fUllvfFvij73mAtP+j0pK9xoIvUx/gSyQlYwnyDPoYbQ/g7WXgGVFLh14Kp/VfQBOGvtLn4IBC3J9LJj5Lpz+Uv0YNELuEyAVeyzmCFYhEgzVEieBBghACY8nrEZcgAAAA==';
 
-// hack to allow __dirname
-function get__filename() {
-  const error = new Error();
-  const stack = error.stack;
-  const match = stack.match(/^Error\s+at[^\r\n]+\s+at *(?:[^\r\n(]+\((.+?)(?::\d+:\d+)?\)|(.+?)(?::\d+:\d+)?) *([\r\n]|$)/);
-  const filename = match[1] || match[2];
-  if (filename.startsWith('file://')) {
-    return fileURLToPath(filename);
+let MODE = '';
+const args = process.argv.slice(2);
+for (const arg of args) {
+  if (arg.startsWith('--mode=')) {
+    MODE = arg.split('=')[1];
   }
-  return filename;
-}
-if (typeof __filename === 'undefined') {
-  global.__filename = get__filename();
-  global.__dirname = path.dirname(__filename);
 }
 
-async function convertImageToBase64(filePath) {
-  const buffer = await fs.promises.readFile(filePath);
-  return buffer.toString('base64');
-}
+// async function convertImageToBase64(filePath) {
+//   const buffer = await fs.promises.readFile(filePath);
+//   return buffer.toString('base64');
+// }
 
 // Define paths in outerscope to be used in both functions
 const postsDirectory = path.join(__dirname, `${OUTPUT_BASE_DIRECTORY}/${POSTS_DIRECTORY}`);
+// const postsDirectory = path.join(__dirname, `${OUTPUT_BASE_DIRECTORY}/${POSTS_DIRECTORY}`);
 const placeholderDirectory = path.join(__dirname, `${OUTPUT_BASE_DIRECTORY}/${PLACEHOLDERS_DIRECTORY}`);
 
 // If paths do not exist, create them
@@ -129,11 +138,22 @@ async function createBase64FromPlaceholder(type = 'ts') {
   await getResult();
 }
 
-createImagePlaceholder().catch(error => {
-  console.error("Error processing images:", error);
-}).then(() => {
-
+if (MODE === 'placeholder') {
+  createImagePlaceholder().catch(error => {
+    console.error("Error processing images:", error);
+  });
+} else if (MODE === 'base64') {
   createBase64FromPlaceholder('ts').catch(error => {
     console.error("Error processing images:", error);
   });
-});
+} else if (MODE === 'both') {
+  createImagePlaceholder().catch(error => {
+    console.error("Error processing images:", error);
+  }).then(() => {
+    createBase64FromPlaceholder('ts').catch(error => {
+      console.error("Error processing images:", error);
+    });
+  });
+} else {
+  throw new Error(`Invalid mode specified. Must be one of: placeholder, base64, both`);
+}

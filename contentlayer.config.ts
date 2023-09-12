@@ -34,8 +34,8 @@ export const Post = defineDocumentType(() => ({
     authorLink: { type: 'string', required: true, description: 'https://github.com/username' },
     excerpt: { type: 'string', required: true },
     banner: { type: 'string', required: false, description: '/images/posts/image-src.webp' },
-    isFeatured: { type: 'boolean', required: false },
-    isArchived: { type: 'boolean', required: false },
+    isFeatured: { type: 'boolean', required: false, default: true },
+    isArchived: { type: 'boolean', required: false, default: false },
     tags: { type: 'list', of: { type: 'string' }, required: true },
   },
   computedFields: {

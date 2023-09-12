@@ -1,14 +1,14 @@
-// import BackLink from 'components/Button/BackToHomeBtn/Back-to-home-btn';
 import BackLink from 'components/BackLink/Back-link';
 import OverlayNoise from 'components/Overlay/Overlay-noise';
 import PostList from 'components/PostList/Post-list';
 import RelatedTags from 'components/Tags/Related/Related-tags';
-import { allPosts, Post } from 'contentlayer/generated';
+import { Post } from 'contentlayer/generated';
 import { MetadataProps, postParams } from 'models/interfaces';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import getDateParsed from 'utils/get-date-parsed';
 import formatTag from 'utils/posts/format-tag';
+import getActivePosts from 'utils/posts/get-active-posts';
 import getPostsRange from 'utils/posts/get-posts-range';
 
 import styles from './page.module.css';
@@ -22,7 +22,7 @@ async function getPostsFromSlug(params: postParams): Promise<TagLayoutProps> {
   const tagList = new Set<string>();
   const formattedSlug = formatTag(params.slug);
 
-  const posts = allPosts.filter((post) => {
+  const posts = getActivePosts().filter((post) => {
     const postTags = post.tags;
     postTags[postTags.length - 1] = postTags[postTags.length - 1].replace(/\r$/, '');
 
@@ -74,26 +74,36 @@ const TagLayout = async ({ params }: MetadataProps) => {
   return (
     <div className={styles.page}>
       <div className={styles.header}>
-        <BackLink />
         <OverlayNoise />
-        <h1 className={styles.title}>{params.slug}</h1>
-        <span className={styles.subtitle}>
-          {/* {`${postsLength} ${postsLength === 1 ? 'post' : 'posts'}`}
-          {': '}
-          &nbsp; */}
-          {
-            postsLength > 1 ? (
-              <>
-                {getPostsRange(posts)}
-              </>
-            ) : (
-              <>
-                {getDateParsed(posts[0].date, 'LLLL d, yyyy')}
-              </>
-            )
-          }
-        </span>
-        <div className={styles.headerBottom}>
+
+        <div className={styles.topMeta}>
+          <span>
+            {`${postsLength} ${postsLength === 1 ? 'post' : 'posts'}`}
+            {': '}
+            &nbsp;
+            {
+              postsLength > 1 ? (
+                <>
+                  {getPostsRange(posts)}
+                </>
+              ) : (
+                <>
+                  {getDateParsed(posts[0].date, 'LLLL d, yyyy')}
+                </>
+              )
+            }
+          </span>
+        </div>
+
+        <div className={styles.top}>
+          <BackLink />
+          <h1 className={styles.title}>
+            #
+            {params.slug}
+          </h1>
+        </div>
+
+        <div className={styles.bottom}>
           {
             relatedTags.length > 0 && (
               <RelatedTags
@@ -103,6 +113,7 @@ const TagLayout = async ({ params }: MetadataProps) => {
             )
           }
         </div>
+
       </div>
       <article className={styles.content}>
         <ul className={styles.contentList}>

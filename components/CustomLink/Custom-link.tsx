@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface LinkProps {
   href: string;
@@ -13,15 +14,15 @@ const CustomLink: React.FC<LinkProps> = ({
   className,
   children,
 }) => (
-  <a
+  <Link
     className={className}
     href={href}
     title={title}
-    rel='noopener noreferrer'
     target='_blank'
+    rel='noopener noreferrer'
   >
     {children}
-  </a>
+  </Link>
 );
 
 export default CustomLink;

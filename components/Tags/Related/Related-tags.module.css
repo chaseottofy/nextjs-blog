@@ -9,21 +9,12 @@
   display: flex;
   font-size: max(15px, .8333333333vw);
   align-items: center;
-}
-
-.tagsWrapper p {
-  letter-spacing: -.02em;
-  text-transform: uppercase;
-  font-weight: 400;
-  padding-bottom: 0;
-  transform: scaleY(.9);
-  color: var(--white2);
-  text-align: start;
+  width: 100%;
 }
 
 .tags {
-  margin-top: 1.5rem;
-  padding: 1rem 0 .5rem 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
   display: flex;
   flex-wrap: wrap;
   position: relative;

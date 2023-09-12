@@ -32,6 +32,9 @@
       "providers/*": [
         "providers/*"
       ],
+      "styles/*": [
+        "styles/*"
+      ],
       "utils/*": [
         "utils/*"
       ],

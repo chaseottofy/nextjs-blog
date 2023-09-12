@@ -9,7 +9,9 @@ import {
 } from 'utils/get-local-fonts';
 import getPostsSorted from 'utils/posts/get-posts-sorted';
 
-import '../styles/global.scss';
+import 'styles/reset.css';
+import 'styles/root.css';
+import 'styles/mdx.css';
 import styles from './layout.module.css';
 
 export { BASE_META_DATA as metadata } from 'data/constants';

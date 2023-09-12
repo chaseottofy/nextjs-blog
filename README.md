@@ -11,6 +11,7 @@
 
 ## Table of Contents
 
+- [Installation](#installation)
 - [Features](#features)
   - [Image Handling](#custom-image-handling-system)
   - [Accessibility](#accessibility)
@@ -21,6 +22,10 @@
   - [Optimized](#optimized)
 - [Installation](#installation)
 - [MDX](#mdx)
+  - [MDX Schema](#mdx-schema)
+  - [Featured Posts](#featured-posts)
+  - [Supplying App with Posts](#supplying-app-with-posts)
+- [Images](#images)
 - [Types & Interfaces](#types--interfaces)
 - [Plugins](#plugins)
 - [Fonts](#fonts)
@@ -36,6 +41,7 @@
 git clone https://github.com/chaseottofy/nextjs-blog.git
 cd nextjs-blog
 npm install
+npm run dev
 ```
 
 ## Features
@@ -63,6 +69,7 @@ Passes the following audits:
 
 - Utilizes the latest Next.js features
   - New `/app` directory
+- Next.js is not the fastest framework I've ever used but it's the best one I've ever used.
 
 #### CSS Modules
 
@@ -76,6 +83,7 @@ Passes the following audits:
 
 - 100% lighthouse score
 - Tested with disabled cache and simulated base throttling
+- 0.0s cumulative layout shift across all pages
 
 <img src="screenshots/screen_lh1.jpg">
 
@@ -217,7 +225,6 @@ Below is an example of the difference it can make. This becomes more noticeable 
 
 - `contentlayer` : Bridge between MDX and TypeScript
 - `next-contentlayer` : Next.js plugin for contentlayer
-- `@code-hike/mdx` : MDX plugin that helps style code blocks
 - `sharp` : Image processing ( no need to do anything with this one next.js automatically uses it )
 - `next-themes` : Theme provider for Next.js
 
@@ -229,7 +236,6 @@ Below is an example of the difference it can make. This becomes more noticeable 
 
 - 90% of the CSS is modularized and scoped to the component it's used in.
 - The rest ( resets / variables / global ) are in the `styles` folder.
-- There is also one instance of third party CSS imported in `@app/posts/[slug]/page.tsx` for the code blocks.
 
 ## Linting
 

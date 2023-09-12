@@ -6,9 +6,8 @@ import OverlayNoise from 'components/Overlay/Overlay-noise';
 import { postParams, MetadataProps } from 'models/interfaces';
 import SubHeader from 'components/SubHeader/Sub-header';
 import Image from 'next/image';
-import MDX from 'components/MDX/MDX-components'
-import styles from './page.module.css';  
-// import 'components/MDX/mdx.css';
+import MDX from 'components/MDX/MDX-components';
+import styles from './page.module.css';
 
 async function getPostFromSlug(params: postParams) {
   const post = allPosts.find((post) => {
@@ -50,6 +49,8 @@ const PostLayout = async ({ params }: MetadataProps) => {
     notFound();
   }
 
+  const placeholderImageSrc = imagePlaceholders[post.slugAsParams] || imagePlaceholders.default;
+
   return (
     <div className={styles.page}>
       <SubHeader
@@ -66,13 +67,16 @@ const PostLayout = async ({ params }: MetadataProps) => {
         <div className={styles.postBanner}>
           <OverlayNoise />
           <Image
-            src={post?.banner ? post.banner : imagePlaceholders.default}
+            src={post?.banner ? post.banner : placeholderImageSrc}
+            placeholder='blur'
+            blurDataURL={placeholderImageSrc}
+            quality={50}
+            loading='eager'
+            priority
             alt={post.title}
             fill
-            quality={100}
           />
         </div>
-
         <div className={styles.content}>
           <MDX code={post.body.code} />
         </div>

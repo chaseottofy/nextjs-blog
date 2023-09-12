@@ -1,10 +1,10 @@
 'use client';
 
 import { Post } from 'contentlayer/generated';
-import Image from 'next/image';
+// import Image from 'next/image';
 import Link from 'next/link';
 
-import { CircleIcon } from '../../svg/icons';
+import { CircleIcon, Logo } from '../../svg/icons';
 import ThemeToggle from '../Button/theme-toggle';
 
 import styles from './Header.module.css';
@@ -23,14 +23,15 @@ const Header: React.FC<HeaderInterface> = ({ activePosts }) => (
       </div>
       <div className={styles.colCenter}>
         <span>
-          <Image
+          <Logo />
+          {/* <Image
             src='/images/logo/echo.webp'
             alt='site logo'
             quality={50}
             width={40}
             height={40}
             loading='lazy'
-          />
+          /> */}
         </span>
       </div>
 

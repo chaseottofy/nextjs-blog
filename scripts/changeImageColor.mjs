@@ -1,7 +1,12 @@
+// THE FOLLOWING CODE IS NOT FULLY TESTED, USE AT YOUR OWN RISK
 import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import {
+  initGlobalDirname
+} from './utils.mjs';
+
+initGlobalDirname();
 
 // TWO MODES: color and greyscale
 const CHANGE_COLOR_MODES = {
@@ -28,22 +33,6 @@ const RESIZE_OPTIONS = {
 
 const QUALITY = 80;
 const CURRENT_MODE = CHANGE_COLOR_MODES.color; // CHANGE_COLOR_MODES[0]
-
-function get__filename() {
-  const error = new Error();
-  const stack = error.stack;
-  const match = stack.match(/^Error\s+at[^\r\n]+\s+at *(?:[^\r\n(]+\((.+?)(?::\d+:\d+)?\)|(.+?)(?::\d+:\d+)?) *([\r\n]|$)/);
-  const filename = match[1] || match[2];
-  if (filename.startsWith('file://')) {
-    return fileURLToPath(filename);
-  }
-  return filename;
-}
-if (typeof __filename === 'undefined') {
-  global.__filename = get__filename();
-  global.__dirname = path.dirname(__filename);
-}
-
 const POSTS_DIRECTORY = path.join(__dirname, '../public/images/posts');
 
 function isRGB(obj) {

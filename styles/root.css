@@ -1,4 +1,5 @@
 :root {
+  --font-mono: "JetBrains Mono","Menlo","Monaco",monospace;
   --transition-left: left .2s ease-in-out;
   --transition-width: width .2s ease-in-out;
   --transition-prop-formui: border-color, background, color, transform, box-shadow;
@@ -44,7 +45,7 @@
   --primary-header: #fa0828;
   --primary1: #fa0828;
   --primary2: #ca041e;
-  --primary3: #fa0828;
+  --primary3: #ff1a39;
   --red1: #cf007a;
   --red2: #c0103e;
   --red3: #a60731;
@@ -104,7 +105,7 @@
   --primary2: #12b6fb;
   --primary3: #12b6fb; */
   --primary-header: #000000;
-  --primary1: #fa0828;
+  --primary1: #fb3953;
   --primary2: #fa0828;
   --primary3: #fa0828;
   --primarydark1: rgba(202, 4, 30, .9);
@@ -154,6 +155,11 @@ body {
     font-size: 20px;
   }
 }
+/* -webkit-text-stroke: 1px var(--white1); */
+/* text-shadow: -1px 1px 0 var(--white1),
+  1px 1px 0 var(--white1),
+  1px -1px 0 var(--white1),
+  -1px -1px 0 var(--white1); */
 
 /* @media screen and (max-width: 1024px) {
   html {

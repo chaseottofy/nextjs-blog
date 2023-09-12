@@ -29,7 +29,8 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({
   featuredImage,
 }) => {
   const placeholderImageSrc = imagePlaceholders[post.slugAsParams];
-  const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
+  const postDateFormatted = getDateParsed(post.date, 'LLLL d, yyyy');
+  // const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
   const postExcerptFormatted = post?.excerpt.length > 100
     ? `${post.excerpt.slice(0, 100)}...`
     : post.excerpt;
@@ -102,7 +103,8 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({
 const PostCard: React.FC<PostCardProps> = ({
   post,
 }) => {
-  const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
+  const postDateFormatted = getDateParsed(post.date, 'LLLL d, yyyy');
+  // const postDateFormatted = getDateParsed(post.date, 'MM.dd.yy');
   const postExcerptFormatted = post?.excerpt.length > 140
     ? `${post.excerpt.slice(0, 140)}...`
     : post.excerpt;

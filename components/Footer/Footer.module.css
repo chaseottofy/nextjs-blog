@@ -1,82 +1,66 @@
 .footer {
   height: 6rem;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 1rem 1.5rem;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-}
-
-.col {
-  border-top: var(--border-1);
-  display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
-  font-size: .875rem;
-  color: var(--white1);
-  text-transform: uppercase;
-}
-
-.col a,
-.col a:visited,
-.col span {
-  color: var(--white1);
-  text-decoration: none;
-  font-size: max(14px, 1vw);
-  letter-spacing: -.02em;
-  line-height: 1.2;
-  position: relative;
-}
-
-.col:first-child {
-  justify-content: flex-start;
-}
-
-.col:last-child .title {
-  justify-content: flex-end;
-}
-
-.title {
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  font-size: max(12px, .9vw);
 }
 
 .links {
-  display: flex;
-  align-items: flex-start;
-  height: 100%;
-  width: 100%;
-  justify-content: flex-start;
+  border-top: var(--border-1);
+  padding: 1rem 0 .75rem 0;
 }
 
-.col a::after {
-  position: absolute;
-  content: "";
-  top: 100%;
-  margin-top: 3%;
-  height: 1px;
-  background: transparent;
-  width: 0;
-  left: 0;
-  pointer-events: none;
-  user-select: none;
-  transition: background .3s ease-out, width .3s ease-out;
+.footer a,
+.footer a:visited {
+  color: var(--white1);
+  text-decoration: none;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+  position: relative;
+  margin-left: .25rem;
 }
 
-.col a:hover::after {
-  background: var(--white2);
-  width: 100%;
+.links a {
+  font-size: max(16px, 1.6vw);
+}
+
+.links a:not(:first-child)::before {
+  content: '—';
+  padding-right: .25rem;
+}
+
+.footer a:hover {
+  color: var(--primary3);
+}
+
+.footer a:hover::before {
+  color: var(--white1);
+}
+
+.linkBottom {
+  text-transform: lowercase;
+}
+.linkBottom a {
+  font-size: 15px;
 }
 
 @media screen and (max-width: 640px) {
   .footer {
-    flex-direction: column;
-    height: 8rem;
+    padding: 0 0 1rem 0;
+    align-items: center;
   }
 
-  .title {
+  .links,
+  .linkBottom {
+    width: 100%;
+    text-align: center;
+  }
+
+  .linkBottom {
+    padding: 0 .25rem;
+  }
+  /* .title {
     padding: 0;
   }
 
@@ -84,18 +68,9 @@
     display: none;
   }
 
-  .col:last-child {
-    border-top: none;
-  }
-
-  .col:last-child .title {
-    justify-content: center;
-    align-items: center;
-  }
-
   .links {
     align-items: center;
     flex-wrap: wrap;
     justify-content: center;
-  }
+  } */
 }

@@ -31,9 +31,7 @@ const SubHeader: React.FC<SubHeaderProps> = ({
 
       <div className={styles.top}>
         <BackLink />
-        <h1 className={styles.title}>
-          {title}
-        </h1>
+        <h1 className={styles.title}>{title}</h1>
       </div>
 
       <div className={styles.bottom}>

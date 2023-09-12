@@ -1,6 +1,6 @@
 import { Post } from "contentlayer/generated";
 
-const sortPosts = (posts: Post[], direction:string, featured: boolean) => {
+const sortPosts = (posts: Post[], direction:string, featured: boolean): Post[] => {
   return posts.sort((a: Post, b: Post) => {
     const Adate = new Date(a.date);
     const Bdate = new Date(b.date);

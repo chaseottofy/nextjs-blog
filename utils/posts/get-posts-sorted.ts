@@ -1,4 +1,5 @@
 import getActivePosts from './get-active-posts';
+import verifyPostDates from './verify-post-isostring';
 import sortPosts from './sort-posts';
 
 /**
@@ -9,6 +10,7 @@ import sortPosts from './sort-posts';
  */
 const getPostsSorted = (direction: string, featured?: boolean) => {
   const posts = getActivePosts();
+  verifyPostDates(posts);
   return sortPosts(posts, direction, featured || false);
 };
 
