@@ -1,50 +1,48 @@
 'use client';
 
-import { useMemo, useEffect } from 'react';
+import { useMemo } from 'react';
 import { useTheme as useNextTheme } from 'next-themes';
-import { useHasMounted } from 'hooks/use-has-mounted';
+import joinClasses from 'utils/join-classes';
+
 import styles from './theme-toggle.module.css';
 
-const ThemeToggle: React.FC = () => {
-  const hasMounted = useHasMounted();
+interface ThemeToggleInterface {
+  hasMounted: boolean;
+}
+
+const ThemeToggle: React.FC<ThemeToggleInterface> = ({
+  hasMounted,
+}) => {
   const { theme, setTheme } = useNextTheme();
   const isDark = useMemo(() => theme === 'dark', [theme]);
-  const labelTitle = useMemo(() => (
-    isDark ? 'Toggle Light Mode' : 'Toggle Dark Mode'
-  ), [theme]);
+  const labelTitle = `Toggle ${hasMounted && isDark ? 'light' : 'dark'} mode`;
 
-  useEffect(() => {
-    if (!hasMounted) {
-      console.log({
-        isDark: isDark,
-        theme: theme,
-        labelTitle: labelTitle,
-      });
-      return;
-    }
-  }, []);
+  if (!hasMounted) {
+    return null;
+  }
 
   return (
     <div className={styles.toggleContainer}>
-      <input
-        type="checkbox"
-        id="themeToggle"
-        checked={!hasMounted ? true : isDark}
-        className={styles.hiddenCheckbox}
-        onChange={() => {
-          setTheme(isDark ? 'light' : 'dark');
-        }}
-      />
       <label
-        htmlFor="themeToggle"
-        className={styles.toggleLabel}
-        title={
-          !hasMounted ? 'Toggle Light Mode' : labelTitle
+        htmlFor='themeToggle'
+        className={
+          hasMounted && isDark
+            ? joinClasses(styles, ['toggleLabel', 'checked'])
+            : styles.toggleLabel
         }
-        aria-label={
-          !hasMounted ? 'Toggle Light Mode' : labelTitle
-        }
-      />
+        title={labelTitle}
+        aria-label={labelTitle}
+      >
+        <input
+          type='checkbox'
+          id='themeToggle'
+          checked={hasMounted && isDark}
+          className={styles.hiddenCheckbox}
+          onChange={() => {
+            setTheme(isDark ? 'light' : 'dark');
+          }}
+        />
+      </label>
     </div>
   );
 };

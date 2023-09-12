@@ -1,7 +1,9 @@
 'use client';
 
 import { Post } from 'contentlayer/generated';
+import { useHasMounted } from 'hooks/use-has-mounted';
 import Link from 'next/link';
+import joinClasses from 'utils/join-classes';
 
 import { Logo } from '../../svg/icons';
 import ThemeToggle from '../Button/theme-toggle';
@@ -13,6 +15,8 @@ interface HeaderInterface {
 }
 
 const Header: React.FC<HeaderInterface> = ({ activePosts }) => {
+  const hasMounted = useHasMounted();
+
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -40,7 +44,16 @@ const Header: React.FC<HeaderInterface> = ({ activePosts }) => {
               latest
             </Link>
           </nav>
-          <ThemeToggle />
+          <div className={
+            hasMounted
+              ? styles.themeToggleWrapper
+              : joinClasses(styles, ['themeToggleWrapper', 'skeleton'])
+          }
+          >
+            <ThemeToggle
+              hasMounted={hasMounted}
+            />
+          </div>
         </div>
       </div>
     </header>

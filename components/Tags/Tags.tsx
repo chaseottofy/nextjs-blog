@@ -137,7 +137,6 @@ const TagComponent: React.FC<TagProps> = ({
         !maxTagsOver && (
           <button
             onClick={() => {
-              console.log(maxTagsOver, tagLength, maxTags);
               toggleModal();
             }}
             type='button'

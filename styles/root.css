@@ -21,6 +21,11 @@
   --footer-height: 6rem;
   --min-body-height: calc(100vh - var(--header-height));
 
+  /* --accents-1: #fafafa; */
+  /* --accents-2: #eaeaea; */
+  --accents-1: #111;
+  --accents-2: #333;
+
   --primary-share: #D93036;
 
   --black1: #000000;
@@ -55,6 +60,9 @@
 }
 
 [data-theme='light'] {
+  --accents-1: #fafafa;
+  --accents-2: #eaeaea;
+
   --black1: #ffffff;
   --black2: #a8a8a8;
   --black3: #efefef;
