@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react';
 import { useTheme as useNextTheme } from 'next-themes';
-import joinClasses from 'utils/join-classes';
+import joinClasses from '@/utils/join-classes';
 
 import styles from './theme-toggle.module.css';
 

@@ -190,7 +190,7 @@ class ImageConfig {
     this._outputImageSize = value;
   }
 
-  get outputVariableName() { return this._outputFileName; }
+  get outputVariableName() { return this._outputVariableName; }
   /**
    * @param {string} value - The name of the variable created in output file
    * @example
@@ -309,6 +309,7 @@ async function createBase64FromPlaceholder(
     const base64Object = {};
     const base64DataPrefix = config.dataUrlPrefix;
     const base64VariableName = config.outputVariableName;
+    console.log(base64VariableName)
     const defaultDurl = config.defaultDurl;
     const base64ObjectJSON = base64Results.reduce((acc, curr) => ({ ...acc, ...curr }), {});
     if (config.generateDefault) { base64Object.default = defaultDurl; }

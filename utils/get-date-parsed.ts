@@ -1,4 +1,4 @@
-import { monthNames } from 'data/date-constants'
+import { monthNames } from '@/data/date-constants'
 
 type DateFormat = 'MM.dd.yy' | 'LLLL d, yyyy';
 

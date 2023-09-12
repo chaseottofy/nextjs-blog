@@ -1,4 +1,3 @@
-import { defaultFieldOptions } from 'contentlayer/core';
 import { Post } from 'contentlayer/generated';
 import formatTag from './format-tag';
 

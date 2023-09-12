@@ -1,4 +1,4 @@
-import { BASE_URL } from 'data/constants';
+import { BASE_URL } from '@/data/constants';
 import { MetadataRoute } from 'next';
 
 const pages = [

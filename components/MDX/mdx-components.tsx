@@ -6,7 +6,7 @@ import Image, { ImageProps } from 'next/image';
 import React from 'react';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-interface MDXComponents {
+interface MDXComponentsInterface {
   h1: React.FC;
   h2: React.FC;
   h3: React.FC;
@@ -23,7 +23,7 @@ interface MDXComponentProps {
   [x: string]: any;
 }
 
-const MDXComponents: MDXComponents = {
+const MDXComponents: MDXComponentsInterface = {
   h1: ({ className, ...props }: MDXComponentProps) => (
     <h1 className={className} {...props} />
   ),
@@ -57,7 +57,7 @@ interface MDXProps {
   code: string;
 }
 
-const MDX: React.FC<MDXProps> = ({ code }) => {
+const MDXConfig: React.FC<MDXProps> = ({ code }) => {
   const Component = useMDXComponent(code);
 
   return (
@@ -68,4 +68,4 @@ const MDX: React.FC<MDXProps> = ({ code }) => {
   );
 };
 
-export default MDX;
+export default MDXConfig;

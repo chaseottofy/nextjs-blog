@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Post } from 'contentlayer/generated';
-import imagePlaceholders from 'data/image-placeholders';
+import imagePlaceholders from '@/data/image-placeholders';
 import Image from 'next/image';
 
 const PostCardImage: React.FC<{ post: Post; }> = memo(({ post }) => {

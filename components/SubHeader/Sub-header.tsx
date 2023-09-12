@@ -1,7 +1,7 @@
-import BackLink from 'components/BackLink/Back-link';
-import OverlayNoise from 'components/Overlay/Overlay-noise';
-import RelatedTags from 'components/Tags/Related/Related-tags';
-import getDateParsed from 'utils/get-date-parsed';
+import BackLink from '@/components/BackLink/Back-link';
+import OverlayNoise from '@/components/Overlay/Overlay-noise';
+import RelatedTags from '@/components/Tags/Related/Related-tags';
+import getDateParsed from '@/utils/get-date-parsed';
 
 import styles from './Sub-header.module.css';
 

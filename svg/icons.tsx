@@ -41,8 +41,6 @@ export const GradientRef: React.FC = () => {
 };
 
 export const Logo: React.FC = () => {
-  // const logoStroke = 'transparent';
-  // const logoStroke = '#131313';
   const logoStroke = 'var(--white1)';
   const logoFill = 'rgba(0,0,0,0)';
   const logoStrokeWidth = '1.5';

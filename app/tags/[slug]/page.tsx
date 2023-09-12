@@ -1,15 +1,15 @@
-import BackLink from 'components/BackLink/Back-link';
-import OverlayNoise from 'components/Overlay/Overlay-noise';
-import PostList from 'components/PostList/Post-list';
-import RelatedTags from 'components/Tags/Related/Related-tags';
+import BackLink from '@/components/BackLink/Back-link';
+import OverlayNoise from '@/components/Overlay/Overlay-noise';
+import PostList from '@/components/PostList/Post-list';
+import RelatedTags from '@/components/Tags/Related/Related-tags';
 import { Post } from 'contentlayer/generated';
-import { MetadataProps, postParams } from 'models/interfaces';
+import { MetadataProps, postParams } from '@/models/interfaces';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import getDateParsed from 'utils/get-date-parsed';
-import formatTag from 'utils/posts/format-tag';
-import getActivePosts from 'utils/posts/get-active-posts';
-import getPostsRange from 'utils/posts/get-posts-range';
+import getDateParsed from '@/utils/get-date-parsed';
+import formatTag from '@/utils/posts/format-tag';
+import getActivePosts from '@/utils/posts/get-active-posts';
+import getPostsRange from '@/utils/posts/get-posts-range';
 
 import styles from './page.module.css';
 

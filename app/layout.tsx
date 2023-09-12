@@ -1,17 +1,17 @@
 import React from 'react';
-import Footer from 'components/Footer/Footer';
-import Header from 'components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 import { Post } from 'contentlayer/generated';
 import localFont from 'next/font/local';
-import ThemeProvider from 'providers/next-theme-provider';
-import getPostsSorted from 'utils/posts/get-posts-sorted';
+import ThemeProvider from '@/providers/next-theme-provider';
+import getPostsSorted from '@/utils/posts/get-posts-sorted';
 
-import 'styles/reset.css';
-import 'styles/root.css';
-import 'styles/mdx.css';
+import '@/styles/reset.css';
+import '@/styles/root.css';
+import '@/styles/mdx.css';
 import styles from './layout.module.css';
 
-export { BASE_META_DATA as metadata } from 'data/constants';
+export { BASE_META_DATA as metadata } from '@/data/constants';
 
 const NeueMontreal = localFont({
   src: [

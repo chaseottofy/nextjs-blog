@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { Post } from 'contentlayer/generated';
-import { useHasMounted } from 'hooks/use-has-mounted';
-import useWindowDimensions from 'hooks/use-width';
-import { ArrowIcon } from 'svg/icons';
-import joinClasses from 'utils/join-classes';
-import formatTags from 'utils/posts/format-tags';
+import { useHasMounted } from '@/hooks/use-has-mounted';
+import useWindowDimensions from '@/hooks/use-width';
+import { ArrowIcon } from '@/svg/icons';
+import joinClasses from '@/utils/join-classes';
+import formatTags from '@/utils/posts/format-tags';
 
 import Tag from './Tag';
 

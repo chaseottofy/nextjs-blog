@@ -1,10 +1,10 @@
 'use client';
 
 import { Post } from 'contentlayer/generated';
-import { useHasMounted } from 'hooks/use-has-mounted';
+import { useHasMounted } from '@/hooks/use-has-mounted';
 import Link from 'next/link';
-import { Logo } from 'svg/icons';
-import joinClasses from 'utils/join-classes';
+import { Logo } from '@/svg/icons';
+import joinClasses from '@/utils/join-classes';
 
 import ThemeToggle from '../Button/theme-toggle';
 

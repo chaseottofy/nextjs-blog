@@ -1,4 +1,4 @@
-import { GradientRef } from 'svg/icons';
+import { GradientRef } from '@/svg/icons';
 
 import styles from './Overlay-noise.module.css';
 

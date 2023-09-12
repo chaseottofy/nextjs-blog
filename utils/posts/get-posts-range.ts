@@ -1,7 +1,7 @@
 import { Post } from 'contentlayer/generated';
 import sortPosts from './sort-posts';
-import { monthNames } from 'data/date-constants';
-import getDateArray from 'utils/get-date-array';
+import { monthNames } from '@/data/date-constants';
+import getDateArray from '@/utils/get-date-array';
 
 /**
  * Receives an array of posts 
