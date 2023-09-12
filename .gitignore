@@ -38,3 +38,6 @@ next-env.d.ts
 
 # Contentlayer
 .contentlayer
+
+# personal scripts
+scripts/changeImageColor.mjs

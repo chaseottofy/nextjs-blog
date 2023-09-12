@@ -114,6 +114,6 @@ async function changeImageColor(mode) {
   console.log(`Processed ${tasks.length} images.`);
 }
 
-changeImageColor(CURRENT_MODE).catch(error => {
-  console.error("Error processing images:", error);
-});
+// changeImageColor(CURRENT_MODE).catch(error => {
+//   console.error("Error processing images:", error);
+// });

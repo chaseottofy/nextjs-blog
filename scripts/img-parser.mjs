@@ -23,7 +23,6 @@ initGlobalDirname();
  * - 'npm run parseimg'              (generate placeholder images then base64 strings)
  */
 
-
 /**
  * @class ImageConfig
  * @description
