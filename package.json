@@ -21,7 +21,7 @@
     "parseimg:base64": "node scripts/img-parser.mjs --mode=base64",
     "parseimg:placeholders": "node scripts/img-parser.mjs --mode=placeholder",
     "parseimg": "node scripts/img-parser.mjs --mode=both",
-    "change:image:color": "node scripts/changeImageColor.mjs"
+    "change:image:color": "node scripts/img-color.mjs"
   },
   "dependencies": {
     "@code-hike/mdx": "^0.9.0",
