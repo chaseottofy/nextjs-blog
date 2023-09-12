@@ -16,17 +16,17 @@ export { BASE_META_DATA as metadata } from 'data/constants';
 const NeueMontreal = localFont({
   src: [
     {
-      path: '../public/NeueMontreal-Bold.woff2',
+      path: '../public/fonts/NeueMontreal-Bold.woff2',
       weight: '700',
       style: 'normal',
     },
     {
-      path: '../public/NeueMontreal-Medium.woff2',
+      path: '../public/fonts/NeueMontreal-Medium.woff2',
       weight: '500',
       style: 'normal',
     },
     {
-      path: '../public/NeueMontreal-Regular.woff2',
+      path: '../public/fonts/NeueMontreal-Regular.woff2',
       weight: '400',
       style: 'normal',
     },
@@ -48,10 +48,11 @@ const NeueMontreal = localFont({
     'sans-serif',
   ],
 });
+
 const BasementExpanded = localFont({
   src: [
     {
-      path: '../public/Basement-expanded.woff2',
+      path: '../public/fonts/Basement-expanded.woff2',
       weight: '900',
       style: 'normal',
     },
@@ -95,7 +96,7 @@ const RootLayout: React.FC<RootLayoutInterface> = ({
       suppressHydrationWarning
     >
       <body
-        className={`${NeueMontreal.className} ${BasementExpanded.variable}`}
+        className={`${NeueMontreal.variable} ${BasementExpanded.variable}`}
       >
         <ThemeProvider>
           <Header activePosts={startPosts} />
