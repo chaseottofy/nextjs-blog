@@ -166,17 +166,33 @@ return (
 
 ## Images
 
-- All images are in the `public/images` folder.
+**All images are in the `public/images` folder.**
 
-Within the `scripts` folder is a very useful node script to convert all specified post images to `placeholder` base64 data urls. This is useful for the `<Image>` component in nextjs to prevent screen flashing when loading images. Nextjs has a built in feature to easily incorporate this technique by simply supplying the base64 data url under the `placeholder` prop of the `<Image>` component. The generated base64 data is cached directly in memory and is often around 300 bytes.
+> **Warning**
+> Before using the image parser, make sure to configure the `ImageConfig` class within the `scripts/img-parser.mjs` file to match your images folder structure and desired output schema.
 
-Run the below script to create the base64 data urls after ensuring that the configuration is correct in the `scripts/createBase64Placeholder.mjs` file.
+- Within the `scripts` folder is a useful node script that generates placeholder images from a specified folder to a specified placeholder folder.
+- This script also can generate base64 data urls for the placeholder images, and output them as an object in either a typescript, json, or mdx file.
+- The generated base64 string can be used in the `placeholder` prop of the `<Image>` component in nextjs to prevent screen flashing when loading images. Nextjs has a built in feature to easily incorporate this technique by simply supplying the base64 data url under the `placeholder` prop of the `<Image>` component. The generated base64 data is cached directly in memory and is often around 300 bytes.
 
+The script is located in `scripts/img-parser.mjs` - The following CLI commands are available:
+
+1. Create both placeholder images and base64 data urls:
 ```bash
-npm run create:base64
+npm run parseimg
 ```
-This will create a typescript object in the `data/image-placeholder.ts` file that looks like this:\
 
+2. Create placeholder images only:
+```bash
+npm run parseimg:placeholders
+```
+
+3. Create base64 data urls from placeholders only:
+```bash
+npm run parseimg:base64
+```
+
+An example of the generated base64 data url object is below. The key is name of the original image file, and the value is the base64 data url of the placeholder image for that file. The outputted object itself will be in a generated file of specified type and location.
 ```TS
 const imagePlaceholders = {
   "post-01": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAABQBgCdASp4ADQAP83i6W8/tjGuJBQMS/A5iWMAy6QANzVkMe/6zQl6bimj+ABd/WW1rl03B5JW6htFAADkbp+DjCar5D8jsIbsKGD+2dih3ULc2kxX+7nALoJEgZ6YUqv4M84JNd3d8sjBNrkFg+FCfVf14QM54Y0k3SjL1loua3I/yhu2fdkCSTWwSNSeAAS4AAAA",

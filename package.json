@@ -18,9 +18,9 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "parseimg:base64": "node scripts/img-parser2.mjs --mode=base64",
-    "parseimg:placeholders": "node scripts/img-parser2.mjs --mode=placeholder",
-    "parseimg": "node scripts/img-parser2.mjs --mode=both",
+    "parseimg:base64": "node scripts/img-parser.mjs --mode=base64",
+    "parseimg:placeholders": "node scripts/img-parser.mjs --mode=placeholder",
+    "parseimg": "node scripts/img-parser.mjs --mode=both",
     "change:image:color": "node scripts/changeImageColor.mjs"
   },
   "dependencies": {
