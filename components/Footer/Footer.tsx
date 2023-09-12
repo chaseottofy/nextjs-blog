@@ -22,15 +22,6 @@ const Footer: React.FC = () => (
         ))
       }
     </div>
-    <Link
-      href='https://basement.studio/blog'
-      title='basement.studio'
-      target='_blank'
-      rel='noopener noreferrer'
-      className={styles.linkBottom}
-    >
-      design ripped off from basement.studio/blog
-    </Link>
   </footer>
 );
 

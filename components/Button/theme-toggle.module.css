@@ -1,0 +1,69 @@
+.hiddenCheckbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.toggleContainer input,
+.toggleContainer label {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.toggleLabel {
+  display: block;
+  width: 50px;
+  height: 25px;
+  background: var(--white1);
+  position: relative;
+  cursor: pointer;
+  outline: none !important;
+  border-radius: 20px;
+}
+
+.toggleLabel::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 21px;
+  height: 21px;
+  background: var(--black1);
+  border-radius: 50%;
+  transition: transform .3s ease;
+}
+
+.hiddenCheckbox:checked + .toggleLabel::before {
+  transform: translateX(25px);
+}
+
+/* .toggleLabel {
+  display: block;
+  width: 60px;
+  height: 30px;
+  background: var(--white1);
+  position: relative;
+  cursor: pointer;
+  outline: none !important;
+  border-radius: 15px;
+}
+
+.toggleLabel::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background: var(--black1);
+  border: none;
+  border-radius: 50%;
+  transition: all .3s;
+}
+
+.hiddenCheckbox:checked + .toggleLabel::before {
+  transform: translateX(30px);
+} */

@@ -26,11 +26,7 @@ const RelatedTags: React.FC<RelatedTagProps> = ({
                   key={`${tag}-slug`}
                   href={`/tags/${tag}`}
                 >
-                  <span>{tag}</span>
-                  {/* <span>
-                    #
-                    {tag}
-                  </span> */}
+                  <span>#{tag}</span>
                 </Link>
               );
             })

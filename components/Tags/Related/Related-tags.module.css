@@ -15,6 +15,7 @@
 .tags {
   margin-top: 1rem;
   padding: 1rem;
+  /* padding: .5rem 1rem; */
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -38,17 +39,15 @@
 .tags a {
   margin: .25rem .25rem 0 0;
   padding: .325rem .325rem;
-  border: 1px solid #181818;
+  border: 1px solid #181a1b;
   border-radius: var(--radius1);
   color: #fff;
   font-weight: 400;
-  opacity: 1;
   background: #000;
 }
 
 .tags a:hover {
-  opacity: .75;
-  transition: opacity .2s ease-in-out;
+  background: #181a1b;
 }
 
 @media screen and (max-width: 640px) {
@@ -57,7 +56,6 @@
   }
 
   .tags {
-    /* border-bottom: 1px solid var(--black3); */
     margin: 0 auto 0 auto;
     padding: .5rem var(--pad-lr) .5rem var(--pad-lr);
   }

@@ -19,8 +19,8 @@ html {
   -moz-tab-size: 4;
   -o-tab-size: 4;
   tab-size: 4;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--neue);
 }
@@ -41,8 +41,22 @@ textarea {
   font-family: var(--neue);
 }
 
-blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+blockquote,
+dd,
+dl,
+figure,
+label,
+input,
+h1,
+h2,
+h3,
+h4,
+h5,
+hr,
+p,
+pre {
   margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -75,10 +89,9 @@ textarea {
   max-width: 100%;
   margin: 0;
   outline: none;
-  border: var(--border-1);
+  border: none;
   color: var(--white1);
   font-size: .875rem;
-  line-height: 1.15;
 }
 
 input,
@@ -95,7 +108,6 @@ input:focus-visible,
 input[type=radio]:focus-visible + label,
 textarea:focus-visible,
 button:focus-visible {
-  /* box-shadow: 0 0 0 2px var(--grey1); */
   outline: 1px dotted var(--grey1);
 }
 

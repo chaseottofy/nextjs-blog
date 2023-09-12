@@ -24,14 +24,6 @@ const Header: React.FC<HeaderInterface> = ({ activePosts }) => (
       <div className={styles.colCenter}>
         <span>
           <Logo />
-          {/* <Image
-            src='/images/logo/echo.webp'
-            alt='site logo'
-            quality={50}
-            width={40}
-            height={40}
-            loading='lazy'
-          /> */}
         </span>
       </div>
 
@@ -45,11 +37,7 @@ const Header: React.FC<HeaderInterface> = ({ activePosts }) => (
             latest
           </Link>
         </nav>
-        <div className={styles.toggleWrapper}>
-          <ThemeToggle className={styles.toggleTheme}>
-            <CircleIcon />
-          </ThemeToggle>
-        </div>
+          <ThemeToggle />
       </div>
     </div>
   </header>

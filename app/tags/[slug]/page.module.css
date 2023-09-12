@@ -13,6 +13,7 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
+  background: #000;
 }
 
 .topMeta {
@@ -21,21 +22,18 @@
   left: 0;
   width: 100%;
   height: fit-content;
-  z-index: -1;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   text-transform: uppercase;
-  padding: .5rem 1rem;
-  color: var(--white1);
+  padding: .75rem 1rem;
+  color: #fefefe;
   opacity: .85;
   font-weight: 400;
   transform: scaleY(.9);
   border-bottom: 1px solid var(--black3);
-}
-
-.topMeta {
   font-size: max(16px, .9vw);
-  letter-spacing: -.02em;
+  letter-spacing: -.01em;
 }
 
 .top {
@@ -48,10 +46,24 @@
   min-height: 360px;
 }
 
+.top > div a {
+  color: #a0a0a0 !important;
+}
+
+.top > div:hover {
+  border-top: 1px solid transparent !important;
+  border-bottom: 1px solid #fff !important;
+}
+
+.top > div:hover a {
+  color: #fff !important;
+  transition: color .2s ease-in-out;
+}
+
 .title {
   min-height: 240px;
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
   font-size: max(22px, 3.8vw);
   padding: 0 80px;
   display: flex;
@@ -62,7 +74,8 @@
   text-align: center;
   font-weight: 900;
   font-family: var(--basement-expanded);
-  color: var(--primary-header);
+  position: relative;
+  color: var(--primary-share);
 }
 
 .subtitle {
@@ -78,6 +91,7 @@
 .headerBottom {
   width: 100%;
   margin-top: auto;
+
 }
 
 .bottom {
@@ -109,8 +123,11 @@
     flex-direction: column-reverse;
   }
 
+  .top > div a {
+    background: #090a0b !important;
+  }
+
   .topMeta {
-    color: var(--white1);
     top: 2.5rem;
     padding: .75rem var(--pad-lr);
     font-size: max(15px, 1.6vw);
@@ -118,25 +135,17 @@
 
   .top {
     flex-direction: column-reverse;
-    min-height: 0;
+    min-height: 120px;
   }
 
   .title {
     min-height: fit-content;
-    padding: 3rem .5rem;
-    font-size: max(22px, 4.5333333333vw);
+    padding: 0 .5rem;
+    font-size: max(22px, 4.75vw);
   }
 
   .bottom {
     margin-top: 5rem;
     padding: 0;
   }
-
-  /* .title {
-    padding: 4rem var(--pad-lr) .5rem var(--pad-lr);
-  }
-
-  .subtitle {
-    padding: 0 var(--pad-lr) 1rem var(--pad-lr);
-  } */
 }

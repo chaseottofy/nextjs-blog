@@ -1,32 +1,51 @@
 'use client';
 
-import { useMemo } from 'react';
-import Button from 'components/Button/Button';
+import { useMemo, useEffect } from 'react';
 import { useTheme as useNextTheme } from 'next-themes';
+import { useHasMounted } from 'hooks/use-has-mounted';
+import styles from './theme-toggle.module.css';
 
-interface ThemeToggleProps {
-  className?: string;
-  children?: React.ReactNode;
-}
-
-const ThemeToggle: React.FC<ThemeToggleProps> = ({
-  className,
-  children,
-}) => {
+const ThemeToggle: React.FC = () => {
+  const hasMounted = useHasMounted();
   const { theme, setTheme } = useNextTheme();
   const isDark = useMemo(() => theme === 'dark', [theme]);
+  const labelTitle = useMemo(() => (
+    isDark ? 'Toggle Light Mode' : 'Toggle Dark Mode'
+  ), [theme]);
+
+  useEffect(() => {
+    if (!hasMounted) {
+      console.log({
+        isDark: isDark,
+        theme: theme,
+        labelTitle: labelTitle,
+      });
+      return;
+    }
+  }, []);
 
   return (
-    <Button
-      className={className}
-      title={isDark ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
-      onClick={() => {
-        const updatedTheme = isDark ? 'light' : 'dark';
-        setTheme(updatedTheme);
-      }}
-    >
-      {children}
-    </Button>
+    <div className={styles.toggleContainer}>
+      <input
+        type="checkbox"
+        id="themeToggle"
+        checked={!hasMounted ? true : isDark}
+        className={styles.hiddenCheckbox}
+        onChange={() => {
+          setTheme(isDark ? 'light' : 'dark');
+        }}
+      />
+      <label
+        htmlFor="themeToggle"
+        className={styles.toggleLabel}
+        title={
+          !hasMounted ? 'Toggle Light Mode' : labelTitle
+        }
+        aria-label={
+          !hasMounted ? 'Toggle Light Mode' : labelTitle
+        }
+      />
+    </div>
   );
 };
 

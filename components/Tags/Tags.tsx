@@ -36,7 +36,7 @@ const TagComponent: React.FC<TagProps> = ({
   const [tagKeys, tagValues] = [Object.keys(tags), Object.values(tags)];
   const tagLength = tagKeys.length;
   const { width: windowSize } = useWindowDimensions();
-  const maxTags = Math.floor(windowSize / 100) || 12;
+  const maxTags = Math.floor(windowSize / 100) || 2;
   const maxTagsOver = maxTags > tagKeys.length;
 
   const hasMounted = useHasMounted();
@@ -132,25 +132,33 @@ const TagComponent: React.FC<TagProps> = ({
           }
         />
       ))}
-      <button
-        onClick={toggleModal}
-        type='button'
-        className={
-          isModalOpen
-            ? joinClasses(styles, ['toggleButton', 'activeToggle'])
-            : styles.toggleButton
-        }
-      >
-        <span>
-          {isModalOpen ? 'Hide ' : 'Show '}
-          {maxTagsOver ? 0 : tagLength - maxTags}
-          {' '}
-          tags
-        </span>
-        <span>
-          <ArrowIcon />
-        </span>
-      </button>
+      {
+        // only show toggle button if the amount of tags will potentially cause overflow
+        !maxTagsOver && (
+          <button
+            onClick={() => {
+              console.log(maxTagsOver, tagLength, maxTags);
+              toggleModal();
+            }}
+            type='button'
+            className={
+              isModalOpen
+                ? joinClasses(styles, ['toggleButton', 'activeToggle'])
+                : styles.toggleButton
+            }
+          >
+            <span>
+              {isModalOpen ? 'Hide ' : 'Show '}
+              {maxTagsOver ? 0 : tagLength - maxTags}
+              {' '}
+              tags
+            </span>
+            <span>
+              <ArrowIcon />
+            </span>
+          </button>
+        )
+      }
       {
         activeTags.length > 0 && (
           <button

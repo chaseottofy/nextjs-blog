@@ -9,6 +9,7 @@
   pointer-events: none;
   user-select: none;
   background: var(--offsetblack4);
+  opacity: .2;
 }
 
 .overlayNoise::after {
@@ -16,7 +17,6 @@
   position: absolute;
   filter: url(#grainy);
   top: 0;
-  opacity: .15;
   width: 100%;
   height: 100%;
 }
