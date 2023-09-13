@@ -106,7 +106,7 @@
 }
 
 .subExcerpt {
-  padding-top: .5rem;
+  padding-top: 1rem;
   font-size: .8rem;
   color: var(--white3);
   letter-spacing: .03em;
@@ -283,7 +283,6 @@
 }
 
 .featuredTags {
-  /* display: flex; */
   flex-wrap: wrap;
   width: 100%;
   pointer-events: none;
@@ -296,7 +295,7 @@
 .tag {
   text-transform: lowercase;
   letter-spacing: -.02em;
-  transform: scaleY(.9);
+  transform: var(--scale-font-Y);
   color: var(--white2);
   opacity: .8;
 }

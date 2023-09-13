@@ -5,6 +5,7 @@
   overflow: hidden;
   position: relative;
   border-bottom: 1px solid var(--white1);
+  background: var(--black1);
 }
 
 .topMeta {
@@ -13,7 +14,6 @@
   left: 0;
   width: 100%;
   height: fit-content;
-  z-index: -1;
   display: flex;
   justify-content: space-between;
   text-transform: uppercase;
@@ -21,7 +21,7 @@
   color: var(--white1);
   opacity: .85;
   font-weight: 400;
-  transform: scaleY(.9);
+  transform: var(--scale-font-Y);
   border-bottom: 1px solid var(--black3);
 }
 

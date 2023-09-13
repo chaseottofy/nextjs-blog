@@ -8,11 +8,21 @@
   z-index: 5;
   pointer-events: none;
   user-select: none;
-  background: var(--offsetblack4);
-  opacity: .2;
+  background: var(--black1);
+  opacity: .13;
 }
 
-.overlayNoise::after {
+/* .overlayNoise::after {
+  position:absolute;
+  content: "";
+  top:0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.3);
+  backdrop-filter: brightness(.8);
+} */
+
+.overlayNoise::before {
   content: "";
   position: absolute;
   filter: url(#grainy);

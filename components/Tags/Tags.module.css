@@ -29,10 +29,10 @@
 .clearButton,
 .toggleButton {
   height: 1.5rem;
-  margin: .25rem .5rem .25rem 0;
   font-size: .65rem;
+  margin: .25rem .5rem .25rem 0;
   cursor: pointer;
-  border-radius:5px;
+  border-radius:var(--radius1);
 }
 
 .toggleButton {
@@ -110,7 +110,7 @@
   transition: .2s ease-in-out;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 740px) {
   .tags {
     padding: 1rem var(--pad-lr);
   }

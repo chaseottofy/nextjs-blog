@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .tagsWrapper {
@@ -13,9 +14,9 @@
 }
 
 .tags {
-  margin-top: 1rem;
+  z-index: 9999;
+  margin-top: .5rem;
   padding: 1rem;
-  /* padding: .5rem 1rem; */
   display: flex;
   flex-wrap: wrap;
   position: relative;
@@ -24,20 +25,20 @@
 }
 
 .tags::before {
-  z-index: -1;
+  z-index:999;
   pointer-events: none;
   user-select: none;
   content: attr(data-content);
   position: absolute;
   top: 0;
   text-transform: uppercase;
-  transform: scaleY(.85);
+  transform: var(--scale-font-Y);
   color: var(--white3);
   font-weight: 400;
 }
 
 .tags a {
-  margin: .25rem .25rem 0 0;
+  margin: .325rem .325rem 0 0;
   padding: .325rem .325rem;
   border: 1px solid #181a1b;
   border-radius: var(--radius1);
@@ -50,17 +51,13 @@
   background: #181a1b;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 740px) {
   .tagsWrapper {
     padding: 0;
   }
 
   .tags {
-    margin: 0 auto 0 auto;
-    padding: .5rem var(--pad-lr) .5rem var(--pad-lr);
-  }
-
-  .tags::before {
-    display: none;
+    margin: .5rem auto;
+    padding: 1rem var(--pad-lr);
   }
 }

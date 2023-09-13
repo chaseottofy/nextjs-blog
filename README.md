@@ -6,16 +6,13 @@
 - Currently finishing up post styling
 - None of the current posts are mine, they are just placeholders for now.
 
-<!-- > [See roadmap](#roadmap) -->
-<!-- ## Work in progress -->
-
 <img src="screenshots/screen3.jpg" width="700">
 
 ---
 
 ## Table of Contents
 
-- [Installation](#installation)
+- [Deploying](#Deploying)
 - [Features](#features)
   - [Image Handling](#custom-image-handling-system)
   - [Accessibility](#accessibility)
@@ -39,14 +36,19 @@
 
 ---
 
-### Installation
+### Deploying
 
-```bash
-git clone https://github.com/chaseottofy/nextjs-blog.git
-cd nextjs-blog
-npm install
-npm run dev
-```
+There is one bug to be aware of that may or may not be on my end.
+
+When it comes to the build process on vercel, font paths are not being resolved correctly. All other assets are perfectly fine, but for some reason, unless the font is in root of the `/app` directory, vercel will not be able to find it and the build will fail. This is not a problem when running or building the project locally.
+
+Vercel and Nextjs both provide guides that I've linked below for help with similar issues to this
+- [guide: nextjs module not found](https://nextjs.org/docs/messages/module-not-found)
+- [guide: vercel module not found](https://vercel.com/guides/how-do-i-resolve-a-module-not-found-error)
+
+**TL,DR: "make sure you spelled everything right"**
+
+*They do provide a nice reminder that some filesystems are case-insensitive, which really flares up my existential dread more than most things...*
 
 ## Features
 

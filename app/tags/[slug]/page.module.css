@@ -30,7 +30,7 @@
   color: #fefefe;
   opacity: .85;
   font-weight: 400;
-  transform: scaleY(.9);
+  transform: var(--scale-font-Y);
   border-bottom: 1px solid var(--black3);
   font-size: max(16px, .9vw);
   letter-spacing: -.01em;
@@ -84,7 +84,7 @@
   text-transform: capitalize;
   letter-spacing: -.02em;
   font-weight: 400;
-  transform: scaleY(.9);
+  transform: var(--scale-font-Y);
   text-align: start;
 }
 
@@ -118,7 +118,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 740px) {
   .header {
     flex-direction: column-reverse;
   }
@@ -135,12 +135,12 @@
 
   .top {
     flex-direction: column-reverse;
-    min-height: 120px;
+    min-height: 200px;
   }
 
   .title {
     min-height: fit-content;
-    padding: 0 .5rem;
+    padding: 1rem .5rem;
     font-size: max(22px, 4.75vw);
   }
 

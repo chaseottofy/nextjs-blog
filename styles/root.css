@@ -3,12 +3,14 @@
   --transition-left: left .2s ease-in-out;
   --transition-width: width .2s ease-in-out;
   --transition-prop-formui: border-color, background, color, transform, box-shadow;
-  --radius1: 6px;
+  --radius1: 5px;
 
   --xl: 1024px;
   --lg: 640px;
   --md: 490px;
   --sm: 380px;
+
+  --scale-font-Y: scaleY(.9);
 
   --pad-lr: max(16px, 4.2666666667vw);
   --pad-lr2: max(4px, 3.6vw);
@@ -17,7 +19,7 @@
   --z-modal: 800;
   --z-toast: 900;
 
-  --header-height: max(64px, 4.1666666667vw);
+  --header-height: max(72px, 4.1666666667vw);
   --footer-height: 6rem;
   --min-body-height: calc(100vh - var(--header-height));
 
@@ -105,12 +107,4 @@ body {
   position: relative;
   text-rendering: geometricprecision;
   width: 100%;
-}
-
-/*
-=====================================*/
-@media screen and (max-width: 1280px) {
-  html {
-    font-size: 20px;
-  }
 }

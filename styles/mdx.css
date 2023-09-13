@@ -84,7 +84,7 @@
   text-transform: capitalize;
   /* font-size: 2vw; */
   font-size: 2.5vw;
-  transform: scaleY(.95);
+  transform: var(--scale-font-Y);
   line-height: 1.25 !important;
   margin: 0 auto !important;
 }

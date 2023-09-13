@@ -46,7 +46,7 @@
   font-size: .825rem;
   font-weight: 900;
   font-family: var(--basement-expanded);
-  transform: scaleY(1.3);
+  transform: scaleY(1.2);
 }
 
 .colRight a {
