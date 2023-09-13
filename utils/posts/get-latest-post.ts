@@ -1,7 +1,9 @@
 import getPostsSorted from './get-posts-sorted';
 
 const getLatestPost = () => {
-  return `/posts/${getPostsSorted('asc')[0].slugAsParams}`;
+  const sortedPosts = getPostsSorted('desc');
+  console.log('sortedPosts', sortedPosts)
+  return `/posts/${getPostsSorted('desc')[0].slugAsParams}`;
 };
 
 export default getLatestPost;

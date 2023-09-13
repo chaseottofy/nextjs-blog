@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
 import Image, { ImageProps } from 'next/image';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import React from 'react';
 
 interface MDXComponentsInterface {
   h1: React.FC;

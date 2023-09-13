@@ -38,7 +38,7 @@ const Header: React.FC<HeaderInterface> = ({ activePosts }) => {
           <nav className={styles.nav}>
             <Link
               href={
-                `/posts/${activePosts[0].slugAsParams}`
+                `/posts/${activePosts[activePosts.length - 1].slugAsParams}`
               }
             >
               latest

@@ -3,13 +3,12 @@ import '@/styles/root.css';
 import '@/styles/mdx.css';
 
 import { Post } from 'contentlayer/generated';
-import React from 'react';
 import localFont from 'next/font/local';
+import React from 'react';
 
 import Footer from '@/components/Footer/Footer';
 import Header from '@/components/Header/Header';
 import ThemeProvider from '@/providers/next-theme-provider';
-// import { BasementExpanded, NeueMontreal } from '@/styles/fonts';
 import getPostsSorted from '@/utils/posts/get-posts-sorted';
 
 import styles from './layout.module.css';
@@ -89,7 +88,7 @@ const RootLayout: React.FC<RootLayoutInterface> = ({
   children,
   params,
 }) => {
-  const startPosts = getPostsSorted('asc', true);
+  const startPosts = getPostsSorted('desc', true);
   // eslint-disable-next-line no-param-reassign
   params.startPosts = startPosts;
 
