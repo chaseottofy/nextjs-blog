@@ -2,6 +2,10 @@
 
 > **Warning**
 > This project is still a work in progress and is not ready for production use.
+
+- Currently finishing up post styling
+- None of the current posts are mine, they are just placeholders for now.
+
 <!-- > [See roadmap](#roadmap) -->
 <!-- ## Work in progress -->
 
