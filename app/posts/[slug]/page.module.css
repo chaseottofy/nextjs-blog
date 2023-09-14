@@ -33,48 +33,55 @@
   width: 100%;
 }
 
-/* give each heading a scroll margin top since the header is fixed */
 .content h1,
 .content h2,
 .content h3,
 .content h4,
 .content h5 {
-  scroll-margin-top: var(--scroll-margin-top);
+  scroll-margin-top: var(--scroll-margin-top) !important;
   text-align: left !important;
   width: 100% !important;
-}
-
-/* each header has associated <a> tag for TOC reference */
-/* prevent this tag from being tabbed into */
-.content h1 a,
-.content h2 a,
-.content h3 a,
-.content h4 a,
-.content h5 a {
-  visibility: hidden;
+  text-decoration: none !important;
+  color: var(--white1) !important;
 }
 
 .content h1,
 .content h2 {
+  margin-top: max(58px, 5vw) !important;
+  ;
+  margin-bottom: unset;
+  padding-bottom: max(24px, 1.875vw) !important;
+  line-height: 1.2;
+}
+
+.content h1 a,
+.content h2 a {
   font-family: var(--basement-expanded);
   text-transform: uppercase;
   font-weight: 900;
   font-size: max(32px, 1.875vw);
   line-height: 1.2;
-  margin-top: max(58px, 5vw);
-  margin-bottom: unset;
-  padding-bottom: max(24px, 1.875vw);
+  color: var(--white1) !important;
 }
 
-.content h3,
-.content h4,
-.content h5 {
+.content h3 a,
+.content h4 a,
+.content h5 a {
   font-family: var(--neue);
   font-size: 1.2em;
   line-height: 1.2;
   margin-top: max(32px, 2.2916666667vw);
   padding-bottom: max(20px, 1.5vw);
   font-weight: 700;
+  color: var(--white1) !important;
+}
+
+.content h3,
+.content h4,
+.content h5 {
+  margin-top: max(32px, 2.2916666667vw);
+  padding-bottom: max(20px, 1.5vw);
+  line-height: 1.2;
 }
 
 .content ol,
@@ -107,7 +114,7 @@
   max-width: 100%;
 }
 
-.content a {
+.content p a {
   text-decoration: underline;
   color: var(--primarylink1) !important;
 }
@@ -117,7 +124,7 @@
   color: var(--white3) !important;
 }
 
-.content a:hover {
+.content p a:hover {
   opacity: .8;
 }
 
@@ -155,7 +162,7 @@
 }
 
 .content table::-webkit-scrollbar {
-  height: 8px;
+  height: 6px;
 }
 
 .content table::-webkit-scrollbar-track {
@@ -163,7 +170,7 @@
 }
 
 .content table::-webkit-scrollbar-thumb {
-  background: var(--grey2);
+  background: var(--primarylink2);
   border-radius: 10px;
 }
 
@@ -182,7 +189,6 @@
 .content th {
   font-weight: 500;
   text-align: left;
-  /* padding: .5rem 0 .5rem .5rem; */
   padding: .625rem 1rem;
   border-width: 1px;
   font-size: max(16px, 1vw);
@@ -212,25 +218,31 @@
     padding: 0 max(16px, 4.2666666667vw);
   }
 
-  .content h1,
-  .content h2 {
-    font-size: max(16px, 4.2666666667vw);
-    padding-bottom: max(16px, 4.2666666667vw);
-    margin: max(42px, 11.2vw) 0 max(24px, 6.4vw);
+  .content h1 a,
+  .content h2 a {
+    font-size: max(16px, 4.2666666667vw) !important;
+    padding-bottom: max(16px, 4.2666666667vw) !important;
+    margin: max(42px, 11.2vw) 0 max(24px, 6.4vw) 0 !important;
+    line-height: 1 !important;
   }
 
-  .content h3,
-  .content h4,
-  .content h5 {
-    font-size: 1.2em;
-    line-height: 1.2;
-    margin-top: max(32px, 2.2916666667vw);
-    font-weight: 700
+  .content h3 a,
+  .content h4 a,
+  .content h5 a {
+    font-size: 1.2em !important;
+    line-height: 1.2 !important;
+    margin-top: max(32px, 2.2916666667vw) !important;
+    font-weight: 700 !important;
+  }
+
+  .content h1,
+  .content h2 {
+    line-height: 1 !important;
   }
 
   .content ol,
   .content ul {
-    margin: max(24px, 6.4vw) 0 !important
+    margin: max(24px, 6.4vw) 0
   }
 
   .content ol li:not(:first-child),

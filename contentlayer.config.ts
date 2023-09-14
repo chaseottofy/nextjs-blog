@@ -1,9 +1,10 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
+// import { read } from 'fs';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
-
+import vercelTheme from './public/vercel-theme.json';
 /**
  * @remarks
  * Im on windows and keep seeing "may not work correctly with windows", but I have not had any issues.
@@ -54,46 +55,36 @@ export const Post = defineDocumentType(() => ({
   }
 }));
 
-// /** @type {import('rehype-pretty-code').Options} */
-// const rehypePrettyCodeOptions = {
-//   grid: true,
-//   theme: 'material-theme-darker',
-//   keepBackground: true,
-//   defaultLang: 'plaintext',
-//   tokensMap: {
-//     fn: 'entity.name.function'
-//   }
-// };
-
 export default makeSource(() => ({
   contentDirPath: 'posts',
   documentTypes: [Post],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [[remarkGfm]],
     rehypePlugins: [
-      rehypeSlug,
+      [rehypeSlug],
       [
         rehypePrettyCode,
         {
-          theme: 'material-theme-darker',
-          onVisitLine(node: any) {
-            // prevent lines from collapsing in display grid mode
-            // allow empty lines to be copy/pasted
-            if (node.children.length === 0) {
-              node.children = [{ type: 'text', value: ' ' }];
-            }
-          },
-          onVisitHighlightedLine(node: any) {
-            node.properties.className.push("line--highlighted");
-          },
-          onVisitHighlightedWord(node: any) {
-            node.properties.className = ["word--highlighted"];
-          },
+          // theme: 'material-theme-darker',
+          theme: vercelTheme,
+          // onVisitLine(node: any) {
+          //   // allow empty lines to be copy/pasted
+          //   if (node.children.length === 0) {
+          //     node.children = [{ type: 'text', value: ' ' }];
+          //   }
+          // },
+          // onVisitHighlightedLine(node: any) {
+          //   node.properties.className.push("line--highlighted");
+          // },
+          // onVisitHighlightedWord(node: any) {
+          //   node.properties.className = ["word--highlighted"];
+          // },
         },
       ],
       [
         rehypeAutolinkHeadings,
         {
+          behavior: 'wrap',
           properties: {
             className: ['subheading-anchor'],
             ariaLabel: 'Link to section'

@@ -26,7 +26,10 @@ const MDXComponents: MDXComponentsInterface = {
     <h1 className={className} {...props} />
   ),
   h2: ({ className, ...props }: MDXComponentProps) => (
-    <h2 className={className} {...props} />
+    <h2
+      className={className}
+      {...props}
+    />
   ),
   h3: ({ className, ...props }: MDXComponentProps) => (
     <h3 className={className} {...props} />

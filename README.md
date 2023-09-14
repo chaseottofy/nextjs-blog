@@ -20,7 +20,6 @@ Features still working on:
 
 ## Table of Contents
 
-- [Deploying](#Deploying)
 - [Features](#features)
   - [Image Handling](#custom-image-handling-system)
   - [Accessibility](#accessibility)
@@ -43,20 +42,6 @@ Features still working on:
 - [License](#license)
 
 ---
-
-### Deploying
-
-There is one bug to be aware of that may or may not be on my end.
-
-When it comes to the build process on vercel, font paths are not being resolved correctly. All other assets are perfectly fine, but for some reason, unless the font is in root of the `/app` directory, vercel will not be able to find it and the build will fail. This is not a problem when running or building the project locally.
-
-Vercel and Nextjs both provide guides that I've linked below for help with similar issues to this
-- [guide: nextjs module not found](https://nextjs.org/docs/messages/module-not-found)
-- [guide: vercel module not found](https://vercel.com/guides/how-do-i-resolve-a-module-not-found-error)
-
-**TL,DR: "make sure you spelled everything right"**
-
-*They do provide a nice reminder that some filesystems are case-insensitive, which really flares up my existential dread more than most things...*
 
 ## Features
 
@@ -282,8 +267,6 @@ Below is an example of the difference it can make. This becomes more noticeable 
 - `next-themes` : Theme provider for Next.js
 
 ## Fonts
-
-See @[Deploying](#deploying) for a bug to be aware of regarding fonts.
 
 - The main font is called Neue Montreal from [here](https://pangrampangram.com/products/neue-montreal)
 

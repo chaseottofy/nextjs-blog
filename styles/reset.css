@@ -38,7 +38,7 @@ ul,
 div,
 input,
 textarea {
-  font-family: var(--neue);
+  font-family: inherit;
 }
 
 blockquote,

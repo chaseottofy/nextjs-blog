@@ -2,6 +2,7 @@ import React from 'react';
 import { Post } from 'contentlayer/generated';
 import Link from 'next/link';
 
+import OverlayNoise from '@/components/Overlay/Overlay-noise';
 import imagePlaceholders from '@/data/image-placeholders';
 import getDateParsed from '@/utils/get-date-parsed';
 import joinClasses from '@/utils/join-classes';
@@ -42,13 +43,7 @@ const FeaturedPostCard: React.FC<FeaturedPostCardProps> = ({
     >
       <div className={joinClasses(styles, ['postCard', 'featuredPostCard'])}>
         <div className={styles.col1}>
-          <svg className={styles.grad}>
-            <filter id='grainy' x='0' y='0' width='100%' height='100%'>
-              <feTurbulence type='fractalNoise' baseFrequency='.537' />
-              <feColorMatrix type='saturate' values='0' />
-              <feBlend in='SourceGraphic' mode='multiply' />
-            </filter>
-          </svg>
+          <OverlayNoise />
           <div
             className={styles.featuredImageOverlay}
           />

@@ -1,5 +1,5 @@
 .tocWrapper {
-  margin: 1rem auto 0 auto;
+  margin: 1rem auto 1rem auto;
   padding: .5rem;
   position: relative;
   width: 100%;
@@ -18,16 +18,17 @@
 
 .toc:first-child li {
   position: relative;
-  padding: 0 .625rem .75rem .625rem;
+  padding: 0 .625rem .25rem .625rem;
+  /* padding: 0 .325rem .75rem .325rem; */
 }
 
 .toc:first-child li:before {
-  content: '—';
+  content: '>';
   position: absolute;
   left: 0;
   z-index: 100;
-  font-size: 10px;
-  top: 8px;
+  font-size: 14px;
+  top: max(8px, .5vw);
   line-height: max(16px, 1vw);
 }
 
@@ -46,13 +47,16 @@
 
 .toc a {
   font-size: max(16px, 1vw);
-  display: -webkit-box;
   overflow: hidden;
+  display: -webkit-box;
   -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   color: var(--white1);
+  text-decoration: none;
+  line-height: 1.75;
   background: transparent;
   border: 1px solid transparent;
-  padding: .325rem .25rem !important;
+  padding: .125rem .25rem !important;
   transition-property: background, border, color;
   transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
   transition-duration: .2s;
@@ -73,12 +77,10 @@
 
 @media screen and (max-width: 740px) {
   .toc a {
-    font-size: 16px;
+    font-size: 15px;
   }
 
-  .toc:first-child li {
+  /* .toc:first-child li {
     position: relative;
-    padding: 0 .625rem .5rem .625rem;
-  }
-
+  } */
 }
