@@ -1,14 +1,15 @@
+import React from 'react';
 import { Post } from 'contentlayer/generated';
 import Link from 'next/link';
-import React from 'react';
 
 import imagePlaceholders from '@/data/image-placeholders';
 import getDateParsed from '@/utils/get-date-parsed';
 import joinClasses from '@/utils/join-classes';
 
 import PostCardImage from './Post-card-image';
-import styles from './Post-list.module.css';
 import TagList from './Post-tag-list';
+
+import styles from './Post-list.module.css';
 
 interface PostCardProps {
   post: Post;

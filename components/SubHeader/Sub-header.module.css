@@ -43,7 +43,7 @@
 .title {
   height: 100%;
   min-height: 240px;
-  display:flex;
+  display: flex;
   align-items: center;
   width: 100%;
   font-size: max(22px, 3.8vw);
@@ -82,7 +82,7 @@
     color: var(--white1);
     top: 2.5rem;
     padding: .75rem var(--pad-lr);
-    font-size: max(15px, 1.6vw);
+    font-size: max(18px, .9375vw);
   }
 
   .top {

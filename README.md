@@ -6,6 +6,14 @@
 - Currently finishing up post styling
 - None of the current posts are mine, they are just placeholders for now.
 
+Features still working on:
+
+- [x] table of contents for posts
+- [x] general post styling
+- [ ] seo
+- [ ] rss feed
+- [ ] sitemap
+
 <img src="screenshots/screen3.jpg" width="700">
 
 ---
@@ -54,8 +62,8 @@ Vercel and Nextjs both provide guides that I've linked below for help with simil
 
 #### Custom Image Handling System
 
-- Automatically generate base64 data urls for all post images.
-- Images are cached and will not be regenerated unless the image file is modified.
+- Automatically generate base64 data urls and placeholders for all images in specified folder.
+- Large banners are cached, served as webp, lazy loaded when appropriate, have fallbacks, and cached when possible.
 
 #### Accessibility
 
@@ -70,6 +78,7 @@ Passes the following audits:
 
 - Makes for an easy CMS-like experience for posts.
 - MDX -> JSON -> TypeScript
+- Custom table of content generator for posts.
 
 #### Next.js
 
@@ -91,6 +100,9 @@ Passes the following audits:
 - Tested with disabled cache and simulated base throttling
 - 0.0s cumulative layout shift across all pages
 
+> **Note**
+> 9/13 - this screenshot is outdated, need to fix SEO.
+
 <img src="screenshots/screen_lh1.jpg">
 
 ## MDX
@@ -105,9 +117,19 @@ All MDX files are located in the `@/posts` folder
 At the top of each MDX file is a list of properties that are used to create the post.
 - They are 100% customizable and are typed in the `contentlayer.config.ts` file in the root directory.
 - My example schema is below, make sure to add the `---` at the top and bottom of the schema without any spaces.
-- Things like extra whitespace or forgetting to add 2 spaces will cause information to not be parsed correctly.
+- Note that whitespace is important.
 
-Other than the first init block, the rest of the file is regular markdown.
+| Property | Type | Required | Description |
+| --- | --- | --- | --- |
+| title | string | true | title of post |
+| date | string | true | ISO 'YYYY-MM-DDTHH:MM:SS' |
+| author | string | true | author name |
+| authorLink | string | true | author website |
+| excerpt | string | true | short description of post |
+| banner | string | false | direct path to image file |
+| isFeatured | boolean | false | featured posts will have their banner image displayed on the home page |
+| isArchived | boolean | false | archived posts will not be displayed |
+| tags | string[] | true | list of tags |
 
 ```MDX
 ---
@@ -124,6 +146,15 @@ tags:
   - react
 ---
 ```
+
+### Table of Contents
+
+The table of contents is generated automatically from the headings in the post.
+
+The generation follows the following rules:
+
+- Only headings 
+
 
 ### Featured Posts
 
@@ -252,19 +283,21 @@ Below is an example of the difference it can make. This becomes more noticeable 
 
 ## Fonts
 
-- I got these fonts from a graphic designer friend and don't know if they require licensing, I don't really care since I'm not planning on making any money off this but if you are, you should probably look into it.
+See @[Deploying](#deploying) for a bug to be aware of regarding fonts.
+
+- The main font is called Neue Montreal from [here](https://pangrampangram.com/products/neue-montreal)
+
+- The font used for titles is called `Grotesque`
+  - I got it from [basement.studio](https://grotesque.basement.studio/) - they have a 'tweet to download' system but I don't have social media so I just ripped it from the site lol.
 
 ## CSS
 
 - 90% of the CSS is modularized and scoped to the component it's used in.
-- The rest ( resets / variables / global ) are in the `styles` folder.
+- The only global styles, aside from variables and resets, are those relative to the blog content itself which are located in [styles/mdx.css](https://github.com/chaseottofy/nextjs-blog/blob/main/styles/mdx.css)
 
 ## Linting
 
-- Very strict linting rules that I'm sure you'll want to change.
-- I'm using a lot of rules to help familiarize myself with TSX after years of hardcore vanilla.
-- Many of them are **not** automatically fixable and will prevent the build from proceeding past the linting stage.
-- Save yourself the headache and configure your own rules in the `.eslintrc.json` file.
+- I always use an obnoxious linting config for development, depending on whether I'm finished with this project by the time you're reading this, you may want to tone it down.
 
 ## License
 MIT License

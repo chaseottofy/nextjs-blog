@@ -18,11 +18,14 @@
 .tag {
   border: 1px solid var(--black4);
   color: var(--white2);
+  position: relative;
 }
 
 .activeTag {
-  background: var(--white2);
-  color: var(--black1);
+  /* background: var(--invert-share); */
+  background: linear-gradient(90deg,#0761d1,#0070f3 50%,#3291ff);
+  color: #fff;
+  /* color: #000; */
 }
 
 .tag,

@@ -13,4 +13,55 @@ tags:
   - webdev
 ---
 
-> Building RESTful APIs with Node.js and Express
+## Introduction
+
+Welcome to the MDX testing content. Below are several sections with nested headings to illustrate the hierarchical structure.
+
+### What is MDX?
+
+MDX stands for Markdown for the component era. It's a way to write JSX embedded in markdown.
+
+```javascript
+console.log("This is a code block and shouldn't affect the hierarchy.");
+```
+
+### Why use MDX?
+
+1. You can **import** components.
+2. It's really cool!
+
+#### Pros of MDX
+
+- Embed JSX
+- Use markdown syntax
+- Extend with custom components
+
+#### Cons of MDX
+
+Not many, but it's good to know both Markdown and JSX.
+
+## MDX vs Markdown
+
+This section compares MDX and traditional markdown.
+
+### Similarities
+
+They both originate from the idea of easy-to-read text formats.
+
+### Differences
+
+MDX supports JSX out of the box. Traditional markdown does not.
+
+```jsx
+// templates/community.jsx
+export default function ({ pageContext }) {
+  return (
+    <p>{pageContext.githubData.stargazers_count}</p>
+  );
+};
+```
+
+## Conclusion
+
+MDX is a powerful way to combine Markdown and JSX. Happy writing!
+

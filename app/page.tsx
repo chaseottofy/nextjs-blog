@@ -1,7 +1,7 @@
 'use client';
 
-import { Post } from 'contentlayer/generated';
 import { useState } from 'react';
+import { Post } from 'contentlayer/generated';
 
 import Hero from '@/components/Hero/Hero';
 import PostList from '@/components/PostList/Post-list';

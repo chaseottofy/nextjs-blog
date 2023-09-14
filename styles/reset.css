@@ -108,7 +108,7 @@ input:focus-visible,
 input[type=radio]:focus-visible + label,
 textarea:focus-visible,
 button:focus-visible {
-  outline: 1px dotted var(--grey1);
+  outline: 1px dotted var(--white1);
 }
 
 input::placeholder,

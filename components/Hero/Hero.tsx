@@ -1,7 +1,7 @@
 'use client';
 
-import { Post } from 'contentlayer/generated';
 import React from 'react';
+import { Post } from 'contentlayer/generated';
 
 import TagComponent from '@/components/Tags/Tags';
 

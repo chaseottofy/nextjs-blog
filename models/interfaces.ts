@@ -7,3 +7,7 @@ export type postParams = {
 export type MetadataProps = {
   params: postParams;
 };
+
+export type NestedTitles = {
+  [key: string]: null | NestedTitles;
+};

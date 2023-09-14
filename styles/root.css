@@ -1,33 +1,43 @@
+/* 
+By default, the colors in :root represent the dark theme.
+
+
+*/
+
 :root {
   --font-mono: "JetBrains Mono", "Menlo", "Monaco", monospace;
   --transition-left: left .2s ease-in-out;
   --transition-width: width .2s ease-in-out;
   --transition-prop-formui: border-color, background, color, transform, box-shadow;
   --radius1: 5px;
-
-  --xl: 1024px;
-  --lg: 640px;
-  --md: 490px;
-  --sm: 380px;
-
   --scale-font-Y: scaleY(.9);
 
+  /* pad-left-right (min-width:740px) */
   --pad-lr: max(16px, 4.2666666667vw);
-  --pad-lr2: max(4px, 3.6vw);
 
-  --z-header: 100;
-  --z-modal: 800;
-  --z-toast: 900;
-
+  --z-header: 999;
   --header-height: max(72px, 4.1666666667vw);
+  --scroll-margin-top: max(96px, 5vw);
   --footer-height: 6rem;
   --min-body-height: calc(100vh - var(--header-height));
 
+  
+  --primary-share: #D93036;
+  --invert-share: #21b3ae;
+  
+  /* active tags */
+  --invert-gradient1: linear-gradient(90deg,#0761d1,#0070f3 50%,#3291ff);
+  
+  /* *********** */
+  /* DARK THEME */
+  --codeblock-bg: #050505;
+
   --accents-1: #fafafa;
   --accents-2: #eaeaea;
-
-  --primary-share: #D93036;
-
+  --accents-3: #111;
+  --accents-4: #222;
+  --accents-5: #050505;
+  
   --black1: #000000;
   --black2: #181a1b;
   --black3: #131313;
@@ -46,12 +56,14 @@
   --primary3: #ff1a39;
   --primaryinvert1: rgba(255, 255, 255, .2);
   --primarydark1: rgba(202, 4, 30, .4);
+  --primarylink1: #fb510b;
 
   --link: #1ba5d6;
   --selection: #f81ce5;
 
   --border-1: 1px solid var(--grey2);
 
+  --offsetwhite1: rgba(255,255,255,.4);
   --offsetblack1: rgba(0, 0, 0, .5);
   --offsetblack3: hsla(0, 0%, 9%, .1);
   --offsetblack4: rgba(0, 0, 0, 0.1);
@@ -60,8 +72,13 @@
 }
 
 [data-theme='light'] {
+  /* --codeblock-bg: #fafafa; */
+
   --accents-1: #111;
   --accents-2: #333;
+  --accents-3: #fafafa;
+  --accents-4: #eaeaea;
+  --accents-5: #fafafa;
 
   --black1: #ffffff;
   --black2: #a8a8a8;
@@ -74,18 +91,20 @@
   --grey1: #474747;
   --grey2: #646464;
 
-  --link: #1684ad;
-  --selection: #7fffe1;
-
   --primary-header: #000000;
   --primary1: #fb3953;
   --primary2: #fa0828;
   --primary3: #fa0828;
   --primarydark1: rgba(202, 4, 30, .9);
   --primaryinvert1: rgba(71, 71, 71, .6);
+  --primarylink1: #008afb;
+  
+  --link: #1684ad;
+  --selection: #7fffe1;
 
   --border-1: 1px solid var(--grey2);
 
+  --offsetwhite1: rgba(0, 0, 0, .4);
   --offsetblack1: hsla(0, 0%, 100%, .7);
   --offsetblack3: hsla(0, 0%, 100%, .2);
   --offsetblack4: rgba(0, 0, 0, 0);

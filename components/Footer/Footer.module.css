@@ -21,7 +21,6 @@
   letter-spacing: -.02em;
   line-height: 1.2;
   position: relative;
-  /* margin-left: .25rem; */
   font-size: max(18px, 1.4vw);
 }
 
@@ -38,7 +37,7 @@
   color: var(--white1);
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 740px) {
   .footer {
     justify-content: center;
     padding: 0 .25rem;
@@ -49,25 +48,11 @@
   }
   
   .links a {
-    font-size: max(16px, 1.2vw);
+    font-size: max(16px, 3.2vw);
   }
 
   .links a:not(:first-child)::before {
     content: '-';
     padding: 0 .25rem;
   }
-  /* .footer {
-    padding: 0 0 1rem 0;
-    align-items: center;
-  }
-
-  .links,
-  .linkBottom {
-    width: 100%;
-    text-align: center;
-  }
-
-  .linkBottom {
-    padding: 0 .25rem;
-  } */
 }

@@ -1,7 +1,7 @@
 'use client';
 
-import { useTheme as useNextTheme } from 'next-themes';
 import { useMemo } from 'react';
+import { useTheme as useNextTheme } from 'next-themes';
 
 import joinClasses from '@/utils/join-classes';
 

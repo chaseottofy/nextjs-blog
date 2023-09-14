@@ -8,6 +8,7 @@ import { Logo } from '@/svg/icons';
 import joinClasses from '@/utils/join-classes';
 
 import ThemeToggle from '../Button/theme-toggle';
+
 import styles from './Header.module.css';
 
 interface HeaderInterface {

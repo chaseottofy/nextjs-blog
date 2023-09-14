@@ -1,6 +1,6 @@
+import { memo } from 'react';
 import { Post } from 'contentlayer/generated';
 import Image from 'next/image';
-import { memo } from 'react';
 
 import imagePlaceholders from '@/data/image-placeholders';
 

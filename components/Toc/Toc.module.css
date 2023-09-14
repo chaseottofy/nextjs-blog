@@ -1,0 +1,84 @@
+.tocWrapper {
+  margin: 1rem auto 0 auto;
+  padding: .5rem;
+  position: relative;
+  width: 100%;
+  max-width: max(660px, 40.3645833333vw);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  background: var(--black1);
+}
+
+.toc {
+  list-style-type: none;
+  overflow: hidden;
+  width: 100%;
+}
+
+.toc:first-child li {
+  position: relative;
+  padding: 0 .625rem .75rem .625rem;
+}
+
+.toc:first-child li:before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  z-index: 100;
+  font-size: 10px;
+  top: 8px;
+  line-height: max(16px, 1vw);
+}
+
+.toc:not(:first-child) li {
+  padding: 0 .125rem 0 .625rem;
+  width: 100%;
+  position: initial !important;
+  height: 100%;
+  border: none;
+}
+
+.toc:not(:first-child) li:before {
+  content: '';
+  visibility: hidden;
+}
+
+.toc a {
+  font-size: max(16px, 1vw);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  color: var(--white1);
+  background: transparent;
+  border: 1px solid transparent;
+  padding: .325rem .25rem !important;
+  transition-property: background, border, color;
+  transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+  transition-duration: .2s;
+  border-radius: var(--radius1);
+}
+
+.toc a:hover {
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+.toc a:focus-visible {
+  outline: 0;
+  border: 1px dotted var(--white1);
+  z-index: 200;
+}
+
+@media screen and (max-width: 740px) {
+  .toc a {
+    font-size: 16px;
+  }
+
+  .toc:first-child li {
+    position: relative;
+    padding: 0 .625rem .5rem .625rem;
+  }
+
+}

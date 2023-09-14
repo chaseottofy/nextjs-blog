@@ -2,6 +2,8 @@ import { allPosts } from 'contentlayer/generated';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { postParams, MetadataProps } from '@/models/interfaces';
+import buildHierarchy from '@/utils/build-toc';
+import TableOfContents from '@/components/Toc/Toc';
 import SubHeader from '@/components/SubHeader/Sub-header';
 import MDXConfig from '@/components/Mdx-comp';
 import styles from './page.module.css';
@@ -45,7 +47,8 @@ const PostLayout = async ({ params }: MetadataProps) => {
   if (!post) {
     notFound();
   }
-
+  const toc = buildHierarchy(post.body.raw);
+  
   return (
     <div className={styles.page}>
       <SubHeader
@@ -54,8 +57,10 @@ const PostLayout = async ({ params }: MetadataProps) => {
         author={post.author}
         tags={post.tags}
       />
-
       <article className={styles.article}>
+        {Object.keys(toc).length > 0 && (
+          <TableOfContents titles={toc} />
+        )}
         <div className={styles.content}>
           <MDXConfig code={post.body.code} />
         </div>

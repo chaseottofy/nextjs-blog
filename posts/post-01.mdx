@@ -14,10 +14,6 @@ tags:
   - react
 ---
 
-<div className='excerpt'>
-Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
-</div>
-
 <div
   className='banner'
 >
@@ -28,6 +24,10 @@ Until now, trying to style an article, document, or blog post with Tailwind has 
     fill
     priority
   />
+</div>
+
+<div className='excerpt'>
+Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
 </div>
 
 By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
@@ -82,13 +82,6 @@ Something a wise person once told me about typography is:
 > Typography is pretty important if you don't want your stuff to look like trash. Make it good then it won't be bad.
 
 It's probably important that images look okay here by default as well:
-
-{/* <Image
-  src="/images/blog/blog-post-4.jpg"
-  width="718"
-  height="404"
-  alt="Image"
-/> */}
 
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
 
@@ -164,27 +157,6 @@ Nested lists basically always look bad which is why editors like Medium don't ev
 
 The most annoying thing about lists in Markdown is that `<li>` elements aren't given a child `<p>` tag unless there are multiple paragraphs in the list item. That means I have to worry about styling that annoying situation too.
 
-- **For example, here's another nested list.**
-
-  But this time with a second paragraph.
-
-  - These list items won't have `<p>` tags
-  - Because they are only one line each
-
-- **But in this second top-level list item, they will.**
-
-  This is especially annoying because of the spacing on this paragraph.
-
-  - As you can see here, because I've added a second line, this list item now has a `<p>` tag.
-
-    This is the second line I'm talking about by the way.
-
-  - Finally here's another list item so it's more like a list.
-
-- A closing list item, but with no nested list, because why not?
-
-And finally a sentence to close off this section.
-
 ## There are other elements we need to style
 
 I almost forgot to mention links, like [this link to the Tailwind CSS website](https://tailwindcss.com). We almost made them blue but that's so yesterday, so we went with dark gray, feels edgier.
@@ -193,7 +165,7 @@ We even included table styles, check it out:
 
 | Wrestler                | Origin       | Finisher           |
 | ----------------------- | ------------ | ------------------ |
-| Bret "The Hitman" Hart  | Calgary, AB  | Sharpshooter       |
+| Bret "The Hitman" Hart yeah yeah yeahasdfasdfasdfaasdfasdfasdfasdfasdfasdfsdf | Calgary, AB  | Sharpshooter       |
 | Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |
 | Randy Savage            | Sarasota, FL | Elbow Drop         |
 | Vader                   | Boulder, CO  | Vader Bomb         |
