@@ -64,7 +64,7 @@
   min-height: 240px;
   height: auto;
   width: auto;
-  font-size: max(22px, 3.8vw);
+  font-size: max(34px, 3.8vw);
   padding: 0 80px;
   display: flex;
   align-items: center;
@@ -135,13 +135,14 @@
 
   .top {
     flex-direction: column-reverse;
-    min-height: 200px;
+    min-height: 100px;
   }
 
   .title {
     min-height: fit-content;
-    padding: 1rem .5rem;
-    font-size: max(22px, 4.75vw);
+    padding: 1rem .5rem 2rem .5rem;
+    font-size: max(24px, 4.75vw);
+    word-break:break-all;
   }
 
   .bottom {

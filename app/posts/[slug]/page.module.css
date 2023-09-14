@@ -62,6 +62,7 @@
   font-size: max(32px, 1.875vw);
   line-height: 1.2;
   color: var(--white1) !important;
+  cursor: default;
 }
 
 .content h3 a,
@@ -74,6 +75,7 @@
   padding-bottom: max(20px, 1.5vw);
   font-weight: 700;
   color: var(--white1) !important;
+  cursor: default;
 }
 
 .content h3,

@@ -1,10 +1,10 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files';
-// import { read } from 'fs';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 import vercelTheme from './public/vercel-theme.json';
+
 /**
  * @remarks
  * Im on windows and keep seeing "may not work correctly with windows", but I have not had any issues.

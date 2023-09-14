@@ -8,7 +8,7 @@
   z-index: 5;
   pointer-events: none;
   user-select: none;
-  background: var(--black1);
+  background: var(--black0);
   opacity: .12;
 }
 

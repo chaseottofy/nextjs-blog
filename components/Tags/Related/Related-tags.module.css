@@ -33,7 +33,7 @@
   top: 0;
   text-transform: uppercase;
   transform: var(--scale-font-Y);
-  color: var(--white3);
+  color: #fff;
   font-weight: 400;
 }
 

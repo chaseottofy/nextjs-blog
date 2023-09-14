@@ -22,13 +22,15 @@ By default, the colors in :root represent the dark theme.
   --footer-height: 6rem;
   --min-body-height: calc(100vh - var(--header-height));
 
-  
-  --primary-share: #D93036;
+  /* --primary-share: #D93036; */
+  --primary-share: #fb510b;
   --invert-share: #21b3ae;
-  
+  --invert-share2: #026752;
+
   /* active tags */
-  --invert-gradient1: linear-gradient(90deg,#0761d1,#0070f3 50%,#3291ff);
-  
+  --invert-gradient1: linear-gradient(90deg, #028166, #026752 50%, #014d3d);
+  /* --invert-gradient1: linear-gradient(90deg,#0761d1,#0070f3 50%,#3291ff); */
+
   /* *********** */
   /* DARK THEME */
   --codeblock-bg: #050505;
@@ -38,7 +40,7 @@ By default, the colors in :root represent the dark theme.
   --accents-3: #111;
   --accents-4: #222;
   --accents-5: #050505;
-  
+
   --black1: #000000;
   --black2: #181a1b;
   --black3: #131313;
@@ -51,10 +53,11 @@ By default, the colors in :root represent the dark theme.
   --grey1: #a6a6a6;
   --grey2: #474747;
 
-  --primary-header: #cf2037;
-  --primary1: #fa0828;
-  --primary2: #ca041e;
-  --primary3: #ff1a39;
+  --primary-header: #fb510b;
+
+  --primary1: #fb510b;
+  --primary2: #c8430a;
+  --primary3: #c8430a;
   --primaryinvert1: rgba(255, 255, 255, .2);
   --primarydark1: rgba(202, 4, 30, .4);
   --primarylink1: #fb510b;
@@ -65,7 +68,7 @@ By default, the colors in :root represent the dark theme.
 
   --border-1: 1px solid var(--grey2);
 
-  --offsetwhite1: rgba(255,255,255,.4);
+  --offsetwhite1: rgba(255, 255, 255, .4);
   --offsetblack1: rgba(0, 0, 0, .5);
   --offsetblack3: hsla(0, 0%, 9%, .1);
   --offsetblack4: rgba(0, 0, 0, 0.1);
@@ -94,14 +97,14 @@ By default, the colors in :root represent the dark theme.
   --grey2: #646464;
 
   --primary-header: #000000;
-  --primary1: #fb3953;
-  --primary2: #fa0828;
-  --primary3: #fa0828;
+  --primary1: #fb510b;
+  --primary2: #c8430a;
+  --primary3: #c8430a;
   --primarydark1: rgba(202, 4, 30, .9);
   --primaryinvert1: rgba(71, 71, 71, .6);
   --primarylink1: #008afb;
   --primarylink2: #057bdc;
-  
+
   --link: #1684ad;
   --selection: #7fffe1;
 

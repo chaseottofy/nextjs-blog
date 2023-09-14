@@ -42,6 +42,11 @@
   margin-right: .5rem;
 }
 
+.colLeft a:hover,
+.colRight a:hover {
+  opacity: .8;
+}
+
 .colLeft a {
   font-size: .825rem;
   font-weight: 900;
@@ -105,24 +110,6 @@
 .skeleton {
   background: var(--white1);
 }
-
-/* .skeleton {
-  background-image: linear-gradient(270deg, var(--accents-1), var(--accents-2), var(--accents-2), var(--accents-1));
-  background-size: 400% 100%;
-  pointer-events: none;
-  user-select: none;
-  animation: skeleton_loading 2s ease-in-out infinite;
-}
-
-@keyframes skeleton_loading {
-  0% {
-    background-position: 200% 0;
-  }
-
-  100% {
-    background-position: -200% 0;
-  }
-} */
 
 @media screen and (max-width: 640px) {
   .wrapper {
