@@ -1,18 +1,6 @@
 # Next.js Blog with Contentlayer
 
-> **Warning**
-> This project is still a work in progress and is not ready for production use.
-
-- Currently finishing up post styling
-- None of the current posts are mine, they are just placeholders for now.
-
-Features still working on:
-
-- [x] table of contents for posts
-- [x] general post styling
-- [ ] seo
-- [ ] rss feed
-- [ ] sitemap
+> None of the posts are mine
 
 <img src="screenshots/screen3.jpg" width="700">
 
