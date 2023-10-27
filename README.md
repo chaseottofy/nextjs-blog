@@ -69,7 +69,6 @@ Passes the following audits:
 
 - Utilizes the latest Next.js features
   - New `/app` directory
-- Next.js is not the fastest framework I've ever used but it's the best one I've ever used.
 
 #### CSS Modules
 
