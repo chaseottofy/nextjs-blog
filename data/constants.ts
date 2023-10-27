@@ -16,17 +16,17 @@ export const SOCIAL_LINKS = {
     id: "constslgh01",
     title: "Github Profile",
   },
-  codepen: {
-    href: "https://codepen.io/chaseottofy",
-    id: "constslcp01",
-    title: "Codepen Profile",
-  },
   portfolio: {
-    href: "https://chaseottofy.github.io/Portfolio",
+    href: "https://ottofy.dev",
     id: "constslpf01",
     title: "Chase Ottofy Portfolio",
     siteName: "Chase Ottofy Portfolio",
     description: "Chase Ottofy's portfolio website.",
+  },
+  codepen: {
+    href: "https://codepen.io/chaseottofy",
+    id: "constslcp01",
+    title: "Codepen Profile",
   },
   email: {
     href: "mailto:ottofy@zohomail.com",
